@@ -1,0 +1,105 @@
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: lightblue;
+    }
+</style>
+<div>
+    <a href="Home.html">Home</a>   <a href="Bibliotheek.html">Bibliotheek</a>
+</div>
+<title>Tools</title>
+<h1>Tools</h1>
+<br>
+<br>
+<p>Welkom op de pagina voor verschillende tools! Hier kun je je persoonlijke notities bewaren en je leermiddelen vastzetten. Zo heb je direct toegang tot jouw persoonlijke leermiddelen. Ook kan je hier een eigen agenda bijhouden en is hier een ingebouwde rekenmachine te vinden! Alle functies op deze pagina worden lokaal opgeslagen op jouw apparaat, waardoor ook niemand in de cloud mee kan kijken! Dat is wel zo fijn!</p>
+<br>
+<br>
+<h2>Notities</h2>
+<p>Hieronder kan je jouw notities en andere dingen invullen. Als je klaar bent, klik je op 'Oplsaan' en al jouw ingevulde dingen worden opgeslagen. De volgende keer als je hier weer terugkomt, zullen al jouw notities hier weer staan!</p>
+<br>
+<br>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <h2>Mijn notities</h2>
+    <textarea id="opmerkingen" rows="10" cols="50"></textarea><br>
+    <button onclick="opslaanOpmerkingen()">Opslaan</button>
+    
+    <script>
+      window.onload = function() {
+        var opmerkingen = localStorage.getItem('opmerkingen');
+        if(opmerkingen) {
+          document.getElementById('opmerkingen').value = opmerkingen;
+        }
+      };
+  
+      function opslaanOpmerkingen() {
+        var opmerkingen = document.getElementById('opmerkingen').value;
+        localStorage.setItem('opmerkingen', opmerkingen);
+        alert("Jouw notities zijn opgeslagen!");
+      }
+    </script>
+  </body>
+<br>
+<br>
+<h2>Agenda</h2>
+<br>
+<p>Hier kan je ook je eigen agenda bijhouden en veilig op deze site bewaren.</p>
+<br>
+<br>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mijn Agenda</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <input type="text" id="eventInput" placeholder="Voeg een gebeurtenis toe">
+  <button onclick="addEvent()">Toevoegen</button>
+  <ul id="eventList"></ul>
+  
+  <script src="script2.js"></script>
+</body>
+<br>
+<br>
+<br>
+<h2>Rekenmachine</h2>
+<br>
+<p>Hieronder is een ingebouwde rekenmachine die sommen voor jou kan oplossen.</p>
+<br>
+<br>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="calculator">
+      <input type="text" id="display" readonly>
+      <div class="buttons">
+        <button onclick="clearDisplay()">C</button>
+        <button onclick="appendToDisplay('7')">7</button>
+        <button onclick="appendToDisplay('8')">8</button>
+        <button onclick="appendToDisplay('9')">9</button>
+        <button onclick="appendToDisplay('+')">+</button>
+        <button onclick="appendToDisplay('4')">4</button>
+        <button onclick="appendToDisplay('5')">5</button>
+        <button onclick="appendToDisplay('6')">6</button>
+        <button onclick="appendToDisplay('-')">-</button>
+        <button onclick="appendToDisplay('1')">1</button>
+        <button onclick="appendToDisplay('2')">2</button>
+        <button onclick="appendToDisplay('3')">3</button>
+        <button onclick="appendToDisplay('*')">*</button>
+        <button onclick="appendToDisplay('0')">0</button>
+        <button onclick="appendToDisplay('.')">.</button>
+        <button onclick="calculate()">=</button>
+        <button onclick="appendToDisplay('/')">/</button>
+      </div>
+    </div>
+    
+    <script src="script.js"></script>
+  </body>
+<br>
+<br>
