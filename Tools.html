@@ -1,13 +1,68 @@
 <style>
-    body {
-        font-family: 'Arial', sans-serif;
-        background-color: lightblue;
-    }
+  body {
+      font-family: 'Arial', sans-serif;
+      background-color: lightblue;
+  }
+
+  #button{
+  background-color: rgb(29, 155, 240);
+  color: white;
+  height: 50px;
+  width: 100px;
+  border-color: orange;
+  border-radius: 50px;
+  border-style: solid;
+  cursor: pointer;
+  border-width: 1.50px;
+  margin-left: 2px;
+  font-weight: bold;
+  font-size: 12.5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+#nav{
+  padding: 0.25%;
+  background-color: rgb(239, 157, 16);
+  height:max-content;
+  width:max-content;
+  margin-left: 310px;
+  border-radius: 50px
+}
+#button-navbar{
+  background-color: rgb(29, 155, 240);
+  color: white;
+  height: 50px;
+  width: 100px;
+  border-color: orange;
+  border-radius: 50px;
+  border-style: solid;
+  cursor: pointer;
+  border-width: 1.50px;
+  margin-left: 2px;
+  font-weight: bold;
+  font-size: 12.5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
 </style>
-<div>
-    <a href="Home.html">Home</a>   <a href="Bibliotheek.html">Bibliotheek</a>
+
+<div id="nav">
+<button id="button-navbar" onclick="window.location.href = 'Home.html';">Home</button>
+<button id="button-navbar" onclick="window.location.href = 'Bibliotheek.html';">Bibliotheek</button>
+<button id="button-navbar" onclick="window.location.href = 'Schoolvakken.html';">Schoolvakken</button>
+<button id="button-navbar" onclick="window.location.href = 'Tools.html';">Tools</button>
+<button id="button-navbar" onclick="window.location.href = 'Arya.html';">Arya (AI)</button>
+<button id="button-navbar" onclick="window.location.href = 'Contact.html';">Contact</button>
 </div>
+<br>
 <title>Tools</title>
+<br>
 <h1>Tools</h1>
 <br>
 <br>
@@ -15,7 +70,7 @@
 <br>
 <br>
 <h2>Notities</h2>
-<p>Hieronder kan je jouw notities en andere dingen invullen. Als je klaar bent, klik je op 'Oplsaan' en al jouw ingevulde dingen worden opgeslagen. De volgende keer als je hier weer terugkomt, zullen al jouw notities hier weer staan!</p>
+<p>Hieronder kan je jouw notities en andere dingen invullen. Als je klaar bent, klik je op 'Oplsaan' en al jouw ingevulde dingen worden opgeslagen. De volgende keer als je hier weer terugkomt, zullen al jouw notities hier weer staan! <strong>BELANGRIJK: </strong>Momenteel is het nog niet gelukt om de notities definitief op te slaan in jouw opslag, waardoor als je hier de volgende keer weer terugkomt, al jouw notities zullen worden verwijderd! Let hier dus op en wij zullen proberen dit zo snel mogelijk op te lossen!</p>
 <br>
 <br>
 <head>
@@ -23,9 +78,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <h2>Mijn notities</h2>
     <textarea id="opmerkingen" rows="10" cols="50"></textarea><br>
-    <button onclick="opslaanOpmerkingen()">Opslaan</button>
+    <button id="button-navbar" onclick="opslaanOpmerkingen()">Opslaan</button>
     
     <script>
       window.onload = function() {
@@ -52,12 +106,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mijn Agenda</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <input type="text" id="eventInput" placeholder="Voeg een gebeurtenis toe">
-  <button onclick="addEvent()">Toevoegen</button>
+  <button id="button-navbar" onclick="addEvent()">Gebeurtenis toevoegen</button>
   <ul id="eventList"></ul>
   
   <script src="script2.js"></script>
@@ -78,28 +131,98 @@
   <body>
     <div class="calculator">
       <input type="text" id="display" readonly>
-      <div class="buttons">
-        <button onclick="clearDisplay()">C</button>
-        <button onclick="appendToDisplay('7')">7</button>
-        <button onclick="appendToDisplay('8')">8</button>
-        <button onclick="appendToDisplay('9')">9</button>
-        <button onclick="appendToDisplay('+')">+</button>
-        <button onclick="appendToDisplay('4')">4</button>
-        <button onclick="appendToDisplay('5')">5</button>
-        <button onclick="appendToDisplay('6')">6</button>
-        <button onclick="appendToDisplay('-')">-</button>
-        <button onclick="appendToDisplay('1')">1</button>
-        <button onclick="appendToDisplay('2')">2</button>
-        <button onclick="appendToDisplay('3')">3</button>
-        <button onclick="appendToDisplay('*')">×</button>
-        <button onclick="appendToDisplay('0')">0</button>
-        <button onclick="appendToDisplay('.')">.</button>
-        <button onclick="calculate()">=</button>
-        <button onclick="appendToDisplay('/')">÷</button>
+      <div class="button">
+        <button id="button-navbar" onclick="clearDisplay()">C</button>
+        <button id="button-navbar" onclick="appendToDisplay('7')">7</button>
+        <button id="button-navbar" onclick="appendToDisplay('8')">8</button>
+        <button id="button-navbar" onclick="appendToDisplay('9')">9</button>
+        <button id="button-navbar" onclick="appendToDisplay('+')">+</button>
+        <button id="button-navbar" onclick="appendToDisplay('4')">4</button>
+        <button id="button-navbar" onclick="appendToDisplay('5')">5</button>
+        <button id="button-navbar"onclick="appendToDisplay('6')">6</button>
+        <button id="button-navbar" onclick="appendToDisplay('-')">-</button>
+        <button id="button-navbar" onclick="appendToDisplay('1')">1</button>
+        <button id="button-navbar" onclick="appendToDisplay('2')">2</button>
+        <button id="button-navbar" onclick="appendToDisplay('3')">3</button>
+        <button id="button-navbar" onclick="appendToDisplay('×')">×</button>
+        <button id="button-navbar" onclick="appendToDisplay('0')">0</button>
+        <button id="button-navbar" onclick="appendToDisplay('.')">.</button>
+        <button id="button-navbar" onclick="calculate()">=</button>
+        <button id="button-navbar" onclick="appendToDisplay('÷')">÷</button>
       </div>
     </div>
     
     <script src="script.js"></script>
   </body>
 <br>
+<br>
+<br>
+<br>
+<br>
+<h2>Tekenen</h2>
+<p>Ook is het hier mogelijk om te tekenen. Kies hieronder een kleur en begin gelijk met tekenen!</p>
+<br>
+<br>
+<style>
+  #canvas {
+      border: 2px solid #000;
+  }
+</style>
+</head>
+<body>
+
+<canvas id="canvas" width="800" height="500"></canvas>
+<br>
+<input type="color" id="colorPicker">
+<button id="button-navbar" onclick="clearCanvas()">Leeg tekenveld</button>
+
+<script>
+  const canvas = document.getElementById('canvas');
+  const context = canvas.getContext('2d');
+  const colorPicker = document.getElementById('colorPicker');
+
+  let isDrawing = false;
+
+  canvas.addEventListener('mousedown', startDrawing);
+  canvas.addEventListener('mousemove', draw);
+  canvas.addEventListener('mouseup', stopDrawing);
+  canvas.addEventListener('mouseout', stopDrawing);
+
+  function startDrawing(event) {
+      isDrawing = true;
+      draw(event);
+  }
+
+  function draw(event) {
+      if (!isDrawing) return;
+
+      const x = event.offsetX;
+      const y = event.offsetY;
+
+      context.lineWidth = 3;
+      context.lineCap = 'round';
+      context.strokeStyle = colorPicker.value;
+
+      context.lineTo(x, y);
+      context.stroke();
+      context.beginPath();
+      context.moveTo(x, y);
+  }
+
+  function stopDrawing() {
+      isDrawing = false;
+      context.beginPath();
+  }
+
+  function clearCanvas() {
+      context.clearRect(0, 0, canvas.width, canvas.height);
+  }
+</script>
+</body>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h3>Houd deze pagina in de gaten voor meer leuke en handige tools die er aan zitten te komen!</h3>
 <br>

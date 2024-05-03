@@ -1,40 +1,140 @@
 <title>Contact - Online Leerhulp</title>
-<head>
-  <div>
-      <a href="Home.html">Home</a> <a href="Bibliotheek.html">Bibliotheek</a>
-  </div>
-</head>
+<style>
+  body {
+      font-family: 'Arial', sans-serif;
+      background-color: lightblue;
+  }
+
+button {
+  background-color: rgb(29, 155, 240);
+  color: white;
+  height: 50px;
+  width: 100px;
+  border-color: orange;
+  border-radius: 50px;
+  border-style: solid;
+  cursor: pointer;
+  border-width: 1.50px;
+  margin-left: 2px;
+  font-weight: bold;
+  font-size: 12.5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+#nav{
+  padding: 0.25%;
+  background-color: rgb(239, 157, 16);
+  margin: 0%;
+  height:max-content;
+  width:max-content;
+  margin-left: 310px;
+  border-radius: 50px
+}
+</style>
+
+<div id="nav">
+<button onclick="window.location.href = 'Home.html';">Home</button>
+<button onclick="window.location.href = 'Bibliotheek.html';">Bibliotheek</button>
+<button onclick="window.location.href = 'Schoolvakken.html';">Schoolvakken</button>
+<button onclick="window.location.href = 'Tools.html';">Tools</button>
+<button onclick="window.location.href = 'Arya.html';">Arya (AI)</button>
+<button onclick="window.location.href = 'Contact.html';">Contact</button>
+</div>
 <br>
 <h1>Contact</h1>
-<style>
-    body {
-        font-family: 'Arial', sans-serif;
-        background-color: lightblue;
+<br>
+<p>Heb je een vraag? Stel jouw vraag hieronder door middel van het formulier en wij zullen z.s.m. op jouw vraag of opmerking reageren! Als je op 'Verstuur' klikt zal je direct worden doorgestuurd naar jouw mail-app en dit formulier zal dan automatisch een bericht opstellen met de gegevens die jij hieronder hebt ingevuld. Om het duidelijk te houden raden wij aan deze tekst niet aan te passen maar gelijk te versturen.</p>
+<br>
+<br>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .container-form {
+      max-width: 400px;
+      margin: 12.5px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
-    button {
-    background-color: rgb(29, 155, 240);
-    color: white;
-    height: 50px;
-    width: 100px;
-    border-color: orange;
-    border-radius: 50px;
-    border-style: solid;
-    cursor: pointer;
-    border-width: 1.50px;
-    margin-left: 2px;
-    font-weight: bold;
-    font-size: 12.5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
-    vertical-align: top;
+    .input-form[type="text"]{
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    .input-form[type="submit"], .input-form[type="reset"] {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .input-form[type="submit"]:hover, .input-form[type="reset"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container-form">
+  <form id="contactForm" onsubmit="sendEmail(); return false;">
+    <label for="naam">Vul je naam in:</label>
+    <input id="naam" type="text" required>
+    <br>
+    <br>
+    <label for="email">Vul je e-mailadres in:</label>
+    <input id="email" type="email" required>
+    <br>
+    <br>
+    <label for="bericht">Je bericht:</label>
+    <textarea id="bericht" rows="5" required></textarea>
+    <br>
+    <br>
+    <input class="input-form" type="submit" value="Verstuur">
+    <br>
+    <br>
+    <input class="input-form" type="reset" value="Wissen">
+  </form>
+</div>
+
+<script>
+  function sendEmail() {
+    // Verkrijg de ingevoerde gegevens
+    var naam = document.getElementById("naam").value;
+    var email = document.getElementById("email").value;
+    var bericht = document.getElementById("bericht").value;
+
+    // Controleer of alle velden zijn ingevuld
+    if (naam.trim() === "" || email.trim() === "" || bericht.trim() === "") {
+      alert("Vul alle velden in voordat je een e-mail verstuurt!.");
+      return;
+    }
+
+    // Opstelling van het e-mailbericht
+    var subject = "Bericht van " + naam;
+    var body = "Naam: " + naam + "%0A";
+    body += "E-mailadres: " + email + "%0A";
+    body += "Bericht: " + bericht;
+
+    // Maak een mailto link en open het in een nieuw venster
+    var mailtoLink = "mailto:440372@ovc.asgleerling.nl?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    window.location.href = mailtoLink;
   }
-</style>
+</script>
+</body>
+</html>
 <br>
-<p>Heb je een vraag? Stel jouw vraag hieronder door middel van het formulier en wij zullen z.s.m. op jouw vraag of opmerking reageren!</p>
 <br>
-<br>
-<h1>Deze pagina heeft nog geen inhoud. Dit wordt later aangevuld!</h1>
 <br>
 <br>
