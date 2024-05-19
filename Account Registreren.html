@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account aanmaken - Online Leerhulp</title>
+</head>
+<style>
+body {
+        font-family: 'Arial', sans-serif;
+        background-color: lightblue;
+    }
+  
+  button {
+    background-color: rgb(29, 155, 240);
+    color: white;
+    height: 50px;
+    width: 100px;
+    border-color: orange;
+    border-radius: 50px;
+    border-style: solid;
+    cursor: pointer;
+    border-width: 1.50px;
+    margin-left: 2px;
+    font-weight: bold;
+    font-size: 12.5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    vertical-align: top;}
+
+  #nav{
+    padding: 0.25%;
+    background-color: rgb(239, 157, 16);
+    margin: 0%;
+    height:max-content;
+    width:max-content;
+    margin-left: 310px;
+    border-radius: 50px}
+  form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="email"],
+        input[type="password"],
+        button[type="submit"] {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #09cff2;
+        }
+  
+  </style>
+  
+  <div id="nav">
+  <button onclick="window.location.href = 'Home.html';">Home</button>
+  <button onclick="window.location.href = 'Bibliotheek.html';">Bibliotheek</button>
+  <button onclick="window.location.href = 'Schoolvakken.html';">Schoolvakken</button>
+  <button onclick="window.location.href = 'Tools.html';">Tools</button>
+  <button onclick="window.location.href = 'Arya.html';">Arya (AI)</button>
+  <button onclick="window.location.href = 'Contact.html';">Contact</button>
+  </div>
+<body>
+    <h1>Accountregistratie</h1>
+    <br>
+    <p>Welkom op de pagina om een account te registreren! Hier kan je een account aan maken waarmee jij verschillende functies op deze site kan 'ontgrendelen'. Denk aan cloudopslag voor notities en andere handige voordelen! Jouw gegevens worden veilig opgeslagen in onze database en kan door niemand anders worden gestolen! Ben je je wachtwoord vergeten? Klik dan <a href="mailto:440372@ovc.asgleerling.nl">hier</a>. Gebruik het emailadres waarmee jij bent geregistreerd als emailadres waarmee jij de email stuurt en geef ons het wachtwoord die je graag zou willen gebruiken en wij veranderen dit dan zo snel mogelijk!</p>
+    <br>
+    <br>
+
+
+
+
+    <form id="register-form">
+        <input type="email" id="email" placeholder="E-mailadres" required>
+        <input type="password" id="password" placeholder="Wachtwoord" required>
+        <button type="submit">Registreren</button>
+    </form>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-analytics-compat.js"></script>
+
+    <script>
+        // Firebase configuratie
+        const firebaseConfig = {
+            apiKey: "AIzaSyCFtUavU1MFFeeuu-M6zh-QK9cNDP6LNJI",
+            authDomain: "online-leerhulp-account.firebaseapp.com",
+            projectId: "online-leerhulp-account",
+            storageBucket: "online-leerhulp-account.appspot.com",
+            messagingSenderId: "24539662431",
+            appId: "1:24539662431:web:2b6cd98e4d0009d38ab3ea",
+            measurementId: "G-PXQ34MLSDL"
+        };
+
+        // Firebase initialiseren
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+
+        // Registratieformulier
+        const registerForm = document.getElementById('register-form');
+        registerForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Voorkomt het standaardgedrag van het formulier
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Gebruiker registreren met Firebase Auth
+            firebase.auth().createUserWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    // Gebruiker succesvol geregistreerd
+                    const user = userCredential.user;
+                    console.log('Gebruiker geregistreerd:', user);
+                    alert('Registratie succesvol!');
+                })
+                .catch((error) => {
+                    // Fout bij de registratie
+                    console.error('Fout bij registratie:', error);
+                    alert('Fout bij registratie: ' + error.message);
+                });
+        });
+    </script>
+</body>
+</html>
