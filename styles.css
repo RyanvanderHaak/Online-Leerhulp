@@ -1,9 +1,9 @@
 .calculator {
-    width: 450px;
+    width: 400px;
     margin: 10px;
     border: 2.5px solid #07beec;
     padding: 10px;
-    background-color: orange;
+    background-color: rgb(229, 189, 116);
   }
   
   input[type="text"] {
@@ -18,7 +18,7 @@
     grid-template-columns: repeat(4, 1fr);
   }
   
-  button {
-    padding: 10px;
-    margin: 5px;
+  .button {
+    padding: 5px;
+    margin: 25px;
   }

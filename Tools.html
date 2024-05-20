@@ -101,25 +101,22 @@
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
 <h2>Agenda</h2>
 <br>
 <p>Hier kan je ook je eigen agenda bijhouden en veilig op deze site bewaren.</p>
 <br>
 <br>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-</head>
 <body>
   <input type="text" id="eventInput" placeholder="Voeg een gebeurtenis toe">
   <button id="button-navbar" onclick="addEvent()">Gebeurtenis toevoegen</button>
   <ul id="eventList"></ul>
-  
+  <style>
+    #eventInput{
+      border-radius: 25px;
+      height: 35px;
+
+    }
+  </style>
   <script src="script2.js"></script>
 </body>
 <br>
@@ -128,7 +125,6 @@
 <h2>Rekenmachine</h2>
 <br>
 <p>Hieronder is een ingebouwde rekenmachine die sommen voor jou kan oplossen.</p>
-<br>
 <br>
 <head>
     <meta charset="UTF-8">
@@ -146,7 +142,7 @@
         <button id="button-navbar" onclick="appendToDisplay('+')">+</button>
         <button id="button-navbar" onclick="appendToDisplay('4')">4</button>
         <button id="button-navbar" onclick="appendToDisplay('5')">5</button>
-        <button id="button-navbar"onclick="appendToDisplay('6')">6</button>
+        <button id="button-navbar" onclick="appendToDisplay('6')">6</button>
         <button id="button-navbar" onclick="appendToDisplay('-')">-</button>
         <button id="button-navbar" onclick="appendToDisplay('1')">1</button>
         <button id="button-navbar" onclick="appendToDisplay('2')">2</button>
@@ -158,7 +154,6 @@
         <button id="button-navbar" onclick="appendToDisplay('/')">÷</button>
       </div>
     </div>
-    
     <script src="script.js"></script>
   </body>
 <br>
@@ -173,12 +168,13 @@
 <style>
   #canvas {
       border: 2px solid #000;
+      background-color: white;
   }
 </style>
 </head>
 <body>
 
-<canvas id="canvas" width="800" height="500"></canvas>
+<canvas id="canvas" width="800" height="450"></canvas>
 <br>
 <input type="color" id="colorPicker">
 <button id="button-navbar" onclick="clearCanvas()">Leeg tekenveld</button>

@@ -104,10 +104,10 @@
 <title>AryaE</title>
 <h1>AryaE</h1>
 <br>
-<p>Welkom bij onze gloednieuwe AI-assistent die draait op afbeeldingen: AryaE. AryaE is een krachtig AI-model die afbeeldingen kan genereren en herkennen. Momenteel is dit model in ontwikkeling en zal het niet werken!</p>
+<p>Welkom bij onze gloednieuwe AI-assistent die draait op afbeeldingen: AryaE. AryaE is een krachtig AI-model die afbeeldingen kan herkennen en aan jou laten zien. Momenteel is dit model in ontwikkeling en zal het niet goed werken!</p>
 <br>
-<p>Ook hebben wij nog onze tekst-assistent Arya. Momenteel draait deze op taalmodel-versie AryaLM2. Dit is ons krachtigste model tot nu toe! Benieuwd? Klik dan <a href="Arya.html">hier</a> en geniet van het eenvoud van chatten met onze chatbot.</p>
-<p>Wij ontwikkelen AryaE steeds verder met steeds meer data.</p>
+<p>Ook hebben wij nog onze tekst-assistent Arya. Momenteel draait deze op taalmodel-versie AryaLM2. Dit is ons krachtigste model tot nu toe! LM2 bevat een groot aantal aan nieuwe data en heeft de beste herkenning ooit! Benieuwd? Klik dan <a href="Arya.html">hier</a> en geniet van het eenvoud van chatten met onze chatbot.</p>
+<p>Wij ontwikkelen AryaE steeds verder met meer data.</p>
 <br>
 <br>
 <br>
@@ -127,15 +127,15 @@ firebase.auth().onAuthStateChanged(function(user) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <input type="text" id="userInput" placeholder="Voer een prompt in">
+    <input type="text" id="userInput" placeholder="Geef een prompt aan AryaE">
     <div id="imageContainer"></div>
 
     <script>
         var imageMapping = {
-            "hond": "AryaE Images/Iersche Setter Image.jpeg",  
-            "kat": "AryaE Images/Cat Image.jpeg",
-            "samsung": "AryaE Images/Samsung Logo.png", 
-            "appel": "AryaE Images/Appel Image.jpg",
+            "hond": "Iersche Setter Image.jpeg",  
+            "kat": "Cat Image.jpeg",
+            "samsung": "Samsung Logo.png", 
+            "appel": "Appel Image.jpg",
         };
 
         var userInput = document.getElementById("userInput");
@@ -149,7 +149,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                     displayImage(imageURL);
                 } else {
                     // Geef een melding als de prompt niet overeenkomt met een afbeelding
-                    imageContainer.innerHTML = "Geen afbeelding gevonden voor deze prompt!";
+                    imageContainer.innerHTML = "Geen afbeelding gevonden voor deze prompt! Probeer een andere prompt!";
                 }
                 userInput.value = "";
             }

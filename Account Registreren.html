@@ -9,6 +9,7 @@
 body {
         font-family: 'Arial', sans-serif;
         background-color: lightblue;
+        text-align: center;
     }
   
   button {
@@ -38,38 +39,26 @@ body {
     width:max-content;
     margin-left: 310px;
     border-radius: 50px}
-  form {
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        input[type="email"],
-        input[type="password"],
-        button[type="submit"] {
-            display: block;
-            width: 100%;
-            margin-bottom: 10px;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        button[type="submit"] {
-            background-color: #007bff;
-            color: #fff;
-            cursor: pointer;
-        }
-
-        button[type="submit"]:hover {
-            background-color: #09cff2;
-        }
   
+
+    input{
+    background-color: rgb(250, 249, 249);
+    border-style: solid;
+    border-radius: 20px;
+    border-color: rgb(85, 3, 96);
+    border-width: 2.50px;
+    height: 15%;
+    width: 30%;
+    text-align: center;
+    font-size: large;
+    margin-left: 2%;
+}
+
+input[type="checkbox"] {
+    margin-bottom: 10px;
+    height: 35px;
+    width: 15px;
+}
   </style>
   
   <div id="nav">
@@ -87,15 +76,24 @@ body {
     <br>
     <br>
 
-
-
-
-    <form id="register-form">
+    <form id="login-form">
         <input type="email" id="email" placeholder="E-mailadres" required>
         <input type="password" id="password" placeholder="Wachtwoord" required>
         <button type="submit">Registreren</button>
+        <br>
+        <input type="checkbox" id="showPassword"> Wachtwoord tonen
     </form>
-
+    <script>
+    // script.js
+    document.getElementById('showPassword').addEventListener('change', function() {
+        var passwordField = document.getElementById('password');
+        if (this.checked) {
+            passwordField.type = 'text';
+        } else {
+            passwordField.type = 'password';
+        }
+    });
+    </script>
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
@@ -140,4 +138,8 @@ body {
         });
     </script>
 </body>
+<br>
+<br>
+<br>
+<br>
 </html>

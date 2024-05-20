@@ -34,6 +34,25 @@ button {
   margin-left: 310px;
   border-radius: 50px
 }
+
+input{
+    background-color: rgb(250, 249, 249);
+    border-style: solid;
+    border-radius: 20px;
+    border-color: rgb(85, 3, 96);
+    border-width: 2.50px;
+    height: 15%;
+    width: 30%;
+    text-align: center;
+    font-size: large;
+    margin-left: 2%;
+}
+
+input[type="checkbox"] {
+    margin-bottom: 10px;
+    height: 35px;
+    width: 15px;
+}
 </style>
 <div id="nav">
 <button onclick="window.location.href = 'Home.html';">Home</button>
@@ -51,8 +70,21 @@ button {
         <input type="email" id="email" placeholder="E-mailadres" required>
         <input type="password" id="password" placeholder="Wachtwoord" required>
         <button type="submit">Inloggen</button>
+        <br>
+        <input type="checkbox" id="showPassword"> Wachtwoord tonen
     </form>
-
+    <script>
+    // script.js
+    document.getElementById('showPassword').addEventListener('change', function() {
+        var passwordField = document.getElementById('password');
+        if (this.checked) {
+            passwordField.type = 'text';
+        } else {
+            passwordField.type = 'password';
+        }
+    });
+    </script>
+    
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
