@@ -1,10 +1,12 @@
+<link rel="icon" href="LogoOnlineLeerhulp.png" type="image/png">
+
 <style>
   body {
       font-family: 'Arial', sans-serif;
       background-color: lightblue;
   }
 
-  #button{
+  button{
   background-color: rgb(29, 155, 240);
   color: white;
   height: 50px;
@@ -36,6 +38,26 @@
   color: white;
   height: 50px;
   width: 100px;
+  border-color: orange;
+  border-radius: 50px;
+  border-style: solid;
+  cursor: pointer;
+  border-width: 1.50px;
+  margin-left: 2px;
+  font-weight: bold;
+  font-size: 12.5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#button-mic{
+  background-color: rgb(29, 155, 240);
+  color: white;
+  height: 50px;
+  width: 175px;
   border-color: orange;
   border-radius: 50px;
   border-style: solid;
@@ -129,6 +151,12 @@
   visibility: visible;
   opacity: 1;
 }
+
+
+#status {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #555;}
 </style>
 <div id="nav">
 <button id="button-navbar" onclick="window.location.href = 'Home.html';">Home</button>
@@ -138,51 +166,85 @@
 <button id="button-navbar" onclick="window.location.href = 'Arya.html';">Arya (AI)</button>
 <button id="button-navbar" onclick="window.location.href = 'Contact.html';">Contact</button>
 </div>
-<br>
-<title>Arya</title>
+<title>Chat met Arya - Online Leerhulp</title>
 <h1>Arya</h1>
-<link rel="icon" href="AryaLogo.png" type="image/png">
-<br>
-<p>Welkom bij onze gloednieuwe chatbot: Arya! Met Arya kan jij eenvoudige vragen stellen, informatie krijgen over deze site of over verschillende schoolonderwerpen! Wij hebben Arya ontworpen met een taalmodel dat schoolonderwerpen en andere infromatie precies snapt! Momenteel zal Arya niet perfect werken en niet alles snappen, maar in de komende tijd zal dit snel veranderen!</p>
-<hr noshade width="98%" size="5%" color="darkgrey">
-<br>
-<br>
+<p>Welkom bij onze gloednieuwe chatbot: Arya! Met Arya kan jij eenvoudige vragen stellen, informatie krijgen over deze site of over verschillende schoolonderwerpen! Wij hebben Arya ontworpen met een taalmodel dat schoolonderwerpen en andere informatie snapt.</p>
 <p>Veel plezier met Arya en houd er rekening mee dat Arya niet optimaal zal werken, dingen niet kan bergijpen en fouten kan maken!</p>
-<br>
 <br>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta autor="Ryan van der Haak and Armaan Yousofzai">
+  <meta description="Arya, our new AI-assistent to help you by every schoolquestion and other subject. It's completely free, so check it out on this page!">
 </head>
-<body>
-  <div id="chatContainer">
+
+
+<!--Code for Arya-->
+<div id="chatContainer">
       <div id="chatMessages"></div>
-      <input type="text" id="userInput" placeholder="Typ hier je bericht">
-
-
-<!--Dit is de verwijzing naar het script van Arya. Hierdoor kan je chatten en komen er antwoorden. Hier staat tevens de data in!-->
+      <input type="text" id="userInput" placeholder="Typ hier je bericht aan Arya">
+      <br>
+      <br>
+      <div><span>Huidig taalmodel:</span><span id="text-lm"> AryaLM2.1</span><div id="tooltip">
+        <span id="question-mark">?</span>
+        <span id="tooltip-text">Het taalmodel dat momenteel in gebruik is. LM staat voor <i>Language Model</i>, oftewel de versie van het taalmodel. Zodra er een groot aantal aan nieuwe data toe is gevoegd, zal er een nieuw versienummer verschijnen. Als er een kleine update is doorgevoerd, zoals een paar kleine verbeteringen, dan zal er een mini-versienummer verschijnen, zoals AryaLM1.1 of AryaLM1.2.
+        <br>
+        <br>
+      Taalmodel-versie AryaLM2 is mede mogelijk gemaakt door Ragheb en Ibrahim.</span>
+      </div></div>
+      <br>
+      <button id="button-mic" style="background-image: url(microphone-solid-24.png); background-repeat: no-repeat;" onclick="startListening()">Spreek bericht in</button>
+      <div id="status"></div>
 <div><div><script src="AryaScript.js"></script></div></div>
-</body>
-<br>
-<div><span>Huidig taalmodel:</span><span id="text-lm"> AryaLM2</span><div id="tooltip">
-  <span id="question-mark">?</span>
-  <span id="tooltip-text">Het taalmodel dat momenteel in gebruik is. LM staat voor <i>Language Model</i>, oftewel de versie van het taalmodel. Zodra er een groot aantal aan nieuwe data toe is gevoegd, zal er een nieuw versienummer verschijnen. Als er een kleine update is doorgevoerd, zoals een paar kleine verbeteringen, dan zal er een mini-versienummer verschijnen, zoals AryaLM1.1 of AryaLM1.2.
-  <br>
-  <br>
-Taalmodel-versie AryaLM2 is mede mogelijk gemaakt door Ragheb en Ibrahim.</span>
-</div></div>
-<br>
-<br>
+
+
+<!--JavaScript to talk with Arya-->
+<script>
+  const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+  
+  recognition.onstart = function() {
+      document.getElementById('status').innerText = "Luistert...";
+  };
+
+  recognition.onend = function() {
+      document.getElementById('status').innerText = "Gestopt met luisteren.";
+  };
+
+  recognition.onresult = function(event) {
+      const userSpeech = event.results[0][0].transcript;
+      document.getElementById('userInput').value = userSpeech;
+      sendMessage();
+  };
+
+  recognition.onerror = function(event) {
+      console.error('Spraakherkenning fout:', event.error);
+      document.getElementById('status').innerText = "Er is een fout opgetreden.";
+  };
+
+  function startListening() {
+      recognition.start();
+  }
+
+  function sendMessage() {
+      const userInput = document.getElementById('userInput').value;
+      document.getElementById('messages').innerHTML += `<p>Gebruiker: ${userInput}</p>`;
+      
+      // Simuleer een response van de chatbot
+      const response = getResponse(userInput);
+      document.getElementById('messages').innerHTML += `<p>Arya: ${response}</p>`;
+      
+  }
+
+  function getResponse(input) {
+      // Eenvoudige AI-response, vervang dit met een echte AI-aanroep
+      return "Dit is een antwoord van Arya!";
+  }
+</script>
 <br>
 <br>
 <p>Omdat Arya ons eigen gloednieuwe taalmodel bevat, kan het zijn dat 'ie' jou niet goed begrijpt. Dit komt dan waarschijnlijk doordat je het voor onze code verkeerd verwoord hebt. Probeer het nog een keer in een andere verwoording en dan is de kans groot dat Arya jou wel begrijpt. Werkt het dan nog steeds niet? Laat dan jouw exacte vraag die je hebt gesteld weten via het formulier onder aan deze pagina!</p>
-<p>Ook hebben wij onze eigen afbeeldingen-AI: AryaE. AryaE kan afbeeldingen herkennen en aan jou laten zien. VOORBEELD: Als je vraagt "Geef een afbeelding van een hond", dan zal AryaE jou een afbeeling van een hond laten zien. Je kan AryaE vinden op <a href="AryaE.html">deze</a> pagina. Omdat dit een speciale tool is, kan je alleen AryaE alleen gebruiken met een account. Nog geen account? Maak er <a href="Account Registreren.html">hier</a> een en je hebt al toegang tot AryaE!</p>
-<br>
-<br>
-<br>
-<br>
-<br>
+<p>Ook hebben wij onze eigen afbeeldingen-AI: AryaE. AryaE kan afbeeldingen herkennen en aan jou laten zien. Klik op de button hieronder en ontdek AryaE!</p>
+<button onclick="window.location.href = 'AryaE.html';">AryaE</button>
 <br>
 <br>
 <br>
@@ -194,10 +256,7 @@ Taalmodel-versie AryaLM2 is mede mogelijk gemaakt door Ragheb en Ibrahim.</span>
 <p>Als je het formulier helemaal hebt ingevuld en op 'Verstuur' hebt geklikt, wordt je automatisch naar jouw email-app gestuurd en hier zullen jouw gegevens instaan. <strong>Verander niks aan deze tekst die in de e-mail staat!</strong></p>
 <br>
 <br>
-<html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     .container-form {
       max-width: 400px;
@@ -230,7 +289,6 @@ Taalmodel-versie AryaLM2 is mede mogelijk gemaakt door Ragheb en Ibrahim.</span>
     }
   </style>
 </head>
-<body>
 
 <div class="container-form">
   <form id="contactForm" onsubmit="sendEmail(); return false;">
@@ -277,9 +335,6 @@ Taalmodel-versie AryaLM2 is mede mogelijk gemaakt door Ragheb en Ibrahim.</span>
     window.location.href = mailtoLink;
   }
 </script>
-</body>
-</html>
-<br>
 <br>
 <br>
 <br>

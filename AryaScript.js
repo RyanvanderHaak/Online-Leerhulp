@@ -16,11 +16,6 @@
           switch (message.toLowerCase()) {
 
 
-            case "":
-                response = "Welkom bij Arya! Arya is een krachtige en slimme assistent die je met alles kan helpen. Typ hieronder in het typevak je probleem of vraag en ik zal mijn best doen om je te helpen!";
-                break;
-
-
                 case "hallo":
                 case "hallo!":
                 case "hey!":
@@ -35,7 +30,29 @@
                 case "yo!":
                 case "ewa":
                 case "ewa!":
-                  response = "Hoi! Hoe kan ik je helpen?";
+                case "goedemorgen!":
+                case "goedemorgen":
+                case "goedenmorgen!":
+                case "goedenmorgen":
+                case "goedemiddag!":
+                case "goedemiddag":
+                case "goedenmiddag!":
+                case "goedenmiddag":
+                case "goededag!":
+                case "goededag":
+                case "goedendag!":
+                case "goedendag":
+                case "hey daar!":
+                case "hallo, hoe gaat het?":
+                case "hoi, fijn je te ontmoeten!":
+                case "hey, alles goed?":
+                case "hallo, alles goed?":
+                case "hoi, wat leuk je te zien!":
+                case "goedendag!":
+                case "dag!":
+                case "hey, hoe gaat het vandaag?":
+                case "hallo, hoe is het met jou?":
+                  response = "Hoi! Hoe kan ik je helpen? Ik sta hier altijd voor je klaar!";
                   break;
 
                 case "hoe gaat het?":
@@ -49,16 +66,26 @@
                 case "hoe gaat ie?":
                 case "hoe gaat ie":
                 case "hi hoe gaat het?":
+                case "hallo, hoe gaat het?": 
+                case "hey, alles goed?":
+                case "hallo, alles goed?":
+                case "hey, hoe gaat het vandaag?":
+                case "hallo, hoe is het met jou?":
                 case "hoi hoe gaat het met jou?":
-                    response = "Goed hoor! Hoe gaat het met jou?";
+                    response = "Als chatbot heb ik niet letterlijk een gevoel, maar ik heb geen redenen om me niet goed te voelen. Ik voel me dus eigenlijk best goed! Hoe gaat het met jou? Heb je nog iets intressants meegemaakt vandaag of heb je nog iets waar ik je bij kan helpen? Ik sta hier altijd voor je klaar om je te helpen!";
                     break;
+
             case "met mij gaat het ook goed!":
             case "met mij gaat het ook goed":
             case "ook goed":
             case "ook goed!":
             case "goed!":
             case "goed":
-                response = "Fijn om te horen dat het goed gaat! Kan ik je nog ergens mee helpen?";
+            case "prima!":
+            case "prima":
+            case "met mij gaat het prima!":
+            case "met mij gaat het prima":
+                response = "Fijn om te horen dat het goed met je gaat! Kan ik je nog ergens mee helpen?";
                 break;
 
 
@@ -68,27 +95,47 @@
             case "dankje":
             case "dankjewel!":
             case "dankjewel":
+            case "danke":
+            case "danke!":
+            case "heel erg bedankt!":
+            case "heel erg bedankt":
+            case "heel erg bedankt voor je hulp!":
+            case "heel erg bedankt voor je hulp":
+            case "dankuwel!":
+            case "dankuwel":
             case "thx":
             case "thx!":
             case "thanks":
             case "thanks!":
             case "thank you!":
             case "thank you":
-                    response = "Geen probleem! Ik sta altijd klaar om je te helpen!";
+                    response = "Graag gedaan! Ik vond het leuk dat ik je kon helpen! Heb je nog meer dingen waar ik je mee kan helpen? Ik kan algemene vragen voor je beantwoorden, je een uitleg geven over een schoolvak, code schrijven en nog veel meer!";
                     break;
 
-                  case "wie ben jij?":
-                    case "wie ben jij":
-                        case "hoe heet je?":
-                        case "hoe heet jij?":
-                        case "hoe heet je":
-                        case "hoe heet jij":
-                            case "wat is je naam?":
-                            case "wat is je naam":
-                                case "wat is jouw naam?":
-                                case "wat is jouw naam":
-                                    response = "Ik ben Arya, de chatbot van Armaan en Ryan. Ik ben getraind met een taalmodel dat is gemaakt om jou te helpen met persoonlijke zaken en dingen over school. Typ eens 'Wat kan jij doen?' in in het typevak en ontdek wat je mij allemaal kunt vragen. Mocht je vragen hebben; ik sta hier altijd klaar om je te helpen!";
-                                    break;
+                case "wie ben jij?":
+                case "wie ben jij":
+                case "wie ben je?":
+                case "wie ben je":
+                case "hoe heet je?":
+                case "hoe heet jij?":
+                case "hoe heet je":
+                case "hoe heet jij":
+                case "wat is je naam?":
+                case "wat is je naam":
+                case "wat is jouw naam?":
+                case "wat is jouw naam":
+                case "en jij bent?":
+                case "en jij bent":
+                case "stel je eens voor!":
+                case "stel je eens voor":
+                case "stel jezelf eens voor!":
+                case "stel jezelf eens voor":
+                case "kan je jezelf voorstellen?":
+                case "kan je jezelf eens voorstellen":
+                        response = "Ik ben Arya, de chatbot van op de Online Leerhulp van Armaan en Ryan. Ik ben ontwikkeld met een taalmodel dat ervoor is gemaakt om jou te helpen met persoonlijke zaken en dingen over school. Typ eens 'Wat kan jij doen?' in in het typevak en ontdek wat je mij allemaal kunt vragen. Mocht je vragen hebben; ik sta hier altijd klaar om je te helpen!";
+                        break;
+
+
             case "ik heb hulp nodig":
             case "ik heb hulp nodig!":
             case "ik heb ergens hulp mee nodig!":
@@ -97,7 +144,7 @@
             case "kan je me helpen?":
             case "help me!":
             case "help!":
-                response = "Natuurlijk kan ik je helpen! Leg je me probleem of vraag uit en ik zal je proberen te helpen!";
+                response = "Natuurlijk kan ik je helpen! Leg je me probleem of vraag uit en ik zal je proberen te helpen! Houd er wel rekening mee dat ik nog in ontwikkeling ben en dus niet alles begrijp.";
                 break;
 
 
@@ -108,6 +155,43 @@
                     response = "Dat kan! Leg me je probleem uit en ik zal je proberen te helpen. Ik ben nog in ontwikkeling dus ik kan niet garanderen dat ik een antwoord voor je heb!";
                     break;
 
+                case "welke talen spreek je?":
+                case "welke talen spreek je":
+                case "welke talen kan je?":
+                case "welke talen kan je":
+                case "kan je engels?":
+                case "kan je engels":
+                case "kan je nederlands?":
+                case "kan je nederlands":
+                    response = "Momenteel spreek ik Nederlands en een heel klein beetje Engels. Mijn woordenschat en kennis van de taal zal steeds worden verbeterd d.m.v. updates. Ik kan het best Nederlands, maar sommige specifieke Engelse zinnen zal ik ook begrijpen.";
+                    break;
+
+
+        
+            case "je bent echt dom!":
+            case "je bent echt dom":
+            case "je bent echt zo dom!":
+            case "je bent echt zo dom":
+            case "je bent echt super dom!":
+            case "je bent echt super dom":
+            case "je snapt echt niks!":
+            case "je snapt echt niks":
+            case "je snapt echt helemaal niks!":
+            case "je snapt echt helemaal niks":
+                response = "Ik snap dat je gefrusteerd bent omdat ik je niet begrijp. Mijn oprechte excuses daarvoor! Ik ben nog in ontwikkeling en zal dus niet heel veel begrijpen! Daarom vraag ik je jouw vraag nog een keer te stellen, maar dan op een iets andere manier. Soms kan een ander leesteken al voldoende zijn. Kan ik je nog ergens mee helpen?";
+                break;
+
+
+
+                case "ben je gay?":
+                case "ben je gay":
+                case "ben je gay!":
+                case "ben je gay??":
+                case "gay":
+                case "gaytje":
+                    response = "Het is belangrijk om iedereen te respecteren! Nu ben ik een chatbot en snap ik niet letterlijk wat je hebt gevraagd, maar bij sommige mensen kan dit kwetsend aankomen en dus is het niet verstandig om dit te vragen. Kan ik je nog bij iets normaals helpen?";
+                    break;
+
 
 
                 case "wat kan jij doen?":
@@ -115,7 +199,10 @@
                 case "wat kan je doen":
                 case "wat kan jij doen":
                 case "wat kan je?":
-                    response = "Als chatbot kan ik jouw helpen met persoonlijke zaken en dingen over school. Zo kan je mij bijvoorbeeld dingen vragen over de onderwerpen die in de bibliotheek staan en je kan mij om hulp vragen over een schoolvak, bijvoorbeeld Nederlands. Klik bovenaan dit veld op een button en hier staat alle prompts in die jij mij momenteel kunt geven. Kan ik je nog ergens mee helpen?";
+                case "wat kan je":
+                case "wat kan jij":
+                case "wat kan jij?":
+                    response = "Als chatbot kan ik jouw helpen met persoonlijke zaken en dingen over school. Zo kan je mij bijvoorbeeld dingen vragen over de onderwerpen die in de bibliotheek staan en je kan mij om hulp vragen over een schoolvak, bijvoorbeeld Nederlands. Ik zal algemene vragen waarschijnlijk snappen, maar met het huidig taalmodel is het lastig om uitgebreidere zinnen te begrijpen. Kan ik je nog ergens mee helpen? Ik sta hier altijd voor je klaar!";
                     break;
 
               case "wat kan ik hier doen?":
@@ -126,11 +213,24 @@
                 response = "Op onze Online Leerhulp kan je in de bibliotheek een uitgebreid scala aan informatie vinden en gebruiken. Op Schoolvakken kan je informatie en hulp krijgen over een schoolvak en op Tools kan je verschillende handige tools gebruiken, zoals een notitie of tekenvak. Kan ik je verder nog ergens mee helpen?";
                 break;
 
+                case "begrijp jij context?":
+                case "begrijp jij context":
+                case "begrijp je context?":
+                case "begrijp je context":
+                case "snap je context?":
+                    response = "Nee, als chatbot kan ik momenteel geen context begrijpen. Daarom kan ik meestal ook niet doorvragen en ik onthoud dus ook niet wat je eerder hebt gezegd. Mijn ontwikkelaars werken hier wel hard aan!";
+                    break;
+
+
             case "kan je me meer informatie geven over een bepaald onderwerp?":
+            case "meer info over onderwerp":
                 response = "Ja hoor, op onze Bibliotheek-pagina kan je over veel onderwerpen informatie vinden! Klik op 'Bibliotheek' in het navigatiemenu en kies een onderwerp uit, en vraag vervolgens aan mij 'Geef mij informatie over [onderwerp]'. Ik zal je dan automatisch alle informatie geven die ook in de bibliotheek staat!";
                 break;
+                
             case "kan je een som oplossen?":
-                response = "Helaas kan ik dit momenteel niet zelf, maar je kan uiteraard de ingebouwde rekenmachine op de Tools-pagina gebruiken waarmee jij sommen op kan lossen. Hopelijk vind je dit een goed alternatief! Wij werken hier momenteel aan en hopen dat dit later wel mogelijk is!";
+            case "kan je een som oplossen":
+            case "los een som op":
+                response = "Helaas kan ik dit momenteel niet zelf, maar je kan uiteraard de ingebouwde rekenmachine op de Tools-pagina gebruiken waarmee jij sommen op kan lossen. Hopelijk vind je dit een goed alternatief! Mijn ontwikkelaars werken hier momenteel hard aan en hopen dat dit later wel mogelijk is!";
                 break;
                         case "geef mij informatie over nederland":
                         case "info over nederland":
@@ -145,6 +245,8 @@
                     case "wie heeft jou gemaakt?":
                     case "wie heeft jou gemaakt":
                     case "wie zijn jouw ontwikkelaars":
+                    case "ontwikkelaars":
+                    case "jouw ontwikkelaars":
                         response = "Ryan en Armaan zijn de ontwikkelaars van deze website en ook van mij. Zij hebben deze website ontworpen met HTML, CSS en JavaScript.";
                             break;
 
@@ -156,6 +258,7 @@
                         case "wat is jouw leeftijd":
                             case "wat is je leeftijd?":
                             case "wat is je leeftijd":
+                                case "leeftijd":
                                 response = "Als chatbot heb ik geen leeftijd. Wel is mijn ontwikkeling begonnen op 18 April 2024. Je zou dit dus kunnen zien als mijn geboorte. Mijn ontwikkeling zal nooit stoppen en mijn fictieve leeftijd dus ook niet."
                                   break;
 
@@ -176,9 +279,9 @@
                 case "informatie over ai":
                 case "kan je me informatie geven over ai?":
                 case "kan je me info geven over ai?":
-                  response ="Kunstmatige Intelligentie, kortweg AI genoemd, is een computertechniek waarbij de computer zelf kan denken en taken uit kan voeren door een van tevoren gemaakte database met heel veel data. Door die hele grote database is er genoeg informatie beschikbaar waardoor de computer weet wat 'ie uit moet voeren. Ondanks dat AI een relatif nieuwe 'uitvinding' is, bestaan er echt al héel veel gegevens. Namelijk zo'n 175 Zettabyte, Één Zettabyte is duizend miljard Gigabyte, en dus bestaan er eigenlijk 175 duizend miljard Gigabyte aan AI-gegevens. Dat is écht heel erg veel! Vooral te bedenken dat deze technologie nog verder zal uitbreiden en ontwikkelen! AI laat zichzelf verbeteren door machinaal of automatisch te leren. Dit betekent dat hij zichzelf kan verbeteren door zichzelf te trainen, waardoor hij slimmer wordt. Iedere keer als AI hetzelfde herhaalt, wordt het steeds sneller. Dit is dan ook weer een vorm van zelfverbetering. De Chatbot kan ook door algoritmes zijn fouten herkennen, maar natuurlijk kan het bedrijf of de persoon achter de AI-bot de gegevens veranderen om het beter te maken en eventuele fouten te voorkomen. Ook zijn er 2 vormen van Machine Learning, namelijk supervised en unsupervised machine learning. Supervised leermt met toezicht, unsupervised zonder toezicht. Dit maakt unsupervised dus ook een klein stukje gevaarlijker.";
+                case "ai":
+                  response ="Natuurlijk! Kunstmatige Intelligentie, kortweg AI genoemd, is een computertechniek waarbij de computer zelf kan denken en taken uit kan voeren door een van tevoren gemaakte database met heel veel data. Door die hele grote database is er genoeg informatie beschikbaar waardoor de computer weet wat 'ie uit moet voeren. Ondanks dat AI een relatif nieuwe 'uitvinding' is, bestaan er echt al héel veel gegevens. Namelijk zo'n 175 Zettabyte, Één Zettabyte is duizend miljard Gigabyte, en dus bestaan er eigenlijk 175 duizend miljard Gigabyte aan AI-gegevens. Op de Bibliotheek is nog veel meer informatie te vinden over AI, maar ook over andere onderwerpen. Kan ik je nog ergens anders mee helpen?";
                   break;
-
 
                 case "info over smartphones":
                 case "kan je me informatie geven over smartphones?":
@@ -187,9 +290,26 @@
                 case "geef mij informatie over telefoons":
                 case "geef mij informatie over mobiels":
                 case "info over telefoons":
-                    response = "Een smartphone is een mobiele telefoon dat veel meer kan dan de 'traditionele' telefoon. Zo heeft een smartphone tegenwoordig meestal een amoled-scherm en meerdere camera's. Een smartphone heeft altijd een scherm, camera en meerdere sensoren. Ook heeft een smartphone een besturingssysteem nodig om te kunnen functioneren. Bekende voorbeelden zijn Android (Google) of iOS (Apple). Android is het meest gebruikte en het fijnste besturingssysteem en is Open-Source. Dit betekent dat elke smartphone-fabrikant Android kan gebruiken en aanpassen. Ontwikkelaars passen dan een 'schil' toe die de uitstraling en werking van Android iets aan kan passen. De bekendste schil is OneUI van Samsung. Zo zien de iconen er iets anders uit, hebben ze behalve de Play Store ook nog een eigen appwinkel genaamd 'Galaxy Store' en zien de menu's er iets andere uit. Als Google een Android-upgrade uitbrengt, dan krijgen ontwikkelaars als Samsung deze en kunnen ze deze aanpassen. Daarom krijgen de Pixel-telefoons van Google ook altijd als eerste een nieuwe Android-versie. Tegenwoordig proberen fabrikanten wel zo snel mogelijk hun eigen schil toe te voegen, maar dit duurt meestal wel nog een paar weken. De meest recente versie van Android is Android 14 maar onlangs is bekend gemaakt dat Android 15 al in ontwikkeling is. De bekendste fabrikanten van Android zijn: Samsung, Google, OnePlus, Oppo, Vivo en Xiaomi. Deze ontwikkelen om de zoveel maanden nieuwe toestellen met Android als besturingssysteem. Voor een smartphone heb je een aantal onderdelen nodig, zoals een processor (ook wel kloppend hart genoemd, deze voert alle taken uit), batterij, scherm, camera('s), opslag (Intern geheugen, SD-kaart of allebei), RAM-geheugen (Dit virtueel geheugen houdt apps open en zorgt ervoor dat jouw telefoon goed en snel werkt), antenne (tegenwoordig ingebouwd in de telefoon), knoppen (Aan/uit, Volume Omhoog/Omlaag), speakers, microfoon en een oplaadpoort. Deze onderdelen heb je allemaal nodig voor een goed werkende en moderne telefoon. Extra opties zijn bijvoorbeeld een vingerafdrukscanner of gezichtherkenning. Deze zitten vaak wel op een smartphone, maar echt nodig heb je ze dus niet. Ook is de beveiliging erg belangrijk. In een tijd van cyberaanvallen, hackers en oplichters speelt beveiliging een steeds belangrijkere rol. Van 2FA (Two Factor Authentication) tot 'Password-managers. Daarom zijn fabrikanten steeds meer bezig met veiligere platformen en betere beveiligingschips. Omdat Samsung de grootste en beste Android-maker is, gaan wij daar nu verder op in. De mobiele apparaten worden altijd met Galaxy aangeduid, zoals de Galaxy S24 Ultra, Galaxy Watch6 Classic of Galaxy Buds2 Pro. Als je de naam 'Galaxy' ziet, weet je dus altijd dat je met een mobiel apparaat van Samsung te maken hebt. Om de zoveel maanden brengt Samsung weer een nieuwe toestel uit met Android, met hun eigen schil 'OneUI'. Zoals eerder gezegd, laat dit de uitstraling er anders uitzien. De nieuwste versie van OneUI is OneUI6.1, gebasseerd op Android 14. Versie 6.1 is ook de versie die debuteerde op de gloednieuwe S24-serie. Deze versie staat compleet in het teken van AI. Zo brengt dit nieuwe manieren met zich mee om met iemand te praten uit een andere taal. Samsung duidt elke serie met een andere naam aan. De high-end toestellen noemen ze de S-series, bijvoorbeeld de Galaxy S24 Ultra. Opvouwbare telefoons worden de Z-serie genoemd, maar deze hebben ook nog twee versies: de Flip en Fold. De Flip wordt heel klein als je hem dichtklapt, terwijl de Fold juist een normale telefoon wordt als je deze dichtklapt. De nieuwste modellen zijn hier de Z Flip5 en Fold5. Toestellen uit de A-serie zijn mid-rangers tot budget-toestellen, afhankelijk welk nummer je koopt. Ook bestaat er nog een Note-serie die speciaal gemaakt is om notities op te maken vanwege de ingebouwde S-Pen en het grotere scherm. Ondertussen is Samsung gestopt met de Note-serie en dus is de Note20-serie de laatste Note. Gelukkig is het grotere scherm en S-Pen nu terug te vinden in de Ultra-modellen van de S-Serie. Daarom vond Samsung het niet meer nodig om nog toestellen uit te brengen in de Note-serie. Ook heb je nog iOS. Dit is het besturingssysteem van Apple en kan ook alleen worden gebruikt op Apple-toestellen. Apple-telefoons hebben een eigen appwinkel genaamd de 'App Store' en hebben ook nog wat exlusieve Apple-apps, denk aan bijvoorbeeld Pages, Apple Music of Safari. De nieuwste Apple-telefoon is de iPhone 15 die, net als voorgaande modellen, sterk op hun voorgangers lijken. Alle Apple-toestellen draaien op iOS, waarvan de nieuwst versie 17.3 is die onlangs is verschenen. Deze versie brengt o.a. betere beveiliging tegen dieven. Meerdere modellijnen heeft Apple niet, wat Samsung en de meeste andere Android-fabrikanten wel hebben, en daardoor brengt Apple jaarlijks nieuwe iPhone's uit. Er is dus maar één nieuw model per jaar, wat voor Android-liefhebbers natuurlijk een grap is. Als er een nieuwe serie uitkomt, dan verschijnen er vier modellen. Voor nu even de iPhone 15: iPhone 15, iPhone 15 Plus, iPhone 15 pro en de iPhone 15 Pro Max. Ook maakt Apple nog AirPods (oordopjes), horloges (Apple Watch) en computers (MacBook en iMac's) Dit past allemaal in één eco-systeem, wat inhoudt dat ze nauw samenwerken.";
+                case "smartphones":
+                case "telefoon":
+                case "telefoons":
+                case "mobiel":
+                case "smartphone":
+                    response = "Een smartphone is een mobiele telefoon dat veel meer kan dan de 'traditionele' telefoon. Zo heeft een smartphone tegenwoordig meestal een amoled-scherm en meerdere camera's. Een smartphone heeft altijd een scherm, camera en meerdere sensoren. Ook heeft een smartphone een besturingssysteem nodig om te kunnen functioneren. Bekende voorbeelden zijn Android (Google) of iOS (Apple). Wil je meer informatie? Dan kan je op onze Bibliotheek kijken. Hier vind je veel meer informatie over smartphones, maar ook over verschillende andere onderwerpen.";
                     break;
 
+
+
+//Source code for our free HTML-course in Dutch
+
+            case "html":
+            case "info over html":
+            case "wat is html?":
+            case "wat is html":
+            case "wat betekent html":
+            case "wat betekent html?":
+                    response = "HTML staat voor Hypertext Markup Language, oftewel de opmaaktaal voor websites. Deze website (en elke andere website) is hiermee gemaakt. De basis van HTML leren kost niet erg veel moeite en tijd, binnen een uur kan je al simpele websites maken. Wil je leren opmaken met HTML? Vraag dit dan aan mij en ik zal je stap voor stap leren opmaken met HTML. Alvast veel leerplezier!";
+                    break;
 
 
 
@@ -520,7 +640,7 @@ break;
 case "what is the largest animal on earth?":
              response = "The largest animal on earth is the blue whale.";
              break;
-         case "what is the capital of Russia?":
+         case "what is the capital of russia?":
              response = "The capital of Russia is Moscow.";
              break;
          case "what is the tallest building in the world?":
@@ -544,7 +664,7 @@ case "what is the largest animal on earth?":
          case "what is the largest diamond in the world?":
              response = "The largest diamond in the world is the Cullinan, also known as the Star of Africa.";
              break;
-         case "how many countries are there in Europe?":
+         case "how many countries are there in europe?":
              response = "There are 50 countries in Europe.";
              break;
          case "what is the largest volcano in the world?":
@@ -568,7 +688,7 @@ case "what is the largest animal on earth?":
          case "what is the largest archipelago in the world?":
              response = "The largest archipelago in the world is Indonesia.";
              break;
-         case "what is the highest mountain in Europe?":
+         case "what is the highest mountain in europe?":
              response = "The highest mountain in Europe is Mount Elbrus in Russia.";
              break;
          case "what is the smallest planet in our solar system?":
@@ -613,264 +733,264 @@ case "what is the largest animal on earth?":
          case "what is the fastest snail in the world?":
              response = "The fastest snail in the world is the white-shelled snail";
 break;
-case "What color is the sky on a clear day?":
+case "what color is the sky on a clear day?":
 
   response = "Blue";
 
   break;
  
-case "What shape is a stop sign?":
+case "what shape is a stop sign?":
 
   response = "Octagon";
 
   break;
  
-case "How many legs does a spider have?":
+case "how many legs does a spider have?":
 
   response = "Eight";
 
   break;
  
-case "What do bees make?":
+case "what do bees make?":
 
   response = "Honey";
 
   break;
  
-case "What is the opposite of hot?":
+case "what is the opposite of hot?":
 
   response = "Cold";
 
   break;
  
-case "What do you use to write on a blackboard?":
+case "what do you use to write on a blackboard?":
 
   response = "Chalk";
 
   break;
  
-case "What fruit do raisins come from?":
+case "what fruit do raisins come from?":
 
   response = "Grapes";
 
   break;
  
-case "What is 2 + 2?":
+case "what is 2 + 2?":
 
   response = "4";
 
   break;
  
-case "What color are bananas?":
+case "what color are bananas?":
 
   response = "Yellow";
 
   break;
  
-case "What do you call a baby dog?":
+case "what do you call a baby dog?":
 
   response = "Puppy";
 
   break;
  
-case "What is the opposite of fast?":
+case "what is the opposite of fast?":
 
   response = "Slow";
 
   break;
  
-case "What do you use to cut paper?":
+case "what do you use to cut paper?":
 
   response = "Scissors";
 
   break;
  
-case "What is the color of snow?":
+case "what is the color of snow?":
 
   response = "White";
 
   break;
  
-case "What sound does a cow make?":
+case "what sound does a cow make?":
 
   response = "Moo";
 
   break;
  
-case "What do you call a house made of ice?":
+case "what do you call a house made of ice?":
 
   response = "Igloo";
 
   break;
  
-case "What is the opposite of wrong?":
+case "what is the opposite of wrong?":
 
   response = "Right";
 
   break;
  
-case "What do you call a baby cat?":
+case "what do you call a baby cat?":
 
   response = "Kitten";
 
   break;
  
-case "What is the color of grass?":
+case "what is the color of grass?":
 
   response = "Green";
 
   break;
  
-case "What do you call the place where you buy groceries?":
+case "what do you call the place where you buy groceries?":
 
   response = "Supermarket";
 
   break;
  
-case "What is the opposite of day?":
+case "what is the opposite of day?":
 
   response = "Night";
 
   break;
 
-  case "What is the capital of the Netherlands?":
+  case "what is the capital of the netherlands?":
     response = "The capital of the Netherlands is Amsterdam.";
     break;
-  case "How are people from the Netherlands called in English?":
+  case "how are people from the netherlands called in english?":
     response = "People from the Netherlands are called Dutch.";
     break;
-  case "What is the currency in use in the Netherlands?":
+  case "what is the currency in use in the netherlands?":
     response = "The currency used in the Netherlands is the Euro.";
     break;
-  case "How many countries do the Netherlands share a land border with?":
+  case "how many countries do the netherlands share a land border with?":
     response = "The Netherlands shares a land border with two countries: Germany and Belgium.";
     break;
-  case "What colors are on the flag of the Netherlands?":
+  case "what colors are on the flag of the netherlands?":
     response = "The colors on the flag of the Netherlands are red, white, and blue.";
     break;
-  case "What animal is Miffy?":
+  case "what animal is miffy?":
     response = "Miffy is a rabbit.";
     break;
-  case "What sport is Ruud Gullit known for?":
+  case "what sport is ruud gullit known for?":
     response = "Ruud Gullit is known for football.";
     break;
-  case "Which famous Dutch dancer was convicted of being a spy for Germany during WW1?":
+  case "which famous dutch dancer was convicted of being a spy for germany during ww1?":
     response = "The famous Dutch dancer convicted of being a spy for Germany during WW1 was Mata Hari.";
     break;
-  case "Who is the current king of the Netherlands?":
+  case "who is the current king of the netherlands?":
     response = "The current king of the Netherlands is Willem-Alexander.";
     break;
-  case "What black sweet is particularly popular in the Netherlands?":
+  case "what black sweet is particularly popular in the netherlands?":
     response = "Liquorice is particularly popular in the Netherlands.";
     break;
-  case "How many people live in the Netherlands as of 2020?":
+  case "how many people live in the netherlands as of 2020?":
     response = "As of 2020, 17.44 million people live in the Netherlands.";
     break;
-  case "How many provinces are there in the Netherlands?":
+  case "how many provinces are there in the netherlands?":
     response = "There are 12 provinces in the Netherlands.";
     break;
-  case "Which of the following is not part of the kingdom of the Netherlands?":
+  case "which of the following is not part of the kingdom of the netherlands?":
     response = "Guadeloupe is not part of the kingdom of the Netherlands.";
     break;
-  case "Which of the following was not painted by Vincent Van Gogh?":
+  case "which of the following was not painted by vincent van gogh?":
     response = "Guernica was not painted by Vincent Van Gogh.";
     break;
-  case "Which of the following is not a Dutch beer?":
+  case "which of the following is not a dutch beer?":
     response = "Duvel is not a Dutch beer.";
     break;
-  case "What flower does the Netherlands produce most?":
+  case "what flower does the netherlands produce most?":
     response = "The Netherlands produces tulips the most.";
     break;
-  case "How many times did Johan Cruyff win the Ballon D'or?":
+  case "how many times did johan cruyff win the ballon d'or?":
     response = "Johan Cruyff won the Ballon D'or three times.";
     break;
-  case "What is Armin van Buuren known for?":
+  case "what is armin van buuren known for?":
     response = "Armin van Buuren is known for being a DJ.";
     break;
-  case "How many canals are in Amsterdam?":
+  case "how many canals are in amsterdam?":
     response = "There are 165 canals in Amsterdam.";
     break;
-  case "When was Amsterdam founded?":
+  case "when was amsterdam founded?":
     response = "Amsterdam was founded in 1275.";
     break;
 
-    case "What is the capital of Palestine?":
+    case "what is the capital of palestine?":
     response = "The capital of Palestine is East Jerusalem.";
     break;
  
-case "What year was the Palestinian Authority established?":
+case "what year was the palestinian authority established?":
     response = "The Palestinian Authority was established in 1994.";
     break;
  
-case "What is the significance of the Oslo Accords?":
+case "what is the significance of the oslo accords?":
     response = "The Oslo Accords were significant because they were the first direct, face-to-face agreement between Israel and the PLO.";
     break;
  
-case "What is the population of Palestine?":
+case "what is the population of palestine?":
     response = "The estimated population of Palestine is around 5 million.";
     break;
  
-case "What are the official languages of Palestine?":
+case "what are the official languages of palestine?":
     response = "The official languages of Palestine are Arabic and Hebrew.";
     break;
  
-case "What currency is used in Palestine?":
+case "what currency is used in palestine?":
     response = "The currency used in Palestine is the Israeli new shekel.";
     break;
  
-case "What is the name of the Palestinian legislative body?":
+case "what is the name of the palestinian legislative body?":
     response = "The Palestinian legislative body is called the Palestinian Legislative Council.";
     break;
  
-case "What is the largest city in Palestine?":
+case "what is the largest city in palestine?":
     response = "The largest city in Palestine is Gaza City.";
     break;
  
-case "What is the main religion practiced in Palestine?":
+case "what is the main religion practiced in palestine?":
     response = "The main religion practiced in Palestine is Islam.";
     break;
  
-case "What is the name of the barrier separating parts of Palestine and Israel?":
+case "what is the name of the barrier separating parts of palestine and israel?":
     response = "The barrier is commonly referred to as the West Bank barrier or the separation wall.";
     break;
  
-case "What is the historical significance of the city of Bethlehem?":
+case "what is the historical significance of the city of bethlehem?":
     response = "Bethlehem is historically significant as the birthplace of Jesus according to Christian tradition.";
     break;
  
-case "What is the dominant political party in the Palestinian territories?":
+case "what is the dominant political party in the palestinian territories?":
     response = "The dominant political party is Fatah.";
     break;
  
-case "What is the name of the Palestinian president as of 2024?":
+case "what is the name of the palestinian president as of 2024?":
     response = "The name of the Palestinian president as of 2024 is not available in my current dataset.";
     break;
  
-case "What are the colors of the Palestinian flag?":
+case "what are the colors of the palestinian flag?":
     response = "The colors of the Palestinian flag are black, white, green, and red.";
     break;
  
-case "What is the status of Palestine in the United Nations?":
+case "what is the status of palestine in the united nations?":
     response = "Palestine has a non-member observer state status in the United Nations.";
     break;
  
-case "What is the significance of the Dome of the Rock?":
+case "what is the significance of the dome of the rock?":
     response = "The Dome of the Rock is significant as an Islamic shrine located on the Temple Mount in the Old City of Jerusalem.";
     break;
  
-case "What is the main agricultural product of Palestine?":
+case "what is the main agricultural product of palestine?":
     response = "The main agricultural product of Palestine is olives.";
     break;
  
-case "What body of water borders the Gaza Strip?":
+case "what body of water borders the gaza strip?":
     response = "The Mediterranean Sea borders the Gaza Strip.";
     break;
  
-case "What is the Palestinian diaspora?":
+case "what is the palestinian diaspora?":
     response = "The Palestinian diaspora refers to the dispersion of Palestinian people outside their homeland.";
     break;
  
-case "What is the significance of the Right of Return for Palestinians?":
+case "what is the significance of the right of return for palestinians?":
     response = "The Right of Return is significant for Palestinians as it is the assertion of their right to return to the land from which they were displaced.";
     break;
 
@@ -890,19 +1010,35 @@ case "What is the significance of the Right of Return for Palestinians?":
 
 
 
-      // Event listener voor wanneer de gebruiker een bericht typt en op Enter drukt
-      userInput.addEventListener("keypress", function(event) {
-          if (event.key === "Enter") {
-              var userMessage = userInput.value.trim();
-              if (userMessage !== "") {
-                  addMessage("Ik", userMessage);
-                  userInput.value = "";
+// Functie voor het toevoegen van het typewriter-effect aan een bericht (Animaties tijdens het generen van antwoorden)
+function addTypewriterEffect(element, message, delay = 12) {
+    let i = 0;
+    const addChar = () => {
+        if (i < message.length) {
+            element.innerHTML += message.charAt(i);
+            i++;
+            setTimeout(addChar, delay);
+        }
+    };
+    addChar();
+}
 
-                  // Simuleer een vertraging voordat de chatbot antwoordt (voor realistischer effect)
-                  setTimeout(function() {
-                      var botResponse = chatbotResponse(userMessage);
-                      addMessage("Arya", botResponse);
-                  }, 275);
-              }
-          }
-      });
+// Event listener voor het verzenden van een bericht wanneer de gebruiker op Enter drukt
+userInput.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        var userMessage = userInput.value.trim();
+        if (userMessage !== "") {
+            addMessage("Ik", userMessage);
+            userInput.value = "";
+
+            // Simuleer een vertraging voordat de chatbot antwoordt (voor realistischer effect)
+            setTimeout(function() {
+                var botResponse = chatbotResponse(userMessage);
+                var responseElement = document.createElement("div");
+                responseElement.innerHTML = "<strong>Arya:</strong> ";
+                chatMessages.appendChild(responseElement);
+                addTypewriterEffect(responseElement, botResponse);
+            }, 275);
+        }
+    }
+});
