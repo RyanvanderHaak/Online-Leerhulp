@@ -1,4 +1,4 @@
-<title>Account - Online Leerhulp</title>
+<title>Uitloggen bij je account - Online Leerhulp</title>
 <link rel="icon" href="LogoOnlineLeerhulp.png" type="image/png">
 <style>
   body {
@@ -64,26 +64,37 @@ button {
 <button onclick="window.location.href = 'Contact.html';">Contact</button>
 </div>
 <br>
-<h3>Maak een keuze:</h3>
-<button onclick="window.location.href = 'Inloggen.html';">Inloggen</button>
-<button onclick="window.location.href = 'Account Registreren.html';">Registreren</button>
-<button onclick="window.location.href = 'Uitloggen.html';">Uitloggen</button>
+<button id="logoutButton">Uitloggen</button>
 <br>
-<p>Je kan op onze site een account aanmaken en hiermee inloggen! Met een account krijg je extra voordelen, zoals het nieuwste taalmodel van Arya.</p>
+<p>Hiermee wordt jouw account van dit apparaat verwijderd. Opnieuw inloggen? Klik dan <a href="Inloggen.html">hier</a>.</p>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      var logoutButton = document.getElementById('logoutButton');
+
+      logoutButton.addEventListener('click', function() {
+          var confirmation = confirm('Weet je zeker dat je wilt uitloggen?');
+          if (confirmation) {
+              localStorage.removeItem('user');
+              alert('Je bent succesvol uitgelogd!');
+              window.location.href = 'Uitloggen.html';
+          }
+      });
+  });
+</script>
 <br>
-<div id="status" class="status"></div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var user = localStorage.getItem('user');
-            var statusDiv = document.getElementById('status');
+<br><div id="status" class="status"></div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var user = localStorage.getItem('user');
+        var statusDiv = document.getElementById('status');
 
-            if (user) {
-                statusDiv.textContent = 'Je bent momenteel ingelogd. Geniet van de extra voordelen!';
-                statusDiv.classList.add('logged-in');
-            } else {
-                statusDiv.textContent = 'Je bent momenteel niet ingelogd. Registreer een account of log in voor de extra voordelen!';
-                statusDiv.classList.add('not-logged-in');
-            }
+        if (user) {
+            statusDiv.textContent = 'Je bent momenteel ingelogd. Geniet van de extra voordelen!';
+            statusDiv.classList.add('logged-in');
+        } else {
+            statusDiv.textContent = 'Je bent momenteel niet ingelogd. Registreer een account of log in voor de extra voordelen!';
+            statusDiv.classList.add('not-logged-in');
+        }
 
-        });
-    </script>
+    });
+</script>

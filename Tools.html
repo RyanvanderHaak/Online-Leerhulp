@@ -1,3 +1,5 @@
+<link rel="icon" href="LogoOnlineLeerhulp.png">
+
 <style>
   body {
       font-family: 'Arial', sans-serif;
@@ -67,38 +69,6 @@
 <br>
 <br>
 <p>Welkom op de pagina voor verschillende tools! Hier kun je je persoonlijke notities bewaren en je leermiddelen vastzetten. Zo heb je direct toegang tot jouw persoonlijke leermiddelen. Ook kan je hier een eigen agenda bijhouden en is hier een ingebouwde rekenmachine te vinden! Alle functies op deze pagina worden lokaal opgeslagen op jouw apparaat, waardoor ook niemand in de cloud mee kan kijken! Dat is wel zo fijn!</p>
-<br>
-<br>
-<h2>Notities</h2>
-<p>Hieronder kan je jouw notities en andere dingen invullen. Als je klaar bent, klik je op 'Oplsaan' en al jouw ingevulde dingen worden opgeslagen. De volgende keer als je hier weer terugkomt, zullen al jouw notities hier weer staan! <strong>BELANGRIJK: </strong>Momenteel is het nog niet gelukt om de notities definitief op te slaan in jouw opslag, waardoor als je hier de volgende keer weer terugkomt, al jouw notities zullen worden verwijderd! Let hier dus op en wij zullen proberen dit zo snel mogelijk op te lossen!</p>
-<br>
-<br>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
-  <body>
-    <textarea id="opmerkingen" rows="10" cols="50"></textarea><br>
-    <button id="button-navbar" onclick="opslaanOpmerkingen()">Opslaan</button>
-    
-    <script>
-      window.onload = function() {
-        var opmerkingen = localStorage.getItem('opmerkingen');
-        if(opmerkingen) {
-          document.getElementById('opmerkingen').value = opmerkingen;
-        }
-      };
-  
-      function opslaanOpmerkingen() {
-        var opmerkingen = document.getElementById('opmerkingen').value;
-        localStorage.setItem('opmerkingen', opmerkingen);
-        alert("Jouw notities zijn opgeslagen!");
-      }
-    </script>
-  </body>
-<br>
-<br>
-<br>
 <br>
 <br>
 <h2>Agenda</h2>
@@ -227,5 +197,104 @@
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<h2>Stopwatch</h2>
+<br>
+<p>Hier kan je een stopwatch bijhouden!</p>
+<br>
+<div id="timer">
+  <p id="time">00:00:00</p>
+  <button id="button-navbar" onclick="startTimer()">Start</button>
+  <button id="button-navbar" onclick="stopTimer()">Stop</button>
+  <button id="button-navbar" onclick="resetTimer()">Reset</button>
+</div>
+<style>
+#timer {
+  margin: 20px;
+}
+
+#time {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+</style>
+
+
+<script>
+let timer;
+let seconds = 0;
+
+function formatTime(secs) {
+  let hours = Math.floor(secs / 3600);
+  let minutes = Math.floor((secs % 3600) / 60);
+  let seconds = secs % 60;
+  
+  return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+}
+
+function startTimer() {
+  timer = setInterval(() => {
+    seconds++;
+    document.getElementById('time').textContent = formatTime(seconds);
+  }, 1000);
+}
+
+function stopTimer() {
+  clearInterval(timer);
+}
+
+function resetTimer() {
+  clearInterval(timer);
+  seconds = 0;
+  document.getElementById('time').textContent = formatTime(seconds);
+}
+</script>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h2>Dobbelsteen en Munt/Kop</h2>
+<br>
+<p>Hier kan je een gelukstool gebruiken die een willekeurig getal zal laten zien of munt of kop.</p>
+<br>
+<div id="random-generator">
+  <button id="button-navbar" onclick="rollDice()">Gooi Dobbelsteen</button>
+  <p id="dice-result"></p>
+  <button id="button-navbar" onclick="flipCoin()">Muntworp</button>
+  <p id="coin-result"></p>
+</div>
+
+<style>
+#random-generator {
+  margin: 20px;
+}
+</style>
+
+
+<script>
+function rollDice() {
+  const result = Math.floor(Math.random() * 6) + 1;
+  document.getElementById('dice-result').textContent = `Dobbelsteen: ${result}`;
+}
+
+function flipCoin() {
+  const result = Math.random() < 0.5 ? 'Kop' : 'Munt';
+  document.getElementById('coin-result').textContent = `Muntworp: ${result}`;
+}
+
+</script>
+<br>
+<br>
+<br>
+<br>
 <h3>Houd deze pagina in de gaten voor meer leuke en handige tools die er aan zitten te komen!</h3>
+<br>
 <br>

@@ -1,11 +1,15 @@
-<title>Online Leerhulp</title>
-<link rel="icon" href="LogoOnlineLeerhulp.png" type="image/png">
-<style>
-  body {
-      font-family: 'Arial', sans-serif;
-      background-color: lightblue;
-  }
+<html>
+  <head>
+    <title>Online Leerhulp</title>
+    <link rel="icon" href="LogoOnlineLeerhulp.png" type="image/png">
+    <meta name="author" content="Ryan van der Haak and Armaan Yousofzai">
+    <meta name="keywords" content="Online, Leerhulp, Online Leerhulp, School, Help, AI, Chatbot, Tools, Bibliotheek">
+    <style>
 
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: lightblue;
+}
 button {
   background-color: rgb(29, 155, 240);
   color: white;
@@ -31,10 +35,54 @@ button {
   margin: 0%;
   height:max-content;
   width:max-content;
-  margin-left: 310px;
+  margin-left: 20%;
   border-radius: 50px
 }
+
+footer {
+  background-color: rgb(163, 157, 157);
+  width: 28.25%;
+  background-color: lightblue;
+}
+
+#footer-left {
+  text-align: left;
+}
+
+#footer-center {
+  text-align: center;
+}
+
+#footer-right {
+  text-align: right;
+}
+
+#a-footer {
+  color: blue;
+  text-decoration: none;
+}
+ #a-footer:hover {
+  color: purple;
+  text-decoration: underline;
+ }
 </style>
+  </head>
+
+
+  <body>
+    
+
+<!--Code to switch between Light and Dark Mode-->
+  <button 
+  style=
+  "position: absolute;
+  left: 0;
+  width: 50px;"
+  onclick="myFunction()"><img src="bx-moon.svg"></button>
+  <link rel="stylesheet" href="DarkModeStyle.css">
+  <script src="DarkModeScript.js"></script>
+
+
 <div id="nav">
 <button onclick="window.location.href = 'Home.html';">Home</button>
 <button onclick="window.location.href = 'Bibliotheek.html';">Bibliotheek</button>
@@ -46,9 +94,7 @@ button {
 </div>
 <br>
 <h1>Online Leerhulp</h1>
-<br>
 <p>Welkom op onze Online Leerhulp! Deze website is speciaal ontwikkeld voor schoolkinderen. Wij hebben een groot aantal aan functies, zoals een bronnenbibliotheek en directe linkjes naar schoolapplicaties. Ook hebben wij onze eigen chatbot Arya die jou kan helpen met schoolzaken en alle andere dingen! Scroll snel verder om al onze mogelijkheden te ontdekken!</p>
-<p>Wij, Ryan en Armaan, zijn zelf eerstejaars op het niveau VWO+. Wij gebruiken op onze schoool leermiddelen van HAVO/VWO, dus is deze site ook geschikt als jij op dit niveau zit! Alle leermiddelen en andere informatie zullen voor het meeste bedoeld zijn voor eersteklassers. De Bibliotheek natuurlijk niet, die kan voor elk jaar gelden. Het kan dus ook voor de Basisschool gebruikt worden!</p>
 <br>
 <h2>Bibliotheek</h2>
 <p>Hieronder is onze uitgebreide bibliotheek te vinden, met heel veel informatie voor jouw schoolproject. Dit is bedoeld als hulp voor een spreekbeurt of werkstuk, voor schoolvakken als Wiskunde of Nederlands kan je verder naar beneden scrollen.</p>
@@ -57,7 +103,7 @@ button {
 <br>
 <br>
 <h2>Arya</h2>
-<p>Chat met onze eigen en gloednieuwe AI-chatbot Arya. Je kan hier al je vragen en andere dingen kwijt en Arya zal je direct helpen! De data en antwoorden zullen de komende tijd in nieuwe updates worden aangevuld en verbeterd! AryaE is onze afbeeldingen-AI die afbeeldingen kan herkennen.</p>
+<p>Chat met onze eigen chatbot Arya. Je kan hier al je vragen en andere dingen kwijt en Arya zal je direct helpen! De data en antwoorden zullen de komende tijd in nieuwe updates worden aangevuld en verbeterd! AryaE is onze afbeeldingen-AI die afbeeldingen kan herkennen.</p>
 <button onclick="window.location.href = 'Arya.html';">Arya</button>
 <button onclick="window.location.href = 'AryaE.html';">AryaE</button>
 <br>
@@ -114,6 +160,9 @@ button {
 <br>
 <br>
 <br>
-<br>
-<br>
-<p><strong>©2024, All Rights Reserved for Ryan van der Haak and Armaan Yousofzai</strong></p>
+<footer>
+<p><strong>©2024, Ryan van der Haak and Armaan Yousofzai</strong></p>
+<p>Ga naar de <a href="Credits.html">Creditspagina</a> voor alle mede-ontwikkelaars die aan de site hebben meegeholpen!</p>
+</footer>
+</body>
+</html>

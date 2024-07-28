@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account aanmaken - Online Leerhulp</title>
+    <link rel="icon" href="LogoOnlineLeerhulp.png">
 </head>
 <style>
 body {
@@ -47,7 +48,7 @@ body {
     border-radius: 20px;
     border-color: rgb(85, 3, 96);
     border-width: 2.50px;
-    height: 15%;
+    height: 35%;
     width: 30%;
     text-align: center;
     font-size: large;
@@ -59,8 +60,22 @@ input[type="checkbox"] {
     height: 35px;
     width: 15px;
 }
+
+#email, #password {
+    background-color: rgb(250, 249, 249);
+    border-style: solid;
+    border-radius: 20px;
+    border-color: rgb(85, 3, 96);
+    border-width: 2.50px;
+    height: 35%;
+    width: 30%;
+    text-align: center;
+    font-size: large;
+    margin-left: 2%;
+
+}
   </style>
-  
+  <body>
   <div id="nav">
   <button onclick="window.location.href = 'Home.html';">Home</button>
   <button onclick="window.location.href = 'Bibliotheek.html';">Bibliotheek</button>
@@ -69,17 +84,17 @@ input[type="checkbox"] {
   <button onclick="window.location.href = 'Arya.html';">Arya (AI)</button>
   <button onclick="window.location.href = 'Contact.html';">Contact</button>
   </div>
-<body>
     <h1>Accountregistratie</h1>
     <br>
-    <p>Welkom op de pagina om een account te registreren! Hier kan je een account aan maken waarmee jij verschillende functies op deze site kan 'ontgrendelen'. Denk aan cloudopslag voor notities en andere handige voordelen! Jouw gegevens worden veilig opgeslagen in onze database en kan door niemand anders worden gestolen! Ben je je wachtwoord vergeten? Klik dan <a href="mailto:440372@ovc.asgleerling.nl">hier</a>. Gebruik het emailadres waarmee jij bent geregistreerd als emailadres waarmee jij de email stuurt en geef ons het wachtwoord die je graag zou willen gebruiken en wij veranderen dit dan zo snel mogelijk!</p>
-    <br>
+    <p>Welkom op de pagina om een account te registreren! Hier kan je een account aan maken waarmee jij verschillende functies op deze site kan 'ontgrendelen'. Zo krijg je als eerste toegang tot het nieuwste taalmodel van Arya. Ben je je wachtwoord vergeten? Klik dan <a href="mailto:440372@ovc.asgleerling.nl">hier</a>. Gebruik het emailadres waarmee jij bent geregistreerd als emailadres waarmee jij de email stuurt en geef ons het wachtwoord die je graag zou willen gebruiken en wij veranderen dit dan zo snel mogelijk!</p>
     <br>
 
     <form id="register-form">
         <input type="email" id="email" placeholder="E-mailadres" required>
         <input type="password" id="password" placeholder="Wachtwoord" required>
-        <button type="submit">Registreren</button>
+        <br>
+        <br>
+        <button style="align-items: center;" type="submit">Registreren</button>
         <br>
         <input type="checkbox" id="showPassword"> Wachtwoord tonen
     </form>
@@ -137,9 +152,6 @@ input[type="checkbox"] {
                 });
         });
     </script>
+<br>
 </body>
-<br>
-<br>
-<br>
-<br>
 </html>

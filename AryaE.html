@@ -1,232 +1,220 @@
-<style>
-  body {
-      font-family: 'Arial', sans-serif;
-      background-color: lightblue;
-  }
+<title>AryaE - Online Leerhulp</title>
+<link rel="icon" href="LogoOnlineLeerhulp.png" type="png">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: lightblue;
+        }
 
-  #button{
-  background-color: rgb(29, 155, 240);
-  color: white;
-  height: 50px;
-  width: 100px;
-  border-color: orange;
-  border-radius: 50px;
-  border-style: solid;
-  cursor: pointer;
-  border-width: 1.50px;
-  margin-left: 2px;
-  font-weight: bold;
-  font-size: 12.5px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-#nav{
-  padding: 0.25%;
-  background-color: rgb(239, 157, 16);
-  height:max-content;
-  width:max-content;
-  margin-left: 310px;
-  border-radius: 50px
-}
-#button-navbar{
-  background-color: rgb(29, 155, 240);
-  color: white;
-  height: 50px;
-  width: 100px;
-  border-color: orange;
-  border-radius: 50px;
-  border-style: solid;
-  cursor: pointer;
-  border-width: 1.50px;
-  margin-left: 2px;
-  font-weight: bold;
-  font-size: 12.5px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
+        #button {
+            background-color: rgb(29, 155, 240);
+            color: white;
+            height: 50px;
+            width: 100px;
+            border-color: orange;
+            border-radius: 50px;
+            border-style: solid;
+            cursor: pointer;
+            border-width: 1.50px;
+            margin-left: 2px;
+            font-weight: bold;
+            font-size: 12.5px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 5px;
+            padding-right: 5px;
+            vertical-align: top;
+        }
 
-    #text-lm {
-        color: orangered;
-        font-weight: bold;
-        font-size: 16.50px;
-        margin-left: 0.25%;
+        #nav {
+            padding: 0.25%;
+            background-color: rgb(239, 157, 16);
+            height: max-content;
+            width: max-content;
+            margin-left: 310px;
+            border-radius: 50px;
+        }
 
-    }
-    #chatContainer {
-          max-width: 95%;
-          height: 75%;
-          margin-top: 0.75px;
-          margin-left: 0.75;
-          margin: auto;
-          border: 3px solid #1185f2;
-          padding: 0px;
-          border-radius: 10px;
-      }
+        #button-navbar {
+            background-color: rgb(29, 155, 240);
+            color: white;
+            height: 50px;
+            width: 100px;
+            border-color: orange;
+            border-radius: 50px;
+            border-style: solid;
+            cursor: pointer;
+            border-width: 1.50px;
+            margin-left: 2px;
+            font-weight: bold;
+            font-size: 12.5px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 5px;
+            padding-right: 5px;
+            vertical-align: top;
+        }
 
-      #chatMessages {
-          height: 92.50%;
-          padding-left: 1%;
-          padding-right: 0.75%;
-          padding-top: 0.75%;
-          margin-bottom: 0.55%;
-          background-image: url(AryaImageBackground.png);
-          border-radius: 7.50px;
-          opacity: 0.95;
-          background-size: cover;
-          overflow-y: scroll;
-      }
+        #chart-container {
+            width: 80%;
+            margin: auto;
+        }
 
-      #userInput {
-          width: 100%;
-          padding: 0.75%;
-          box-sizing: border-box;
-          border-radius: 25px;
-          border-style: solid;
-          border-color: rgb(18, 221, 239);
-          opacity: 1;
-      }
-</style>
-<div id="nav">
-<button id="button-navbar" onclick="window.location.href = 'Home.html';">Home</button>
-<button id="button-navbar" onclick="window.location.href = 'Bibliotheek.html';">Bibliotheek</button>
-<button id="button-navbar" onclick="window.location.href = 'Schoolvakken.html';">Schoolvakken</button>
-<button id="button-navbar" onclick="window.location.href = 'Tools.html';">Tools</button>
-<button id="button-navbar" onclick="window.location.href = 'Arya.html';">Arya (AI)</button>
-<button id="button-navbar" onclick="window.location.href = 'Contact.html';">Contact</button>
-</div>
-<br>
-<title>AryaE</title>
-<h1>AryaE</h1>
-<br>
-<p>Welkom bij onze gloednieuwe AI-assistent die draait op afbeeldingen: AryaE. AryaE is een krachtig AI-model die afbeeldingen kan herkennen en aan jou laten zien. Momenteel is dit model in ontwikkeling en zal het niet goed werken!</p>
-<br>
-<p>Ook hebben wij nog onze tekst-assistent Arya. Momenteel draait deze op taalmodel-versie AryaLM2. Dit is ons krachtigste model tot nu toe! LM2 bevat een groot aantal aan nieuwe data en heeft de beste herkenning ooit! Benieuwd? Klik dan <a href="Arya.html">hier</a> en geniet van het eenvoud van chatten met onze chatbot.</p>
-<p>Wij ontwikkelen AryaE steeds verder met meer data.</p>
-<br>
-<br>
-<br>
-<script>
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    // Gebruiker is ingelogd, toegang verlenen tot bepaalde pagina
-  } else {
-    // Gebruiker is niet ingelogd, doorsturen naar inlogpagina
-    window.location.href = "Account.html"; // Vervang "login.html" door de daadwerkelijke URL van je inlogpagina
-  }
-});
-</script>
+        #label-container div {
+            margin: 5px 0;
+            font-size: 18px;
+        }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+
+        #input-prompt {
+            width: 80%;
+            padding: 10px;
+            margin: 20px 0;
+            font-size: 18px;
+        }
+
+        #submit-button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        #webcam-container {
+            margin-top: 20px;
+        }
+
+        #result-container {
+            margin-top: 20px;
+        }
+
+        #combined-image {
+            border: 2px solid #000;
+            margin-top: 20px;
+        }
+    </style>
 <body>
-    <input type="text" id="userInput" placeholder="Geef een prompt aan AryaE">
-    <div id="imageContainer"></div>
+    <div id="nav">
+        <button id="button-navbar" onclick="window.location.href = 'Home.html';">Home</button>
+        <button id="button-navbar" onclick="window.location.href = 'Bibliotheek.html';">Bibliotheek</button>
+        <button id="button-navbar" onclick="window.location.href = 'Schoolvakken.html';">Schoolvakken</button>
+        <button id="button-navbar" onclick="window.location.href = 'Tools.html';">Tools</button>
+        <button id="button-navbar" onclick="window.location.href = 'Arya.html';">Arya (AI)</button>
+        <button id="button-navbar" onclick="window.location.href = 'Contact.html';">Contact</button>
+    </div>
+    <br>
+    <h1>AryaE</h1>
+    <br>
+    <p>Welkom bij onze gloednieuwe AI-assistent die draait op afbeeldingen: AryaE. AryaE is een krachtig AI-model dat afbeeldingen kan herkennen. Momenteel is dit model in ontwikkeling en zal het nog niet heel goed werken!</p>
+    <p>Ook hebben wij nog onze tekst-assistent Arya.Benieuwd? Klik dan <a href="Arya.html">hier</a> en geniet van het eenvoud van chatten met onze chatbot.</p>
+    <br>
+    <p><b>Hoe werkt het?</b> Klik op de knop hieronder en wacht een paar seconden totdat je een verzoek van je browser krijgt of deze site je camera mag gebruiken. Klik hier op 'Toestaan' en wacht weer een paar seconden. Vervolgens krijg je het beeld van je camera te zien met een aantal onderwerpen en procenten. Als een onderwerp op 1.00% staat, betekent dit dat jouw invoer volledig dit onderwerp is.</p>
+    <p>Heel veel plezier met AryaE!</p>
+    <br>
+    <button id="button-navbar" type="button" onclick="init()">Start camera</button>
+    <br>
+    <br>
+    <div id="webcam-container"></div>
+    <div id="chart-container">
+        <canvas id="myChart"></canvas>
+    </div>
+    <div id="label-container"></div>
 
-    <script>
-        var imageMapping = {
-            "hond": "Iersche Setter Image.jpeg",  
-            "kat": "Cat Image.jpeg",
-            "samsung": "Samsung Logo.png", 
-            "appel": "Appel Image.jpg",
-        };
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-        var userInput = document.getElementById("userInput");
-        var imageContainer = document.getElementById("imageContainer");
+    <script type="text/javascript">
+        const URL = "https://teachablemachine.withgoogle.com/models/EdKaunaMk/";
 
-        userInput.addEventListener("keypress", function(event) {
-            if (event.key === "Enter") {
-                var prompt = userInput.value.trim().toLowerCase();
-                if (prompt !== "" && imageMapping.hasOwnProperty(prompt)) {
-                    var imageURL = imageMapping[prompt];
-                    displayImage(imageURL);
-                } else {
-                    // Geef een melding als de prompt niet overeenkomt met een afbeelding
-                    imageContainer.innerHTML = "Geen afbeelding gevonden voor deze prompt! Probeer een andere prompt!";
+        
+        let model, webcam, labelContainer, maxPredictions;
+
+        async function init() {
+            try {
+                const modelURL = URL + "model.json";
+                const metadataURL = URL + "metadata.json";
+
+                model = await tmImage.load(modelURL, metadataURL);
+                maxPredictions = model.getTotalClasses();
+
+                const flip = true;
+                webcam = new tmImage.Webcam(400, 400, flip);
+                await webcam.setup();
+                await webcam.play();
+                window.requestAnimationFrame(loop);
+
+                document.getElementById("webcam-container").appendChild(webcam.canvas);
+                labelContainer = document.getElementById("label-container");
+                for (let i = 0; i < maxPredictions; i++) {
+                    labelContainer.appendChild(document.createElement("div"));
                 }
-                userInput.value = "";
+            } catch (error) {
+                console.error("Error during initialization:", error);
             }
-        });
+        }
 
-        function displayImage(imageURL) {
-            var imageElement = document.createElement("img");
-            imageElement.src = imageURL;
-            imageContainer.innerHTML = "";
-            imageContainer.appendChild(imageElement);
+        async function loop() {
+            try {
+                webcam.update();
+                await predict();
+                window.requestAnimationFrame(loop);
+            } catch (error) {
+                console.error("Error during loop:", error);
+            }
+        }
+
+        async function predict() {
+            try {
+                const prediction = await model.predict(webcam.canvas);
+                const labels = [];
+                const probabilities = [];
+                for (let i = 0; i < maxPredictions; i++) {
+                    labels.push(prediction[i].className);
+                    probabilities.push((prediction[i].probability.toFixed(2) * 100).toFixed(2));
+                    labelContainer.childNodes[i].innerHTML =
+                        prediction[i].className + ": " + (prediction[i].probability.toFixed(2) * 100) + "%";
+                }
+                updateChart(labels, probabilities);
+            } catch (error) {
+                console.error("Error during prediction:", error);
+            }
+        }
+
+        function updateChart(labels, data) {
+            try {
+                const ctx = document.getElementById('myChart').getContext('2d');
+                if (window.myChart) {
+                    window.myChart.data.labels = labels;
+                    window.myChart.data.datasets[0].data = data;
+                    window.myChart.update();
+                } else {
+                    window.myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: '% Confidence',
+                                data: data,
+                                backgroundColor: 'rgba(14, 62, 135, 0.2)',
+                                borderColor: 'rgba(64, 262, 335, 1)',
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    max: 100
+                                }
+                            }
+                        }
+                    });
+                }
+            } catch (error) {
+                console.error("Error during chart update:", error);
+            }
         }
     </script>
-</body>
-<br>
-<br>
-<br>
-<br>
-<br>
-<div>Teachable Machine Image Model</div>
-<button type="button" onclick="init()">Start</button>
-<div id="webcam-container"></div>
-<div id="label-container"></div>
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
-<script type="text/javascript">
-    // More API functions here:
-    // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
-
-    // the link to your model provided by Teachable Machine export panel
-    const URL = "https://teachablemachine.withgoogle.com/models/[...]";
-
-    let model, webcam, labelContainer, maxPredictions;
-
-    // Load the image model and setup the webcam
-    async function init() {
-        const modelURL = URL + "model.json";
-        const metadataURL = URL + "metadata.json";
-
-        // load the model and metadata
-        // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
-        // or files from your local hard drive
-        // Note: the pose library adds "tmImage" object to your window (window.tmImage)
-        model = await tmImage.load(modelURL, metadataURL);
-        maxPredictions = model.getTotalClasses();
-
-        // Convenience function to setup a webcam
-        const flip = true; // whether to flip the webcam
-        webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
-        await webcam.setup(); // request access to the webcam
-        await webcam.play();
-        window.requestAnimationFrame(loop);
-
-        // append elements to the DOM
-        document.getElementById("webcam-container").appendChild(webcam.canvas);
-        labelContainer = document.getElementById("label-container");
-        for (let i = 0; i < maxPredictions; i++) { // and class labels
-            labelContainer.appendChild(document.createElement("div"));
-        }
-    }
-
-    async function loop() {
-        webcam.update(); // update the webcam frame
-        await predict();
-        window.requestAnimationFrame(loop);
-    }
-
-    // run the webcam image through the image model
-    async function predict() {
-        // predict can take in an image, video or canvas html element
-        const prediction = await model.predict(webcam.canvas);
-        for (let i = 0; i < maxPredictions; i++) {
-            const classPrediction =
-                prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-            labelContainer.childNodes[i].innerHTML = classPrediction;
-        }
-    }
-</script>
 <br>
 <br>
 <br>

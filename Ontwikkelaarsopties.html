@@ -1,0 +1,44 @@
+<html>
+  <!--We've added the Head to optimize the speed of loading and to be findable on search engines-->
+<head>
+  <link rel="icon" href="LogoOnlineLeerhulp.png" type="image/png">
+  <link rel="stylesheet" href="AryaStyle.css">
+  <title>Ontwikkelaarsopties - Online Leerhulp</title>
+  <meta name="description" content="DevTools for developers to explore the site in a new way!">
+  <meta name="keywords" content="Dev, DevTools, Developers">
+  <meta name="author" content="Ryan and Armaan">
+</head>
+
+<body>
+ <div id="nav">
+<button onclick="window.location.href = 'Home.html';">Home</button> </div>
+  <h1 style="text-align: center;">Ontwikkelaarsopties</h1>
+  <p>Hier kan je een aantal opties vinden voor ontwikkelaars. <b>Gebruik deze tools alleen als je een ontwikkelaar bent en als je weet wat je aan het doen bent!</b></p>
+  <p>Houdt er rekening mee dat de site er anders uit kan zien en anders kan werken na het gebruiken van deze tools. Ook kunnen gegevens worden verwijderd, zoals je opgeslagen accounts of agenda's.</p>
+  <br>
+  <br>
+  <button onclick="deleteUser()">Verwijder account</button>
+  <button onclick="deleteOpmerkingen()">Leeg agenda</button>
+  <button onclick="deleteLocalStorage()">Reset hele site naar fabrieksinstellingen</button>
+
+<script>
+        function deleteUser() {
+            localStorage.removeItem('user');
+            alert('Account succesvol verwijderd!');
+            window.location.href = 'Ontwikkelaarsopties.html';
+        }
+
+        function deleteOpmerkingen() {
+            localStorage.removeItem('agendaItems');
+            alert('Agenda succesvol geleegd!');
+            window.location.href = 'Tools.html';
+ }
+
+        function deleteLocalStorage() {
+          localStorage.clear();
+          alert('De hele site is succesvol gereset. Al je gegevens zijn verwijderd, inclusief accounts, agenda en alle andere dingen.');
+          window.location.href = 'Ontwikkelaarsopties.html';
+        }
+</script>
+</body>
+</html>

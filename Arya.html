@@ -1,340 +1,148 @@
-<link rel="icon" href="LogoOnlineLeerhulp.png" type="image/png">
-
-<style>
-  body {
-      font-family: 'Arial', sans-serif;
-      background-color: lightblue;
-  }
-
-  button{
-  background-color: rgb(29, 155, 240);
-  color: white;
-  height: 50px;
-  width: 100px;
-  border-color: orange;
-  border-radius: 50px;
-  border-style: solid;
-  cursor: pointer;
-  border-width: 1.50px;
-  margin-left: 2px;
-  font-weight: bold;
-  font-size: 12.5px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-#nav{
-  padding: 0.25%;
-  background-color: rgb(239, 157, 16);
-  height:max-content;
-  width:max-content;
-  margin-left: 310px;
-  border-radius: 50px
-}
-#button-navbar{
-  background-color: rgb(29, 155, 240);
-  color: white;
-  height: 50px;
-  width: 100px;
-  border-color: orange;
-  border-radius: 50px;
-  border-style: solid;
-  cursor: pointer;
-  border-width: 1.50px;
-  margin-left: 2px;
-  font-weight: bold;
-  font-size: 12.5px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#button-mic{
-  background-color: rgb(29, 155, 240);
-  color: white;
-  height: 50px;
-  width: 175px;
-  border-color: orange;
-  border-radius: 50px;
-  border-style: solid;
-  cursor: pointer;
-  border-width: 1.50px;
-  margin-left: 2px;
-  font-weight: bold;
-  font-size: 12.5px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-    #text-lm {
-        color: orangered;
-        font-weight: bold;
-        font-size: 16.50px;
-        margin-left: 0.25%;
-
-    }
-    #chatContainer {
-          max-width: 95%;
-          height: 75%;
-          margin-top: 0.75px;
-          margin-left: 0.75;
-          margin: auto;
-          border: 3px solid #1185f2;
-          padding: 0px;
-          border-radius: 10px;
-      }
-
-      #chatMessages {
-          height: 92.75%;
-          padding-left: 1%;
-          padding-right: 0.75%;
-          padding-top: 0.75%;
-          margin-bottom: 0.55%;
-          background-image: url(AryaBackground3.png);
-          border-radius: 7.50px;
-          opacity: 0.95;
-          background-size: cover;
-          overflow-y: scroll;
-      }
-
-      #userInput {
-          width: 100%;
-          padding: 0.75%;
-          box-sizing: border-box;
-          border-radius: 35px;
-          border-style: solid;
-          border-color: rgb(18, 221, 239); 
-          opacity: 1;
-      }
-      #tooltip {
-  position: relative;
-  display: inline-block;
-}
-
-#question-mark {
-  cursor: pointer;
-  width: 20px;
-  height: 20px;
-  display: inline-block;
-  text-align: center;
-  line-height: 20px;
-  border-radius: 50%;
-  background-color: #f0b30a; /* kleur van de cirkel */
-}
-
-#tooltip-text {
-  visibility: hidden;
-  width: 350px;
-  height: 225px;
-  background-color: #595858;
-  color: #fff;
-  text-align: center;
-  border-radius: 12px;
-  padding: 10px;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: 10px;
-  opacity: 0;
-  transition: opacity 0.5s;
-}
-
-#tooltip:hover #tooltip-text {
-  visibility: visible;
-  opacity: 1;
-}
-
-
-#status {
-            margin-top: 10px;
-            font-size: 0.9em;
-            color: #555;}
-</style>
-<div id="nav">
-<button id="button-navbar" onclick="window.location.href = 'Home.html';">Home</button>
-<button id="button-navbar" onclick="window.location.href = 'Bibliotheek.html';">Bibliotheek</button>
-<button id="button-navbar" onclick="window.location.href = 'Schoolvakken.html';">Schoolvakken</button>
-<button id="button-navbar" onclick="window.location.href = 'Tools.html';">Tools</button>
-<button id="button-navbar" onclick="window.location.href = 'Arya.html';">Arya (AI)</button>
-<button id="button-navbar" onclick="window.location.href = 'Contact.html';">Contact</button>
-</div>
-<title>Chat met Arya - Online Leerhulp</title>
-<h1>Arya</h1>
-<p>Welkom bij onze gloednieuwe chatbot: Arya! Met Arya kan jij eenvoudige vragen stellen, informatie krijgen over deze site of over verschillende schoolonderwerpen! Wij hebben Arya ontworpen met een taalmodel dat schoolonderwerpen en andere informatie snapt.</p>
-<p>Veel plezier met Arya en houd er rekening mee dat Arya niet optimaal zal werken, dingen niet kan bergijpen en fouten kan maken!</p>
-<br>
+<html>
+  <!--We've added the Head to optimize the speed of loading and to be findable on search engines-->
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta autor="Ryan van der Haak and Armaan Yousofzai">
-  <meta description="Arya, our new AI-assistent to help you by every schoolquestion and other subject. It's completely free, so check it out on this page!">
+  <link rel="icon" href="LogoArya.jpg" type="image/jpg">
+  <link rel="stylesheet" href="AryaStyle.css">
+  <title>Chat met Arya - Online Leerhulp</title>
+  <meta name="description" content="Arya, our chatbot to get information about schoolsubjects and more!">
+  <meta name="keywords" content="Arya, AryaLM, AryaAI, Chatbot, AI-chatbot, AI, School, LM, AryaChatbot">
+  <meta name="author" content="Ryan and Armaan">
 </head>
 
+<body>
 
-<!--Code for Arya-->
+  <button id="menu-toggle" style="position: absolute; top: -5px; left: -30px;">
+    <img src="AryaMenu.png" alt="Menu">
+  </button>
+  <br>
+  <br>
+<div id="nav" class="hidden">
+
+    <button id="settings-button">Instellingen</button>
+<button id="button-navbar" onclick="window.location.href = 'Home.html';">Home</button>
+<button id="button-navbar" onclick="window.location.href = 'Account.html';">Account</button>
+</div>
+
+<div id="welcomePopup" class="popup">
+  <div class="popup-content">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <h2>Welkom op onze vernieuwde site!</h2>
+      <p>Ontdek de nieuwste functies en leer hoe je onze pagina optimaal kunt benutten.</p>
+      <br>
+      <h3>Arya</h3>
+      <p>Ons nieuwste taalmodel, ontworpen om jouw vragen beter te beantwoorden!</p>
+      <p>Het is nu mogelijk om een ouder taalmodel te kiezen!</p>
+      <p>Verder hebben we Arya compleet anders ingerict en hebben we een nieuw instellingen-menu gemaakt om Arya verder te personaliseren!</p>
+      <p>Als je op Ctrl C klikt, worden jouw berichten verwijderd zodat je de pagina nooit meer hoeft te refreshen!</p>
+      <br>
+      <p>Kijk voor alle nieuwe functies op de <a href="Nieuws.html">nieuwspagina</a>. Veel plezier met deze update!</p>
+      <button onclick="closePopup()">Begrepen!</button>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Controleer of de gebruiker de pop-up al heeft gezien
+    if (!localStorage.getItem("popupViewed")) {
+        document.getElementById("welcomePopup").style.display = "block";
+    }
+});
+
+function closePopup() {
+    document.getElementById("welcomePopup").style.display = "none";
+    // Sla op in localStorage dat de pop-up is bekeken
+    localStorage.setItem("popupViewed", "true");
+}
+</script>
+
+
+<!--Code for Arya to work-->
 <div id="chatContainer">
       <div id="chatMessages"></div>
-      <input type="text" id="userInput" placeholder="Typ hier je bericht aan Arya">
-      <br>
-      <br>
-      <div><span>Huidig taalmodel:</span><span id="text-lm"> AryaLM2.1</span><div id="tooltip">
+      <div id="loader" class="loader"></div>
+      <div><input type="text" id="userInput" placeholder="Typ een bericht"><input type="file" id="fileInput" style="display:none">
+        <label title="Upload een bestand" for="fileInput" id="fileLabel" style="cursor:pointer; position: absolute; right: 280; margin-top: 3.30px;"><img src="FileReaderArya.png" alt="Upload" /></label>
+
+<button title="Gebruik microfoon om bericht in te spreken" id="button-mic" 
+style="background-image: url(microphone-solid-24.png); background-repeat: no-repeat; position: absolute; right: 320;" onclick="startListening()"></button>
+
+
+<select name="Taalmodel" id="Taalmodel">
+          <option value="4">AryaLM3</option>
+          <option value="3">AryaLM2.1</option>
+          <option value="2">AryaLM2</option>
+          <option value="1">AryaLM1</option></select>
+      <p id="p-aryainfo">Jouw invoer wordt anoniem verzameld voor verbeteringen aan onze taalmodellen. <a href="Gegevensverzameling.html">Meer informatie</a></p>
+</div>
+
+
+    <!--Source code to choose between multiple LM's for Arya-->
+    <div><script src="SelectLM.js"></script></div>
+
+
+      <div><span>Nieuwste taalmodel:</span><span id="text-lm"> AryaLM3</span><div id="tooltip">
         <span id="question-mark">?</span>
-        <span id="tooltip-text">Het taalmodel dat momenteel in gebruik is. LM staat voor <i>Language Model</i>, oftewel de versie van het taalmodel. Zodra er een groot aantal aan nieuwe data toe is gevoegd, zal er een nieuw versienummer verschijnen. Als er een kleine update is doorgevoerd, zoals een paar kleine verbeteringen, dan zal er een mini-versienummer verschijnen, zoals AryaLM1.1 of AryaLM1.2.
+        <span id="tooltip-text">Het taalmodel dat momenteel het nieuwst is. LM staat voor <i>Language Model</i>, oftewel de versie van het taalmodel. In de select-sectie hierboven kan je het taalmodel kiezen dat je voor Arya wilt gebruiken. Standaard staat deze ingesteld op het nieuwst beschikbare taalmodel, maar je kan een ouder model selecteren. Zodra er een groot aantal aan nieuwe data toe is gevoegd, zal er een nieuw versienummer verschijnen. Als er een iets kleinere update uitkomt, met betere herkenning bijvoorbeeld, dan zal er een mini-versienummer verschijnen, zoals AryaLM1.1 of AryaLM1.2.
         <br>
         <br>
-      Taalmodel-versie AryaLM2 is mede mogelijk gemaakt door Ragheb en Ibrahim.</span>
+      Arya is mede mogelijk gemaakt door Ragheb, Ibrahim, Harry en Olivier. Kijk op de <a href="Credits.html">Creditspagina</a> voor meer informatie.</span>
       </div></div>
-      <br>
-      <button id="button-mic" style="background-image: url(microphone-solid-24.png); background-repeat: no-repeat;" onclick="startListening()">Spreek bericht in</button>
       <div id="status"></div>
-<div><div><script src="AryaScript.js"></script></div></div>
 
 
-<!--JavaScript to talk with Arya-->
-<script>
-  const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-  
-  recognition.onstart = function() {
-      document.getElementById('status').innerText = "Luistert...";
-  };
+<!--JavaScript to speak to Arya with your microphone-->
+<script src="AryaSpeak.js"></script>
 
-  recognition.onend = function() {
-      document.getElementById('status').innerText = "Gestopt met luisteren.";
-  };
-
-  recognition.onresult = function(event) {
-      const userSpeech = event.results[0][0].transcript;
-      document.getElementById('userInput').value = userSpeech;
-      sendMessage();
-  };
-
-  recognition.onerror = function(event) {
-      console.error('Spraakherkenning fout:', event.error);
-      document.getElementById('status').innerText = "Er is een fout opgetreden.";
-  };
-
-  function startListening() {
-      recognition.start();
-  }
-
-  function sendMessage() {
-      const userInput = document.getElementById('userInput').value;
-      document.getElementById('messages').innerHTML += `<p>Gebruiker: ${userInput}</p>`;
-      
-      // Simuleer een response van de chatbot
-      const response = getResponse(userInput);
-      document.getElementById('messages').innerHTML += `<p>Arya: ${response}</p>`;
-      
-  }
-
-  function getResponse(input) {
-      // Eenvoudige AI-response, vervang dit met een echte AI-aanroep
-      return "Dit is een antwoord van Arya!";
-  }
-</script>
 <br>
-<br>
-<p>Omdat Arya ons eigen gloednieuwe taalmodel bevat, kan het zijn dat 'ie' jou niet goed begrijpt. Dit komt dan waarschijnlijk doordat je het voor onze code verkeerd verwoord hebt. Probeer het nog een keer in een andere verwoording en dan is de kans groot dat Arya jou wel begrijpt. Werkt het dan nog steeds niet? Laat dan jouw exacte vraag die je hebt gesteld weten via het formulier onder aan deze pagina!</p>
-<p>Ook hebben wij onze eigen afbeeldingen-AI: AryaE. AryaE kan afbeeldingen herkennen en aan jou laten zien. Klik op de button hieronder en ontdek AryaE!</p>
+<p>Ook hebben wij onze eigen afbeeldingen-AI AryaE. AryaE kan afbeeldingen herkennen en aan jou laten zien wat je hebt laten zien aan de camera. Klik op de button hieronder en ontdek deze speciale tool!</p>
 <button onclick="window.location.href = 'AryaE.html';">AryaE</button>
 <br>
 <br>
 <br>
-<br>
-<h1>Contact</h1>
-<br>
-<p>Als Arya iets niet heeft begrepen, laat dit dan alsjeblieft weten via het onderstaande formulier. Geef de exacte prompt die je Arya hebt gegeven en wij zullen dit z.s.m. toevoegen aan onze code!</p>
-<br>
-<p>Als je het formulier helemaal hebt ingevuld en op 'Verstuur' hebt geklikt, wordt je automatisch naar jouw email-app gestuurd en hier zullen jouw gegevens instaan. <strong>Verander niks aan deze tekst die in de e-mail staat!</strong></p>
-<br>
-<br>
-<head>
-  <style>
-    .container-form {
-      max-width: 400px;
-      margin: 12.5px;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+<script>
+  document.getElementById("menu-toggle").addEventListener("click", function() {
+    var nav = document.getElementById("nav");
+    if (nav.classList.contains("hidden")) {
+      nav.classList.remove("hidden");
+    } else {
+      nav.classList.add("hidden");
     }
-    .input-form[type="text"]{
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 50px;
-      box-sizing: border-box;
-    }
-    .input-form[type="submit"], .input-form[type="reset"] {
-      width: 100%;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      background-color: #007bff;
-      color: #fff;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    .input-form[type="submit"]:hover, .input-form[type="reset"]:hover {
-      background-color: #0056b3;
-    }
-  </style>
-</head>
+  });
+</script>
 
-<div class="container-form">
-  <form id="contactForm" onsubmit="sendEmail(); return false;">
-    <label for="naam">Vul je naam in:</label>
-    <input id="naam" type="text" required>
-    <br>
-    <br>
-    <label for="email">Vul je e-mailadres in:</label>
-    <input id="email" type="email" required>
-    <br>
-    <br>
-    <label for="bericht">Je bericht:</label>
-    <textarea id="bericht" rows="5" required></textarea>
-    <br>
-    <br>
-    <input class="input-form" type="submit" value="Verstuur">
-    <br>
-    <br>
-    <input class="input-form" type="reset" value="Wissen">
-  </form>
+<!--Settingsmenu of Arya-->
+<div id="settings-menu" class="hidden">
+  <h2 style="text-align: center;">Instellingen</h2>
+  <div>
+    <label for="background-color">Kies achtergrondkleur:</label>
+    <input style=" border-width: 0.50px; border-radius: 12.50px;" type="color" id="background-color">
+  </div>
+  <br>
+  <div>
+    <label for="background-image">Kies achtergrond:</label>
+    <input type="file" id="background-image" accept="image/jpg, image/png, image/jpeg,">
+  </div>
+  <br>
+      <!--Code to switch between Light and Dark Mode-->
+      <button style="width: 50px; height: 37px;"
+      onclick="myFunction()"><img src="bx-moon.svg"></button>
+
+      <link rel="stylesheet" href="DarkModeStyle.css">
+      <script src="DarkModeScript.js"></script>
+
+  <hr style="color: gray;  background-color: gray;  box-shadow: none;  border-style: solid;">
+  
+  <button  id="clear-history">Gesprek wissen</button><p>Als je tijdens het chatten op Ctrl C klikt, wordt de geschiedenis ook gewist!</p>
+  <br>
+  <hr style="color: gray; background-color: gray;  box-shadow: none;  border-style: solid;">
+  
+  <button style="  background-color: white;  border: none;  height: 35%;  width: 98%;  border-radius: 35px;  color: black;  font-size: 16;" 
+  id="close-settings">OK</button>
+
 </div>
 
-<script>
-  function sendEmail() {
-    // Verkrijg de ingevoerde gegevens
-    var naam = document.getElementById("naam").value;
-    var email = document.getElementById("email").value;
-    var bericht = document.getElementById("bericht").value;
 
-    // Controleer of alle velden zijn ingevuld
-    if (naam.trim() === "" || email.trim() === "" || bericht.trim() === "") {
-      alert("Vul alle velden in voordat je een e-mail verstuurt!.");
-      return;
-    }
-
-    // Opstelling van het e-mailbericht
-    var subject = "Bericht van " + naam;
-    var body = "Naam: " + naam + "%0A";
-    body += "E-mailadres: " + email + "%0A";
-    body += "Bericht: " + bericht;
-
-    // Maak een mailto link en open het in een nieuw venster
-    var mailtoLink = "mailto:440372@ovc.asgleerling.nl?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-    window.location.href = mailtoLink;
-  }
-</script>
-<br>
-<br>
-<br>
+<!--JavaScript for the settings of Arya-->
+<script src="AryaSettings.js"></script>
+</body>
+</html>
