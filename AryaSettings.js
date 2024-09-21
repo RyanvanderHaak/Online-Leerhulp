@@ -31,10 +31,10 @@ document.getElementById('clear-history').addEventListener('click', function() {
 
 // Event listener voor sneltoetsen
 document.addEventListener('keydown', function(event) {
-  if (event.ctrlKey && event.key === 'Enter') {
+  if (event.lKey && event.key === 'Enter') {
     document.getElementById('userInput').focus();
   }
-  if (event.ctrlKey && event.key === 'c') {
+  if (event.altKey && event.key === 'c') {
     document.getElementById('clear-history').click();
   }
 });
