@@ -19,6 +19,7 @@
   <br>
   <button onclick="deleteUser()">Verwijder account</button>
   <button onclick="deleteOpmerkingen()">Leeg agenda</button>
+  <button onclick="deletePopup">Reset pop-up Arya</button>
   <button onclick="deleteLocalStorage()">Reset hele site naar fabrieksinstellingen</button>
 
 <script>
@@ -39,6 +40,11 @@
           alert('De hele site is succesvol gereset. Al je gegevens zijn verwijderd, inclusief accounts, agenda en alle andere dingen.');
           window.location.href = 'Ontwikkelaarsopties.html';
         }
+
+        function deletePopup() {
+          localStorage.removeItem("popupViewed2", "true");
+          alert('De pop-ups van Arya zijn gereset. Je krijgt ze nu allebei opnieuw te zien!');
+          window.location.href = 'Ontwikkelaarsopties.html';}
 </script>
 </body>
 </html>

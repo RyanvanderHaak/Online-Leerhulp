@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <link rel="icon" href="LogoArya.jpg" type="image/jpg">
+  <title>Arya Trainer; Train Arya op jouw eigen data! - Online Leerhulp</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Roboto", Arial;
+            background-color: lightblue;
+            margin: 20px;
+            text-align: center;
+        }
+        .container {
+          width: 90%;
+        }
+        textarea {
+          color: black;
+          border-radius: 25px;
+          border-color: rgb(9, 221, 225);
+          border-width: 2px;
+          padding: 2.25%;
+          font-size: 35;
+          font-family: "Roboto", Arial, Helvetica, sans-serif;
+        }
+
+
+        button {
+        background-image: linear-gradient(rgb(43, 184, 244), purple);
+          color: white;
+          height: 40px;
+          width: 140px;
+          border-color: orange;
+          border-radius: 50px;
+          border-style: solid;
+          cursor: pointer;
+          border-width: 2.50px;
+          margin-left: 2px;
+          font-weight: bold;
+          font-size: 15.0px;
+          padding-top: 5px;
+          padding-bottom: 5px;
+          padding-left: 5px;
+          padding-right: 5px;
+          vertical-align: top;
+        }
+        button:hover {
+            background-image: linear-gradient(rgb(11, 115, 160), rgb(81, 4, 81));
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        .output {
+            background-color: white;
+            border-radius: 25px;
+            border-color: black;
+            border-width: 2.00px;
+            border-style: solid;
+            margin-top: 5%;
+            max-width: 90%;
+            display: flex;
+            margin: auto;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button style="height: 7.50%; width: 5%; position: absolute; left: 0;" onclick="window.location.href = 'Contact.html';"> <img src="ContactIconAryaTrainer.svg" alt="Message Icoon voor Contact-pagina"></button>
+        <h2 style="text-align: center;">Arya Trainer</h2>
+        <textarea id="inputText" rows="18" cols="55" placeholder="Typ hier de invoer die gebruikers moeten invoeren. Gebruik hier altijd kleine letters, anders begrijpt Arya het niet. Nadat je een regel hebt geschreven, kan je op enter klikken voor een extra regel. Deze regels kan je gebruiken voor betere herkenning, dus bijvoorbeeld een extra leesteken of andere verwoording."></textarea>
+        <textarea id="outputText" rows="18" cols="55" placeholder="Typ hier de gewenste uitvoer van Arya. Hier zijn hoofdletters wel toegestaan! Helaas kan Arya momenteel nog niet overweg met enters, dus schrijf alles zonder een enter te gebruiken!"></textarea>
+        <button id="trainButton">Maak code</button>
+        <br>
+        <br>
+        <div class="output">
+            <h3>Code voor Arya:</h3>
+            <pre id="generatedCode"></pre>
+        </div>
+    </div>
+    <script>
+        document.getElementById('trainButton').addEventListener('click', function() {
+            const inputText = document.getElementById('inputText').value;
+            const outputText = document.getElementById('outputText').value;
+            window.alert ("Bedankt voor het gebruiken van Arya Trainer! Nu je code hebt gemaakt, is het wel zo handig als dit in de taalmodellen van Arya komt. Stuur daarom de code naar ons toe via de Contact-knop linksboven op deze pagina en wij zullen de code, indien deze relevant is, verwerken in Arya. Alvast bedankt voor je bijdrage!");
+    
+            if (inputText.trim() === '' || outputText.trim() === '') {
+                alert('Je moet beide velden invullen voordat je Arya kunt trainen!!');
+                return;
+            }
+    
+            let generatedCode = document.getElementById('generatedCode').textContent;
+    
+            const inputLines = inputText.split('\n').map(line => line.trim()).filter(line => line !== '');
+    
+            inputLines.forEach(line => {
+                generatedCode += `    case "${line}":\n`;
+            });
+    
+            if (!generatedCode.includes(`response = "${outputText}";`)) {
+                generatedCode += `        response = "${outputText}";\n        break;\n`;
+            }
+    
+            document.getElementById('generatedCode').textContent = generatedCode;
+        });
+    </script>
+
+    <!--Code voor de sneltoetsen tijdens het gebruik van Arya Trainer-->
+    <script>
+            document.addEventListener('keydown', function(e) {
+        if (e.ctrlKey && e.key === 'b') {
+            e.preventDefault();
+            copyAboveLine();
+        }
+    });
+
+    function copyAboveLine() {
+        const textarea = document.getElementById('inputText');
+        const cursorPosition = textarea.selectionStart;
+
+        // Haal de tekst op tot aan de cursorpositie
+        const textBeforeCursor = textarea.value.substring(0, cursorPosition);
+
+        // Vind de vorige regel
+        const lines = textBeforeCursor.split('\n');
+        if (lines.length > 1) {
+            const previousLine = lines[lines.length - 2]; // De regel boven de huidige regel
+            const currentLineStart = textarea.value.lastIndexOf('\n', cursorPosition - 1) + 1;
+
+            // Voeg de vorige regel toe in de huidige regel
+            textarea.setRangeText(previousLine, currentLineStart, cursorPosition, 'end');
+        }
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.ctrlKey && e.key === 'Enter') {
+            e.preventDefault();
+            document.getElementById('trainButton').click(); // Klik op de "Maak code" knop
+        }
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.ctrlKey && e.key === '/') {
+            e.preventDefault();
+            commentOutSelection();
+        }
+    });
+
+    function commentOutSelection() {
+        const textarea = document.getElementById('inputText');
+        const start = textarea.selectionStart;
+        const end = textarea.selectionEnd;
+
+        if (start !== end) {
+            // Commentaar toevoegen aan de geselecteerde tekst
+            const selectedText = textarea.value.substring(start, end);
+            const commentedText = `// ${selectedText} //`;
+
+            textarea.setRangeText(commentedText, start, end, 'end');
+        }
+    }
+
+    const inputTextarea = document.getElementById('inputText');
+    const outputTextarea = document.getElementById('outputText');
+
+    // Laad de opgeslagen gegevens wanneer de pagina laadt
+    window.onload = function() {
+        inputTextarea.value = localStorage.getItem('inputText') || '';
+        outputTextarea.value = localStorage.getItem('outputText') || '';
+    };
+
+    // Sla automatisch de invoer op wanneer gebruikers typen
+    inputTextarea.addEventListener('input', function() {
+        localStorage.setItem('inputText', inputTextarea.value);
+    });
+
+    outputTextarea.addEventListener('input', function() {
+        localStorage.setItem('outputText', outputTextarea.value);
+    });
+    </script>
+</body>
+</html>

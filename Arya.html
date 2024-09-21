@@ -1,12 +1,15 @@
 <html>
-  <!--We've added the Head to optimize the speed of loading and to be findable on search engines-->
+  <!--We've added the Head to optimize the loading-speed-->
 <head>
   <link rel="icon" href="LogoArya.jpg" type="image/jpg">
   <link rel="stylesheet" href="AryaStyle.css">
   <title>Chat met Arya - Online Leerhulp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
   <meta name="description" content="Arya, our chatbot to get information about schoolsubjects and more!">
   <meta name="keywords" content="Arya, AryaLM, AryaAI, Chatbot, AI-chatbot, AI, School, LM, AryaChatbot">
   <meta name="author" content="Ryan and Armaan">
+  <script src="SelectLM.js"></script>
 </head>
 
 <body>
@@ -27,23 +30,19 @@
   <div class="popup-content">
       <span class="close-btn" onclick="closePopup()">&times;</span>
       <h2>Welkom op onze vernieuwde site!</h2>
-      <p>Ontdek de nieuwste functies en leer hoe je onze pagina optimaal kunt benutten.</p>
+      <p>Ontdek de nieuwste functies en leer hoe je Arya optimaal kunt benutten.</p>
       <br>
-      <h3>Arya</h3>
-      <p>Ons nieuwste taalmodel, ontworpen om jouw vragen beter te beantwoorden!</p>
-      <p>Het is nu mogelijk om een ouder taalmodel te kiezen!</p>
-      <p>Verder hebben we Arya compleet anders ingerict en hebben we een nieuw instellingen-menu gemaakt om Arya verder te personaliseren!</p>
-      <p>Als je op Ctrl C klikt, worden jouw berichten verwijderd zodat je de pagina nooit meer hoeft te refreshen!</p>
-      <br>
+      <p>- AryaLM3.1, ons nieuwste taalmodel exclusief voor ingelogde gebruikers. Nog niet ingelogd? Ga dan naar de <a href="Account.html">accountpagina</a> om van dit nieuwe taalmodel gebruik te kunnen maken! Als je ingelogd, heb je automatisch direct toegang tot dit nieuwe taalmodel!</p>
+      <p>- Nieuwe UI, die een aantal bugs heeft opgelost en een nieuwer en moderner design</p>
+      <p>- Arya Trainer, om zelf code te schrijven voor Arya. Klik <a href="AryaTrainer.html">hier</a> voor de Arya Trainer en stuur ons via de knop linksboven van die pagina gelijk jouw code!</p>
       <p>Kijk voor alle nieuwe functies op de <a href="Nieuws.html">nieuwspagina</a>. Veel plezier met deze update!</p>
       <button onclick="closePopup()">Begrepen!</button>
   </div>
 </div>
-
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     // Controleer of de gebruiker de pop-up al heeft gezien
-    if (!localStorage.getItem("popupViewed")) {
+    if (!localStorage.getItem("popupViewed2")) {
         document.getElementById("welcomePopup").style.display = "block";
     }
 });
@@ -51,7 +50,7 @@
 function closePopup() {
     document.getElementById("welcomePopup").style.display = "none";
     // Sla op in localStorage dat de pop-up is bekeken
-    localStorage.setItem("popupViewed", "true");
+    localStorage.setItem("popupViewed2", "true");
 }
 </script>
 
@@ -60,14 +59,15 @@ function closePopup() {
 <div id="chatContainer">
       <div id="chatMessages"></div>
       <div id="loader" class="loader"></div>
-      <div><input type="text" id="userInput" placeholder="Typ een bericht"><input type="file" id="fileInput" style="display:none">
-        <label title="Upload een bestand" for="fileInput" id="fileLabel" style="cursor:pointer; position: absolute; right: 280; margin-top: 3.30px;"><img src="FileReaderArya.png" alt="Upload" /></label>
+      <div id="status"></div>
+      <input type="text" id="userInput" placeholder="Typ een bericht"><input type="file" id="fileInput" style="display:none">
+        <label class="button-file" title="Upload een bestand voor een samenvatting" for="fileInput" id="fileLabel"><img src="FileReaderArya.png" alt="Upload" /></label>
+        <button title="Gebruik microfoon om bericht in te spreken" id="button-mic" onclick="startListening()"></button>
 
-<button title="Gebruik microfoon om bericht in te spreken" id="button-mic" 
-style="background-image: url(microphone-solid-24.png); background-repeat: no-repeat; position: absolute; right: 320;" onclick="startListening()"></button>
 
-
+<!--Choose between a older Language Model-->
 <select name="Taalmodel" id="Taalmodel">
+          <option value="5">AryaLM3.1</option>
           <option value="4">AryaLM3</option>
           <option value="3">AryaLM2.1</option>
           <option value="2">AryaLM2</option>
@@ -75,30 +75,25 @@ style="background-image: url(microphone-solid-24.png); background-repeat: no-rep
       <p id="p-aryainfo">Jouw invoer wordt anoniem verzameld voor verbeteringen aan onze taalmodellen. <a href="Gegevensverzameling.html">Meer informatie</a></p>
 </div>
 
+      
 
-    <!--Source code to choose between multiple LM's for Arya-->
-    <div><script src="SelectLM.js"></script></div>
-
-
-      <div><span>Nieuwste taalmodel:</span><span id="text-lm"> AryaLM3</span><div id="tooltip">
+      <div id="tooltip">
         <span id="question-mark">?</span>
-        <span id="tooltip-text">Het taalmodel dat momenteel het nieuwst is. LM staat voor <i>Language Model</i>, oftewel de versie van het taalmodel. In de select-sectie hierboven kan je het taalmodel kiezen dat je voor Arya wilt gebruiken. Standaard staat deze ingesteld op het nieuwst beschikbare taalmodel, maar je kan een ouder model selecteren. Zodra er een groot aantal aan nieuwe data toe is gevoegd, zal er een nieuw versienummer verschijnen. Als er een iets kleinere update uitkomt, met betere herkenning bijvoorbeeld, dan zal er een mini-versienummer verschijnen, zoals AryaLM1.1 of AryaLM1.2.
+        <span id="tooltip-text">Elke keer als de data van Arya wordt uitgebreid, komt er een nieuw taalmodel (LM, Language Model). Je kan tussen taalmodellen kiezen in het oranje selectie-gebied naast het typevak!
         <br>
         <br>
-      Arya is mede mogelijk gemaakt door Ragheb, Ibrahim, Harry en Olivier. Kijk op de <a href="Credits.html">Creditspagina</a> voor meer informatie.</span>
-      </div></div>
-      <div id="status"></div>
+        Arya heeft ook verschillende functies, zoals normaal chatten en bestanden lezen. Deze functies vindt je rondom het typevak.
+        <br>
+        <br>
+        Zelf kan je ook meehelpen aan Arya door zelf code te schrijven. Wij hebben hier een speciale tool voor gemaakt, namelijk de <a href="AryaTrainer.html">Arya Trainer</a>. Hier kan je de invoer invullen (wat de gebruiker moet zeggen) en de uitvoer (antwoord van Arya). Hiervoor hoef je zelf geen code te schrijven. Je krijgt na afloop regels code, deze kan je vervolgens via de contactpagina naar ons sturen.
+      <br>
+      <br>
+        Arya is mede mogelijk gemaakt door Ragheb, Ibrahim, Harry en Olivier. Kijk op de <a href="Credits.html">Creditspagina</a> voor meer informatie.</span></div>
 
 
 <!--JavaScript to speak to Arya with your microphone-->
 <script src="AryaSpeak.js"></script>
 
-<br>
-<p>Ook hebben wij onze eigen afbeeldingen-AI AryaE. AryaE kan afbeeldingen herkennen en aan jou laten zien wat je hebt laten zien aan de camera. Klik op de button hieronder en ontdek deze speciale tool!</p>
-<button onclick="window.location.href = 'AryaE.html';">AryaE</button>
-<br>
-<br>
-<br>
 <script>
   document.getElementById("menu-toggle").addEventListener("click", function() {
     var nav = document.getElementById("nav");
@@ -115,24 +110,24 @@ style="background-image: url(microphone-solid-24.png); background-repeat: no-rep
   <h2 style="text-align: center;">Instellingen</h2>
   <div>
     <label for="background-color">Kies achtergrondkleur:</label>
-    <input style=" border-width: 0.50px; border-radius: 12.50px;" type="color" id="background-color">
+    <input style=" border-width: 1.50px; border-radius: 2.50px;" type="color" id="background-color">
   </div>
   <br>
   <div>
-    <label for="background-image">Kies achtergrond:</label>
-    <input type="file" id="background-image" accept="image/jpg, image/png, image/jpeg,">
+    <label for="background-image">Kies achtergrondafbeelding:</label>
+    <input type="file" id="background-image" accept="image/jpg, image/png, image/jpeg, image/svg, image/heif, image/gif, image/ai, image/raw">
   </div>
   <br>
+  <hr style="color: gray;  background-color: gray;  box-shadow: none;  border-style: solid;">
       <!--Code to switch between Light and Dark Mode-->
       <button style="width: 50px; height: 37px;"
-      onclick="myFunction()"><img src="bx-moon.svg"></button>
+      onclick="myFunction()"><img src="bx-moon.svg" alt="Moon image for Dark Mode"></button>
 
       <link rel="stylesheet" href="DarkModeStyle.css">
       <script src="DarkModeScript.js"></script>
-
-  <hr style="color: gray;  background-color: gray;  box-shadow: none;  border-style: solid;">
-  
-  <button  id="clear-history">Gesprek wissen</button><p>Als je tijdens het chatten op Ctrl C klikt, wordt de geschiedenis ook gewist!</p>
+<br>
+<br>
+  <button  id="clear-history">Wis gesprek (Alt + C)</button>
   <br>
   <hr style="color: gray; background-color: gray;  box-shadow: none;  border-style: solid;">
   
