@@ -7,18 +7,22 @@ document.getElementById('showPassword').addEventListener('change', function() {
   }
 });
 
-  const firebaseConfig = {
-      apiKey: "AIzaSyCFtUavU1MFFeeuu-M6zh-QK9cNDP6LNJI",
-      authDomain: "online-leerhulp-account.firebaseapp.com",
-      projectId: "online-leerhulp-account",
-      storageBucket: "online-leerhulp-account.appspot.com",
-      messagingSenderId: "24539662431",
-      appId: "1:24539662431:web:2b6cd98e4d0009d38ab3ea",
-      measurementId: "G-PXQ34MLSDL"
-  };
+ // script31.js
 
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+const firebaseConfig = {
+    apiKey: "AIzaSyCFtUavU1MFFeeuu-M6zh-QK9cNDP6LNJI",
+    authDomain: "online-leerhulp-account.firebaseapp.com",
+    projectId: "online-leerhulp-account",
+    storageBucket: "online-leerhulp-account.appspot.com",
+    messagingSenderId: "24539662431",
+    appId: "1:24539662431:web:2b6cd98e4d0009d38ab3ea",
+    measurementId: "G-PXQ34MLSDL"
+};
+
+// Initialiseer Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+
 
   const loginForm = document.getElementById('login-form');
   loginForm.addEventListener('submit', (e) => {

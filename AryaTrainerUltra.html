@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="LogoArya.jpg">
+    <title>Arya Trainer Ultra - Developers Tools</title>
+    <style>
+        body {
+          background-color: lightblue;
+          font-family: Arial, Helvetica, sans-serif;
+      }
+      #run-btn, #stop-btn {
+          background-image: linear-gradient(rgb(43, 184, 244), purple);
+          color: white;
+          height: 40px;
+          width: 140px;
+          border-color: orange;
+          border-radius: 50px;
+          border-style: solid;
+          cursor: pointer;
+          border-width: 2.50px;
+          margin-left: 2px;
+          font-weight: bold;
+          font-size: 15.0px;
+          padding-top: 5px;
+          padding-bottom: 5px;
+          padding-left: 5px;
+          padding-right: 5px;
+          vertical-align: top;
+        }
+    
+        #progress-container {
+            width: 100%;
+            background-color: lightblue;
+            border-radius: 35px;
+        }
+        #progress-bar {
+            width: 0%;
+            height: 30px;
+            background-color: #4caf50;
+            text-align: center;
+            color: white;
+            border-radius: 35px;
+        }
+        #log {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Arya Trainer Ultra</h1>
+    <button id="run-btn">Run</button>
+    <button id="stop-btn">Stop</button>
+    <div id="progress-container">
+        <div id="progress-bar">0%</div>
+    </div>
+    <div id="log"></div>
+
+    <script>
+      let running = false;
+      let totalPages = 5;   
+      let currentPage = 0;  
+      let keywords = ['school', 'leren', 'kinderen', 'techniek', 'computer', 'berekeningen'];  
+
+      // Wikipedia API Fetch functie
+      async function fetchWikiData(title) {
+          try {
+              let url = `https://nl.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&explaintext&titles=${title}&origin=*`;
+              let response = await fetch(url);
+              let data = await response.json();
+              
+              let page = Object.values(data.query.pages)[0];
+              let content = page.extract.split('\n')[0].slice(0, 500); // Eerste 3 regels (ca. 300 tekens)
+              
+              // Check voor steekwoorden
+              let matchedKeywords = keywords.filter(keyword => content.includes(keyword));
+              return { title, content, matchedKeywords };
+          } catch (error) {
+              console.error("Error:", error);
+          }
+      }
+
+      // Simuleer het ophalen van meerdere pagina's
+      async function runScraper() {
+          let wikiPages = ['JavaScript', 'Python_(programmeertaal)', 'Nederland', 'Processor', 'Internet', 'Computergeheugen', 'Intel', 'Ruimtevaart', 'Technologie'];  
+          running = true;
+          currentPage = 0;
+
+          let output = ''; // Output voor cases
+
+          for (let page of wikiPages) {
+              if (!running) break;
+
+              let result = await fetchWikiData(page);
+              
+              // Format case voor Arya
+              let caseBlock = `case "${result.title.toLowerCase()}":\n    response = \`${result.content}\`;\n    break;\n\n`;
+              output += caseBlock;
+
+              logProgress(`Case voor: ${result.title}`);
+              logProgress(`Content: ${result.content}`);
+              logProgress(`Steekwoorden: ${result.matchedKeywords.join(', ')}`);
+
+              updateProgressBar(++currentPage, wikiPages.length);
+          }
+
+          // Toon de volledige output voor Arya (je kunt dit copy-pasten)
+          logProgress(`<pre>${output}</pre>`);
+      }
+
+      // Update de voortgangsbalk
+      function updateProgressBar(current, total) {
+          let percentage = Math.floor((current / total) * 100);
+          document.getElementById('progress-bar').style.width = percentage + '%';
+          document.getElementById('progress-bar').innerText = percentage + '%';
+      }
+
+      // Log berichten op het scherm
+      function logProgress(message) {
+          let logDiv = document.getElementById('log');
+          logDiv.innerHTML += `<p>${message}</p>`;
+      }
+
+      // Run en stop knoppen
+      document.getElementById('run-btn').addEventListener('click', () => {
+          if (!running) {
+              runScraper();
+          }
+      });
+
+      document.getElementById('stop-btn').addEventListener('click', () => {
+          running = false;
+          logProgress('Gestopt door gebruiker.');
+      });
+
+  </script>
+</body>
+</html>

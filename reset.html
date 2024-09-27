@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="LogoOnlineLeerhulp.png">
+    <title>Wachtwoord resetten- Online Leerhulp</title>
+    <style>
+
+        body {
+            background-color: lightblue;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        input {
+            background-color: rgb(250, 249, 249);
+            border-style: solid;
+            border-radius: 20px;
+            border-color: rgb(85, 3, 96);
+            border-width: 2.50px;
+            height: 15%;
+            width: 40%;
+            text-align: center;
+            font-size: large;
+            margin-left: 30%;
+        }
+
+        button {
+            background-color: rgb(29, 155, 240);
+            color: white;
+            height: 50px;
+            width: 100px;
+            border-color: orange;
+            border-radius: 50px;
+            border-style: solid;
+            cursor: pointer;
+            border-width: 1.50px;
+            margin-left: 2px;  
+            font-weight: bold;
+            font-size: 12.5px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 5px;
+            padding-right: 5px;
+            vertical-align: top;
+        }
+
+        #nav{
+  padding: 0.25%;
+  background-color: rgb(239, 157, 16);
+  margin: 0%;
+  height:max-content;
+  width:max-content;
+  margin-left: 20%;
+  border-radius: 50px
+}
+    </style>
+    <script type="module">
+        // Import de functies van de Firebase Modular SDK
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-app.js";
+        import { getAuth, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-auth.js";
+
+        // Firebase-configuratie
+        const firebaseConfig = {
+            apiKey: "AIzaSyCFtUavU1MFFeeuu-M6zh-QK9cNDP6LNJI",
+            authDomain: "online-leerhulp-account.firebaseapp.com",
+            databaseURL: "https://online-leerhulp-account-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "online-leerhulp-account",
+            storageBucket: "online-leerhulp-account.appspot.com",
+            messagingSenderId: "24539662431",
+            appId: "1:24539662431:web:2b6cd98e4d0009d38ab3ea",
+            measurementId: "G-PXQ34MLSDL"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Wachtwoord reset functie
+        window.resetPassword = function() {
+            var email = document.getElementById("email").value;
+            sendPasswordResetEmail(auth, email)
+              .then(() => {
+                alert("Een e-mail is verzonden om je wachtwoord opnieuw in te stellen.");
+              })
+              .catch((error) => {
+                var errorMessage = error.message;
+                alert("Fout: " + errorMessage);
+              });
+        };
+    </script>
+</head>
+<body>
+    <div id="nav">
+        <button onclick="window.location.href = 'Home.html';">Home</button>
+        <button onclick="window.location.href = 'Bibliotheek.html';">Bibliotheek</button>
+        <button onclick="window.location.href = 'Schoolvakken.html';">Schoolvakken</button>
+        <button onclick="window.location.href = 'Tools.html';">Tools</button>
+        <button onclick="window.location.href = 'Arya.html';">Arya (AI)</button>
+        <button onclick="window.location.href = 'Account.html';">Account</button>
+        <button onclick="window.location.href = 'Contact.html';">Contact</button>
+        </div>
+        <br>
+    <h2 style="text-align: center;">Wachtwoord vergeten?</h2>
+    <p style="text-align: center;">Voer hieronder je e-mailadres in en ontvang een wachtwoord-reset e-mail.</p>
+    
+    <input type="email" id="email" placeholder="E-mailadres" required>
+    <br>
+    <br>
+    <button style="margin-left: 46.50%;" onclick="resetPassword()">Reset Wachtwoord</button>
+</body>
+</html>
