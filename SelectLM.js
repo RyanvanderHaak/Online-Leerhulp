@@ -55,34 +55,3 @@ document.addEventListener('DOMContentLoaded', (event) => {
         loadModelScript(this.value);
     });
 });
-
-
-
-
-//Controleer op account-status
-function initArya() {
-    // Jouw bestaande initialisatiecode voor Arya hier
-
-    // Functie om de gebruikersstatus te controleren
-    function checkUserStatus() {
-        const userId = localStorage.getItem('user');
-        if (userId) {
-            firebase.database().ref(`users/${userId}`).once('value').then(snapshot => {
-                const userData = snapshot.val();
-                if (userData && userData.status !== 'active') {
-                    localStorage.removeItem('user');
-                    alert('We hebben een ongewenste activiteit op je account gedetecteerd. Je account is geblokkeerd en kunt momenteel niet meer inloggen. Probeer het later opnieuw.');
-                    window.location.href = 'Inloggen.html'; // Stuur de gebruiker naar de inlogpagina
-                }
-            });
-        }
-    }
-
-    // Stel de functie in om elke 5 minuten te draaien
-    setInterval(checkUserStatus, 300000); // 300000 ms = 5 minuten
-
-    // Hier kun je de rest van je Arya-initiatiescript aanroepen
-}
-
-// Roep initArya aan wanneer de pagina laadt
-window.onload = initArya;

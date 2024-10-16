@@ -9,6 +9,32 @@
 button {
   background-color: rgb(29, 155, 240);
   color: white;
+  height: 40px;
+  width: 150px;
+  border-color: orange;
+  border-radius: 50px;
+  border-style: solid;
+  cursor: pointer;
+  border-width: 1.50px;
+  margin-left: 2px;
+  font-weight: bold;
+  font-size: 12.5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+button:hover {
+    background-color: rgb(4, 113, 186);
+    font-size: 14px;
+    transition: 0.4s;
+}
+
+#navbar {
+    background-color: rgb(29, 155, 240);
+  color: white;
   height: 50px;
   width: 100px;
   border-color: orange;
@@ -40,7 +66,7 @@ button {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0,0,0,0.25);
 }
 
 #question-form, #quiz-container {
@@ -50,14 +76,20 @@ button {
 input[type="text"] {
     padding: 10px;
     margin-right: 10px;
-    margin-bottom: 10px;
-    width: 200px;
-    border: 1px solid #ccc;
-    border-radius: 34px;
+    margin-bottom: 15px;
+    width: 250px;
+    height: 100px;
+    border: 5px solid #ccc;
+    border-radius: 30px;
     border-style: solid;
     border-color: rgb(79, 169, 199);
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.25);
 }
 
+input[type="text"]:hover {
+    box-shadow: 0 0 100px rgba(0,0,0,0.25);
+}
 
 #feedback {
     margin-top: 10px;
@@ -66,13 +98,13 @@ input[type="text"] {
 
 </style>
 <div id="nav">
-<button onclick="window.location.href = 'Home.html';">Home</button>
-<button onclick="window.location.href = 'Bibliotheek.html';">Bibliotheek</button>
-<button onclick="window.location.href = 'Schoolvakken.html';">Schoolvakken</button>
-<button onclick="window.location.href = 'Tools.html';">Tools</button>
-<button onclick="window.location.href = 'Arya.html';">Arya (AI)</button>
-<button onclick="window.location.href = 'Account.html';">Account</button>
-<button onclick="window.location.href = 'Contact.html';">Contact</button>
+<button id="navbar" onclick="window.location.href = 'Home.html';">Home</button>
+<button id="navbar" onclick="window.location.href = 'Bibliotheek.html';">Bibliotheek</button>
+<button id="navbar" onclick="window.location.href = 'Schoolvakken.html';">Schoolvakken</button>
+<button id="navbar" onclick="window.location.href = 'Tools.html';">Tools</button>
+<button id="navbar" onclick="window.location.href = 'Arya.html';">Arya (AI)</button>
+<button id="navbar" onclick="window.location.href = 'Account.html';">Account</button>
+<button id="navbar" onclick="window.location.href = 'Contact.html';">Contact</button>
 </div>
 <br>
 <body>
@@ -81,9 +113,12 @@ input[type="text"] {
         <div id="question-form">
             <input type="text" id="question" placeholder="Voer een vraag in">
             <input type="text" id="answer" placeholder="Voer het antwoord in">
-            <button onclick="addQuestion()">Toevoegen</button>
+            <button onclick="addQuestion()">Voeg toe</button>
         </div>
         <div id="questions-container"></div>
+        <br>
+        <br>
+        <hr style="color: gray;  background-color: gray;  box-shadow: none;  border-style: solid; width: 250px; margin-right: 95%;">
         <button onclick="startQuiz()">Start Quiz</button>
         <div id="quiz-container" style="display:none;">
             <p id="quiz-question"></p>
