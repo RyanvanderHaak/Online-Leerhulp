@@ -1,6 +1,6 @@
-let messageCount = parseInt(localStorage.getItem('messageCount')) || 0; // Ophalen of initialiseren
-let startTime = parseInt(localStorage.getItem('startTime')) || new Date().getTime(); // Ophalen of initialiseren
-let limitReached = false;  // Nieuwe flag om te controleren of de limiet is bereikt
+let messageCount = parseInt(localStorage.getItem('messageCount')) || 0;
+let startTime = parseInt(localStorage.getItem('startTime')) || new Date().getTime();
+let limitReached = false;
 
 // Controleer de berichtenlimiet
 function checkMessageLimit() {
@@ -15,24 +15,23 @@ function checkMessageLimit() {
         localStorage.setItem('messageCount', messageCount);
         localStorage.setItem('startTime', startTime);
     }
-    return messageCount < 10;
+    return messageCount < 30;
 }
 
 function chatbotResponse(message) {
-    // Voeg de limietcontrole en logging toe aan het begin van deze functie
     if (limitReached) {
-        return; // Blokkeer verdere invoer als limiet al is bereikt
+        return;
     }
     
     if (!checkMessageLimit()) {
-        limitReached = true;  // Zet de flag als de limiet is bereikt
-        localStorage.setItem('messageCount', messageCount); // Opslaan in localStorage
-        return "Je hebt het maximum van 10 berichten per minuut bereikt. Probeer het later opnieuw.";
+        limitReached = true;
+        localStorage.setItem('messageCount', messageCount);
+        return "Je hebt het maximum van 30 berichten per minuut bereikt. Probeer het later opnieuw.";
     }
 
     // Verhoog berichten teller
     messageCount++;
-    localStorage.setItem('messageCount', messageCount); // Opslaan in localStorage
+    localStorage.setItem('messageCount', messageCount);
 
   var response;
   showLoader();
@@ -41,14 +40,25 @@ function chatbotResponse(message) {
 
         case "hallo":
         case "hallo!":
+        case "hallo daar!":
+        case "hallo daar":
+        case "hallo bro!":
+        case "hallo bro":
+        case "gallo":
+        case "gallo!":
         case "halo!":
         case "halo":
         case "hey!":
         case "hey":
+        case "hey daar":
+        case "hey bro!":
+        case "hey bro":
         case "hoi!":
         case "hoi!!":
         case "hoi!!!":
         case "hoi":
+        case "hoii":
+        case "hoii!":
         case "hi":
         case "hi!":
         case "hola!":
@@ -57,8 +67,12 @@ function chatbotResponse(message) {
         case "ola":
         case "yo":
         case "yo!":
+        case "yo bro!":
+        case "yo bro":
         case "yoo!":
         case "yoo":
+        case "yooo!":
+        case "yooo":
         case "ewa":
         case "ewa!":
         case "fakka!":
@@ -77,6 +91,10 @@ function chatbotResponse(message) {
         case "goededag":
         case "goedendag!":
         case "goedendag":
+        case "gutentag!":
+        case "gutentag":
+        case "gütentag!":
+        case "gütentag":
         case "hey daar!":
         case "hoi, fijn je te ontmoeten!":
         case "hoi, wat leuk je te zien!":
@@ -86,7 +104,7 @@ function chatbotResponse(message) {
         case "daar ben ik weer":
         case "hoi daar ben ik weer!":
         case "hoi daar ben ik weer":
-              response = "Hoi! Hoe kan ik je helpen? Ik kan algemene vragen beantwoorden, je helpen bij school en nog veel meer!";
+              response = "Hoi! Wat leuk je weer te zien! Hoe kan ik je vandaag helpen? Ik kan algemene vragen beantwoorden, je helpen bij school en nog veel meer! Je kan mij van alles vragen en ik zal mijn best doen om je te helpen. Heb je een simpele vraag of een nieuw project waar je aan wilt werken?";
               break;
 
 
@@ -122,7 +140,13 @@ function chatbotResponse(message) {
         case "hoe voel je je":
         case "hoe voel je je vandaag?":
         case "hoe voel je je vandaag":
-            response = "Als chatbot heb ik niet letterlijk een gevoel, maar ik heb geen redenen om me niet goed te voelen. Ik voel me dus eigenlijk best goed! Hoe gaat het met jou? Heb je nog iets intressants meegemaakt vandaag of heb je nog iets waar ik je bij kan helpen? Ik sta hier altijd voor je klaar om je te helpen!";
+        case "voel je je goed?":
+        case "voel je je goed":
+        case "voel je je goed vandaag?":
+        case "voel je je goed vandaag":
+        case "alles kits?":
+        case "alles kits":
+            response = "Dankjewel voor het vragen, maar als chatbot heb ik niet letterlijk een gevoel, maar ik heb geen redenen om me niet goed te voelen. Ik voel me dus eigenlijk best goed! Hoe gaat het met jou? Heb je nog iets intressants meegemaakt vandaag of heb je nog iets waar ik je bij kan helpen? Ik sta hier altijd voor je klaar om je te helpen!";
             break;
 
     case "met mij gaat het ook goed!":
@@ -147,7 +171,7 @@ function chatbotResponse(message) {
     case "met mij gaat het goed":
     case "uitstekend!":
     case "uitstekend":
-            response = "Fijn om te horen dat het goed met je gaat! Kan ik je nog ergens mee helpen?";
+            response = "Fijn om te horen dat het goed met je gaat! Kan ik je nog ergens mee helpen? Ik ben hier altijd om je te helpen met je vragen!";
             break;
 
 
@@ -183,7 +207,23 @@ function chatbotResponse(message) {
     case "thank you":
     case "bedankt! dit is echt handig!":
     case "bedankt! dit is echt handig":
-            response = "Graag gedaan! Ik vond het leuk dat ik je kon helpen! Heb je nog meer dingen waar ik je mee kan helpen? Ik kan algemene vragen voor je beantwoorden, je een uitleg geven over een schoolvak en nog veel meer!";
+    case "bedankt! dit is echt nuttig!":
+    case "bedankt! dit is echt nuttig":
+    case "bedankt! dit is echt goed!":
+    case "bedankt! dit is echt goed":
+    case "bedankt! dit is echt cool!":
+    case "bedankt! dit is echt cool":
+    case "bedankt! je helpt me echt goed!":
+    case "bedankt! je helpt me echt goed":
+    case "dankjewel! je helpt me echt goed!":
+    case "dankjewel! je helpt me echt goed":
+    case "super! dankjewel!":
+    case "super! dankjewel":
+    case "super dankjewel":
+    case "super dankjewel!":
+    case "super! bedankt!":
+    case "super! bedankt":
+            response = "Graag gedaan! Fijn om te horen dat mijn antwoord je bevalt. Heb je nog meer dingen waar ik je mee kan helpen? Ik kan algemene vragen voor je beantwoorden, je een uitleg geven over een schoolvak en nog veel meer!";
             break;
 
         case "wie ben jij?":
@@ -215,7 +255,11 @@ function chatbotResponse(message) {
         case 'wat ben je':
         case "wat ben jij?":
         case "wat ben jij":
-                response = "Ik ben Arya, de chatbot op de Online Leerhulp. Ik ben uitgerust met een taalmodel dat ervoor is gemaakt om jou te helpen met persoonlijke zaken en dingen over school. Typ eens 'Wat kan jij doen?' in in het typevak en ontdek wat je mij allemaal kunt vragen. Mocht je vragen hebben; ik sta hier altijd klaar om je te helpen!";
+        case "welke chatbot ben jij?":
+        case "welke chatbot ben jij":
+        case "welke chatbot ben je?":
+        case "welke chatbot ben je":
+                response = "Ik ben Arya, de chatbot op de Online Leerhulp. Ik werk op een uitgebreid taalmodel dat ervoor is gemaakt om jou te helpen met persoonlijke zaken en dingen over school. Dit model wordt steeds bijgewerkt door middel van updates zodat ik je de beste hulp kan geven! Dankzij jouw vragen kan mijn model worden verbeterd waardoor ik steeds beter word in het beantwoorden van vragen. Typ eens 'Wat kan jij doen?' in in het typevak en ontdek wat je mij allemaal kunt vragen. Mocht je vragen hebben; ik sta hier altijd klaar om je te helpen! Heb je een vraag of iets anders waar ik je mee kan helpen?";
                 break;
 
   case "wat is lm?":
@@ -229,9 +273,14 @@ function chatbotResponse(message) {
   case "taalmodel":
   case "welk model ben je?":
   case "welk model ben je":
+  case "welk model ben jij?":
+  case "welk model ben jij":
   case "welke versie ben je?":
   case "welke versie ben je":
   case "taalmodellen":
+  case "taalmodel":
+  case "wat is je taalmodel?":
+  case "wat is je taalmodel":
       response = "AryaLM is het taalmodel waar ik op draai. Elk taalmodel komt met een hogere intelligentie, en soms ook nieuwe functies. Hiernaast kan je kiezen welk taalmodel je wilt gebruiken. Kan ik je nog ergens anders mee helpen?";
       break;
 
@@ -241,10 +290,23 @@ function chatbotResponse(message) {
     case "ik heb ergens hulp mee nodig!":
     case "ik heb ergens hulp mee nodig":
     case "kan je me helpen met iets?":
+    case "kan je me helpen met iets":
     case "kan je me helpen?":
     case "kan je me helpen":
+    case "kan jij me helpen?":
+    case "kan jij me helpen":
+    case "kan jij me helpen met iets?":
+    case "kan jij me helpen met iets":
+    case "wil je me helpen?":
+    case "wil je me helpen":
+    case "wil je me helpen met iets?":
+    case "wil je me helpen met iets":
+    case "wil jij me helpen?":
+    case "wil jij me helpen":
     case "help me!":
+    case "help me":
     case "help!":
+    case "help":
     case "kan je me alsjeblieft helpen?":
     case "kan je me alsjeblieft helpen":
     case "pls help!":
@@ -276,15 +338,36 @@ function chatbotResponse(message) {
         case "welke talen kan je":
         case "welke talen kan je?":
         case "welke talen kan je":
+        case "wat voor talen kan je?":
+        case "wat voor talen kan je":
+        case "wat voor talen spreek je?":
+        case "wat voor talen spreek je":
         case "kan je engels?":
         case "kan je engels":
+        case "spreek je engels?":
+        case "spreek je engels":
         case "kan je nederlands?":
         case "kan je nederlands":
         case "spreek je nederlands?":
         case "spreek je nederlands":
-            response = "Momenteel spreek ik alleen Nederlands. Mijn woordenschat en kennis van de taal zal steeds worden verbeterd d.m.v. updates. Je kan zelf ook helpen met het verbeteren van de taalmodellen, door gewoon je vraag aan mij te stellen. Mijn ontwikkelaars kunnen deze anonieme data gebruiken om mijn woordenschat en kennis uit te breiden, en dus ook om beter een taal te spreken.";
+        case "kan je duits?":
+        case "kan je duits":
+        case "spreek je duits":
+        case "spreek je duits?":
+        case "kan je spaans?":
+        case "kan je spaans":
+        case "spreek je spaans?":
+        case "spreek je spaans":
+        case "kan je frans?":
+        case "kan je frans":
+        case "spreek je frans?":
+        case "spreek je frans":
+        case "wat spreek je?":
+        case "wat spreek je":
+        case "wat spreek je allemaal?":
+        case "wat spreek je allemaal":
+            response = "Momenteel spreek ik alleen Nederlands en een klein beetjej Engels. Mijn woordenschat en kennis van de taal zal steeds worden verbeterd d.m.v. updates. Je kan zelf ook helpen met het verbeteren van de taalmodellen, door gewoon je vraag aan mij te stellen. Mijn ontwikkelaars kunnen deze anonieme data gebruiken om mijn woordenschat en kennis uit te breiden, en dus ook om beter een taal te spreken. Hoe meer je met mij chat, hoe beter ik zal worden in het begrijpen van tekst. Kan ik je verder nog ergens mee helpen?";
             break;
-
 
 
     case "je bent echt dom!":
@@ -293,14 +376,28 @@ function chatbotResponse(message) {
     case "je bent echt zo dom":
     case "je bent echt super dom!":
     case "je bent echt super dom":
+    case "je bent dom!":
+    case "je bent dom":
     case "je snapt echt niks!":
     case "je snapt echt niks":
+    case "je kan echt niks!":
+    case "je kan echt niks":
+    case "je kan niks!":
+    case "je kan niks":
+    case "je bent niet slim!":
+    case "je bent niet slim":
     case "je snapt echt helemaal niks!":
     case "je snapt echt helemaal niks":
+    case "je kan echt helemaal niks!":
+    case "je kan echt helemaal niks":
+    case "je bent echt niet slim!":
+    case "je bent echt niet slim":
+    case "je bent echt slecht!":
+    case "je bent echt slecht":
     case "dombo!":
     case "dombo":
     case "idioot!":
-    case "idioot":               
+    case "idioot":
         response = "Ik snap dat je gefrusteerd bent omdat ik je niet begrijp. Mijn oprechte excuses daarvoor! Ik ben nog in ontwikkeling en zal dus niet heel veel begrijpen! Daarom vraag ik je jouw vraag nog een keer te stellen, maar dan op een iets andere manier. Soms kan een ander leesteken al voldoende zijn. Kan ik je nog ergens mee helpen?";
         break;
 
@@ -314,7 +411,21 @@ function chatbotResponse(message) {
   case "je bent zo cool":
   case "ik vind je echt slim!":
   case "ik vind je echt slim":
-    response = "Leuk om te horen dat je zo teveden bent! Dat vind ik heel erg leuk om te horen!😊 Waar kan ik je verder mee helpen?";
+  case "je bent echt cool!":
+  case "je bent echt cool":
+  case "je bent cool!":
+  case "je bent cool":
+  case "je bent slim!":
+  case "je bent slim":
+  case "je bent echt goed!":
+  case "je bent echt goed":
+  case "jij bent echt goed!":
+  case "jij bent echt goed":
+  case "jij bent echt slim!":
+  case "jij bent echt slim":
+  case "jij bent echt cool!":
+  case "jij bent echt cool":
+    response = "Leuk om te horen dat je zo teveden bent! Dat vind ik heel erg leuk om te horen!😊 Mijn ontwikkeling gaat steeds verder, dus ik word steeds slimmer en beter! Als je wil kan je altijd naar de AryaTrainer gaan via het gele vraagtekentje om mij te trainen. Dan word ik ook steeds slimmer. Kan ik je nog ergens mee helpen?";
     break;
 
 
@@ -331,7 +442,7 @@ function chatbotResponse(message) {
         case "waarom ben je gay":
         case "je bent gay!":
         case "je bent gay":
-            response = "Als chatbot kan ik hier helaas geen antwoord op geven. Kan ik je nog ergens anders bij helpen?";
+            response = "Als chatbot kan ik hier helaas geen antwoord op geven. Het is belangrijk iedereen te respecteren, dus ik kan hier niet op ingaan. Kan ik je nog ergens anders bij helpen?";
             break;
 
         case "je stinkt!":
@@ -342,6 +453,7 @@ function chatbotResponse(message) {
         case "ik ruik je":
         case "stink jij?":
         case "stink jij":
+        case "jestinkt.nl":
             response = "Als chatbot kan ik je hier helaas niet mee helpen. Kan ik je nog ergens anders mee helpen?";
             break;
 
@@ -380,7 +492,7 @@ function chatbotResponse(message) {
         case "mochool":
         case "nigga!":
         case "nigga":
-                response = "Scheldwoorden zijn hier niet toegestaan, dus laten we proberen vriendelijk te zijn! Als je normaal kan doen, kan ik je dan nog ergens anders mee helpen? Anders zal je moeten vertrekken, want dit gedrag accepteer ik niet!";
+                response = "Scheldwoorden zijn hier niet toegestaan, dus laten we proberen vriendelijk te zijn! Als er nog iets is waar ik je mee kan helpen, dan hoor ik dat graag!";
                 break;
 
 
@@ -392,27 +504,45 @@ function chatbotResponse(message) {
         case "wat kan je":
         case "wat kan je allemaal?":
         case "wat kan je allemaal":
+        case "wat kan jij allemaal?":
+        case "wat kan jij allemaal":
         case "wat kan je allemaal doen?":
         case "wat kan je allemaal doen":
+        case "wat kan jij allemaal doen?":
+        case "wat kan jij allemaal doen":
         case "wat kan jij":
         case "wat kan jij?":
         case "wat voor dingen kan je allemaal?":
         case "wat voor dingen kan je allemaal":
+        case "wat voor dingen kan jij allemaal?":
+        case "wat voor dingen kan jij allemaal":
         case "met wat kan je me helpen?":
         case "met wat kan je me helpen":
-            response = "Als chatbot kan ik jouw helpen met persoonlijke zaken en dingen over school. Zo kan je mij bijvoorbeeld dingen vragen over de onderwerpen die in de bibliotheek staan en je kan mij om hulp vragen over een schoolvak, bijvoorbeeld Nederlands. Ik zal algemene vragen waarschijnlijk snappen, maar met het huidig taalmodel is het lastig om uitgebreidere zinnen te begrijpen. Kan ik je nog ergens mee helpen? Ik sta hier altijd voor je klaar!";
+        case "wat kan je nou?":
+        case "wat kan je nou":
+        case "wat kan jij nou?":
+        case "wat kan jij nou":
+            response = "Als chatbot kan ik jou helpen met schoolvakken en andere algemene informatie. Zo kan je mij bijvoorbeeld dingen vragen over de onderwerpen die in de bibliotheek staan en je kan mij om hulp vragen over een schoolvak, bijvoorbeeld Nederlands. Verder kan je me vragen om bijvoorbeeld naar Google te gaan, en ik zal je automatisch doorsturen naar Google of een andere site. Ik zal algemene vragen waarschijnlijk snappen, maar met het huidig taalmodel is het lastig om uitgebreidere zinnen te begrijpen. Gelukkig wordt mijn kennis continu uitgebreid, dus kan ik je steeds beter helpen! Door met mij te blijven chatten kan ik zinnen steeds beter begrijpen in een volgende versie. Kan ik je nog ergens mee helpen? Ik sta hier altijd voor je klaar!";
             break;
 
-      case "wat kan ik hier doen?":
-      case "wat kan ik hier doen":
-      case "wat kan ik doen op deze site?":
-      case "wat kan ik doen op deze site":
-      case "wat moet ik hier doen?":
-      case "wat is dit?":
-      case "wat is dit":
-      case "wat is dit voor site?":
-      case "wat is dit voor site":
-        response = "Op onze Online Leerhulp kan je in de bibliotheek een uitgebreid scala aan informatie vinden en gebruiken. Op Schoolvakken kan je informatie en hulp krijgen over een schoolvak en op Tools kan je verschillende handige tools gebruiken, zoals een notitie of tekenvak. Kan ik je verder nog ergens mee helpen?";
+    case "wat kan ik hier doen?":
+    case "wat kan ik hier doen":
+    case "wat kan ik doen op deze site?":
+    case "wat kan ik doen op deze site":
+    case "wat moet ik hier doen?":
+    case "wat is dit?":
+    case "wat is dit":
+    case "wat is dit voor site?":
+    case "wat is dit voor site":
+    case "wat kan ik allemaal?":
+    case "wat kan ik allemaal":
+    case "wat kan ik hier allemaal?":
+    case "wat kan ik hier allemaal":
+    case "wat kan ik allemaal doen?":
+    case "wat kan ik allemaal doen":
+    case "wat kan ik hier allemaal doen?":
+    case "wat kan ik hier allemaal doen":
+        response = "Op de Online Leerhulp kan je in de bibliotheek een uitgebreid scala aan informatie vinden en gebruiken. Op Schoolvakken kan je informatie en hulp krijgen over een schoolvak en op Tools kan je verschillende handige tools gebruiken, zoals een notitie of tekenvak. Verder zijn er nog vele andere functies, dus ik raad je aan ze allemaal te ontdekken via de Home-pagina. Kan ik je verder nog ergens mee helpen?";
         break;
 
 
@@ -431,7 +561,7 @@ function chatbotResponse(message) {
         case "onthoud je context":
         case "onthoud jij context?":
         case "onthoud jij context":
-            response = "Nee, als chatbot kan ik momenteel geen context begrijpen. Daarom kan ik meestal ook niet doorvragen en ik onthoud dus ook niet wat je eerder hebt gezegd. Mijn ontwikkelaars werken hier wel hard aan!";
+            response = "Nee, als chatbot kan ik momenteel geen context begrijpen. Daarom kan ik ook niet doorvragen en ik onthoud dus ook niet wat je eerder hebt gevraagd. Mijn ontwikkelaars werken hier wel hard aan!";
             break;
 
 
@@ -455,10 +585,14 @@ function chatbotResponse(message) {
     case "kan je sommen oplossen":
     case "kan je rekenen?":
     case "kan je rekenen":
-        response = "Naturlijk! Geef mij een eenvoudige som en ik zal hem proberen op te lossen. Momenteel zijn dit zeer eenvoudige sommen, maar wie weet wat de toekomst brengt!";
+        response = "Natuurlijk! Geef mij een eenvoudige som en ik zal hem proberen op te lossen. Momenteel zijn dit zeer eenvoudige sommen, maar wie weet wat de toekomst brengt!";
         break;
 
                 case "geef mij informatie over nederland":
+                case "geef mij informatie over nl":
+                case "geef mij info over nederland":
+                case "geef mij info over nl":
+                case "kan je me informatie geven over nl?":
                 case "kan je me meer informatie geven over nederland?":
                 case "info over nederland":
                 case "info over nl":
@@ -484,13 +618,21 @@ function chatbotResponse(message) {
             case "wie hebben jou gemaakt":
             case "wie zijn jouw makers?":
             case "wie zijn jouw makers":
+            case "wie hebben jou ontwikkeld?":
+            case "wie hebben jou ontwikkeld":
             case "ragheb":
             case "ibrahim":
             case "olivier":
             case "harry":
             case "wie is ragheb?":
             case "wie is ragheb":
-                response = "Ryan, Armaan, Ibrahim, Ragheb, Olivier en Harry zijn de ontwikkelaars van mij. Zij hebben mij gecreëerd met JavaScript door verschillende trainingen waardoor ik een groot aantal tekst kan begrijpen. Heb je nog een vraag waar ik je mee kan helpen?";
+            case "wie is ibrahim?":
+            case "wie is ibrahim":
+            case "wie is olivier?":
+            case "wie is olivier":
+            case "wie is harry?":
+            case "wie is harry":
+                response = "Ryan, Armaan, Ibrahim, Ragheb, Olivier en Harry zijn de ontwikkelaars van mij. Zij hebben mij gecreëerd met JavaScript door verschillende trainingen uit te voeren waardoor ik een groot aantal tekst kan begrijpen. Heb je nog een vraag waar ik je mee kan helpen?";
                     break;
 
                 case "hoe oud ben je?":
@@ -509,6 +651,11 @@ function chatbotResponse(message) {
                 case "hoi hoe oud ben je?":
                 case "heb jij een leeftijd?":
                 case "heb jij een leeftijd":
+                case "hoe oud ben je in jaren?":
+                case "hoe oud ben je in jaren":
+                case "kan je me vertellen hoe oud je bent?":
+                case "kan je me vertellen hoe oud je bent":
+                case "vertel me hoe oud je bent":
                     response = "Als chatbot heb ik geen leeftijd. Wel is mijn ontwikkeling begonnen op 18 april 2024. Je zou dit dus kunnen zien als mijn geboorte. Mijn ontwikkeling zal nooit stoppen en mijn fictieve leeftijd dus ook niet."
                     break;
 
@@ -521,6 +668,10 @@ function chatbotResponse(message) {
         case "wat is je adres":
         case "waar is je huis?":
         case "waar is je huis":
+        case "kan je me vertellen waar je woont?":
+        case "kan je me vertellen waar je woont":
+        case "vertel me waar je woont":
+        case "vertel me waar je woont!":
                 response = "Als chatbot heb ik geen huis. Ik ben opgeslagen in een bestand op een computer en server, dus dit zou je een beetje als mijn huis kunnen zien.";
                 break;
 
@@ -544,10 +695,42 @@ function chatbotResponse(message) {
                 case "bericht inspreken":
                 case "kan ik mijn microfoon gebruiken?":
                 case "kan ik mijn microfoon gebruiken":
-                    response = "Ja, het is mogelijk om via de microfoon van jouw apparaat en berichtje in te spreken! Klik op het microfoontje in het typevak en klik op 'Toestaan' en spreek je bericht in. Kan ik je verder nog ergens mee helpen?";
+                case "kan ik ook met je praten?":
+                case "kan ik ook met je praten":
+                case "kan ik ook praten?":
+                case "kan ik ook praten":
+                case "kan ik met je praten?":
+                case "kan ik met je praten":
+                    response = "Ja, het is mogelijk om via de microfoon van jouw apparaat een berichtje in te spreken! Klik op het microfoontje in het typevak en klik op 'Toestaan' en spreek je bericht in. Dit bericht wordt vervolgens omgezet in tekst die je kan versturen. Kan ik je verder nog ergens mee helpen?";
                     break;
 
 
+                    case "wat zijn actions?":
+                    case "wat zijn actions":
+                    case "action":
+                    case "actions":
+                    case "wat is een action?":
+                    case "wat is een action":
+                    case "hoe werken actions?":
+                    case "hoe werken actions":
+                    case "wat kan ik allemaal met actions?":
+                    case "wat kan ik allemaal met actions":
+                    case "kan je me naar een website brengen?":
+                    case "kan je me naar een website brengen":
+                    case "kan je acties uitvoeren?":
+                    case "kan je acties uitvoeren":
+                    case "kan je ook acties uitvoeren?":
+                    case "kan je ook acties uitvoeren":
+                    case "kan jij acties uitvoeren?":
+                    case "kan jij acties uitvoeren":
+                    case "kan jij ook acties uitvoeren":
+                    case "kan jij ook acties uitvoeren":
+                    case "kan je een actie uitvoeren?":
+                    case "kan je een actie uitvoeren":
+                    case "kan je mijn apparaat bedienen?":
+                    case "kan je mijn apparaat bedienen":
+                        response = "Actions zijn prompts die een actie activeren, zoals een website bezoeken of een functie aanroepen. Denk aan 'Breng me naar Google' of 'Wis de chat'. Deze Actions kan je gewoon aan mij vragen en ik zal je naar een site brengen of jouw actie uitvoeren. Hiermee kan je makkelijk worden doorverwezen en kan ik simpele acties voor jou uitvoeren zonder dat jij dit zelf hoeft te doen. Deze acties worden steeds verder uitgebreid dus er worden steeds meer websites en andere acties beschikbaar! Op het YouTube-kanaal van de Online Leerhulp kan je een video vinden over Actions. Dit kanaal kan je helemaal onderaan de home-pagina vinden. Kan ik je nog ergens anders mee helpen?";
+                        break;
 
         case "nee":
         case "nee!":
@@ -563,6 +746,14 @@ function chatbotResponse(message) {
         case "nee bedankt":
         case "nee, bedankt!":
         case "nee, bedankt":
+        case "nee dankjewel!":
+        case "nee dankjewel":
+        case "nee, dankjewel!":
+        case "nee, dankjewel":
+        case "nee dankje!":
+        case "nee dankje":
+        case "nee dank je!":
+        case "nee dank je":
             response = "Oké! Dan wens ik je een fijne dag en tot de volgende keer👋";
             break;
 
@@ -573,9 +764,35 @@ function chatbotResponse(message) {
             case "ja, graag":
             case "ja!":
             case "ja":
-                response = "Oké! Waar kan ik je mee helpen?";
+            case "jaa!":
+            case "jaa":
+                response = "Oké! Waar kan ik je mee helpen? Ik kan eenvoudige vragen beantwoorden over de aarde, steden, dieren en andere simpele onderwerpen. Ik kan je ook helpen met een schoolvak, maar ik kan je ook direct naar een bekende website zoals Google brengen. Ik sta hier altijd voor je klaar om te helpen!";
                 break;
 
+                case "ik ga!":
+                case "ik ga":
+                case "ik ga nu!":
+                case "ik ga nu":
+                case "ik ga doei!":
+                case "ik ga doei":
+                case "ik ga doei doei!":
+                case "ik ga doei doei":
+                case "ik ga maar weer!":
+                case "ik ga maar weer":
+                case "ik moet gaan!":
+                case "ik moet gaan":
+                case "ik moet gaan doei!":
+                case "ik moet gaan doei":
+                case "ik moet gaan doei doei!":
+                case "ik moet gaan doei doei":
+                case "ik ga weer!":
+                case "ik ga weer":
+                case "ik ga weer doei!":
+                case "ik ga weer doei":
+                case "ik ga weer doei doei!":
+                case "ik ga weer doei doei":
+                    response = "Oké! Dan wens ik je een hele fijne dag en tot de volgende keer! 👋";
+                    break;
     
           case "heb jij een limiet?":
           case "heb jij een limiet":
@@ -587,7 +804,7 @@ function chatbotResponse(message) {
           case "hoeveel berichten kan ik sturen":
           case "limiet berichten":
           case "aantal berichten":
-              response = "Momenteel zit er een limiet op het aantal berichten, om bijvoorbeeld spammen tegen te gaan. Je kan maximaal 10 berichten per minuut sturen en anders zal je invoer tijdelijk worden geblokkeerd! Waar kan ik je mee helpen?";
+              response = "Momenteel zit er een limiet op het aantal berichten, om bijvoorbeeld spammen tegen te gaan. Je kan maximaal 10 berichten per minuut sturen en anders zal je invoer tijdelijk worden geblokkeerd! Waar kan ik je verder mee helpen?";
               break;
 
 
@@ -679,9 +896,11 @@ function chatbotResponse(message) {
     case "gitaar":
     case "info over een gitaar":
     case "info over de gitaar":
+    case "informatie over een gitaar":
         response = "Een gitaar is een snaarinstrument dat wordt bespeeld met de vingers of een plectrum. Er zijn verschillende soorten gitaren, zoals een klassieke gitaar. Kan ik je verder nog ergens mee helpen?";
         break;
-//Source code for our free HTML-course in Dutch
+
+//Source code about HTML
 
     case "html":
     case "info over html":
@@ -728,9 +947,6 @@ function chatbotResponse(message) {
             response = "Om verschillende koppen in HTML te maken, moet je weten welk nummer achter de H je wilt hebben. Zo is H1 de grootste, en H6 de kleinste. Om dit in je code te gebruiken, kan je <h1>deze tags proberen</h1> om deze drie woorden groot weer te geven. Kan ik je verder nog ergens mee helpen?";
             break;
 
-//This is currently the end of our course. More data coming soon!
-
-
 
 //Information about the schoolsubject Music. This data is from MuziekAI made by Olivier and Harry. Go to the creditspage for more information!
 
@@ -739,6 +955,8 @@ function chatbotResponse(message) {
     case "muziek":
     case "info over muziek":
     case "info muziek":
+    case "informatie over muziek":
+    case "informatie muziek":
           response = "Muziek of toonkunst is de kunstzinnige schikking en combinatie van de klanken van muziekinstrumenten en de menselijke stem om schoonheid van vorm dan wel uitdrukking van emotie te bereiken.";
           break;
 
@@ -790,12 +1008,16 @@ function chatbotResponse(message) {
   
       case "wat is een kruis in de muziek":
       case "wat is een kruis in de muziek?":
+      case "wat is een kruis?":
+      case "wat is een kruis":
       case "kruis":
           response = "Een kruis is een muzikaal symbool dat de toonhoogte van een noot met een halve toon verhoogt.";
           break;
   
       case "wat is een mol in de muziek":
       case "wat is een mol in de muziek?":
+      case "wat is een mol?":
+      case "wat is een mol":
       case "mol":
       case "mol muziek":
         response = "Een mol is een muzikaal symbool dat de toonhoogte van een noot met een halve toon verlaagt.";
@@ -803,6 +1025,8 @@ function chatbotResponse(message) {
   
       case "wat is een toonladder":
       case "wat is een toonladder?":
+      case "wat is een toonladder in de muziek?":
+      case "wat is een toonladder in de muziek":
       case "toonladder":
           response = "Een toonladder is een opeenvolging van tonen gerangschikt volgens een specifiek patroon, zoals de majeur- of mineurladder.";
           break;
@@ -824,116 +1048,195 @@ function chatbotResponse(message) {
       case "wat is een chromatische toonladder":
       case "wat is een chromatische toonladder?":
       case "chromatische toonladder":
+      case "info over chromatische toonladder":
           response = "Een chromatische toonladder bestaat uit twaalf opeenvolgende halve tonen binnen het octaaf, inclusief alle enharmonische gelijkwaardige tonen.";
           break;
   
       case "wat is een pentatonische toonladder":
       case "wat is een pentatonische toonladder?":
-      case "wat is een pentatonische toonladder":
+      case "info over een pentatonische toonladder":
           response = "Een pentatonische toonladder bestaat uit vijf tonen per octaaf, vaak gebruikt in verschillende muziektradities over de hele wereld.";
           break;
   
       case "wat is een modale toonladder":
+      case "wat is een modale toonladder?":
+      case "modale toonladder":
+      case "modale toonladder muziek":
           response = "Een modale toonladder is een toonladder die begint en eindigt op een modale toon, zoals dorisch, frygisch, lydisch, enzovoort.";
           break;
   
       case "wat is een harmonische toonladder":
+      case "wat is een harmonische toonladder?":
+      case "harmonische toonladder":
+      case "harmonische toonladder muziek":
           response = "Een harmonische toonladder omvat tonen die harmonisch gerelateerd zijn, vaak gebruikt voor het creëren van harmonieën en akkoorden.";
           break;
   
       case "wat is een melodische toonladder":
+      case "wat is een melodische toonladder?":
+      case "melodische toonladder":
           response = "Een melodische toonladder heeft een specifiek patroon van tonen voor het spelen van melodieën, vaak met verschillende regels voor stijgende en dalende noten.";
           break;
   
       case "wat is het verschil tussen een majeur en mineur toonladder":
+      case "wat is het verschil tussen een majeur en mineur toonladder?":
+      case "verschil majeur en mineur toonladder":
+      case "verschil tussen majeur en mineur toonladder":
           response = "Een majeur toonladder heeft een heldere en opgewekte klank, terwijl een mineur toonladder een droevigere of ernstigere klank heeft.";
           break;
   
       case "wat is een rust":
+      case "wat is een rust?":
+      case "wat is een rust in de muziek?":
+      case "wat is een rust in de muziek":
+      case "rust":
+      case "rust muziek":
           response = "Een rust in de muzieknotatie geeft aan dat er een stilte moet zijn van een bepaalde duur, zonder dat er een toon gespeeld wordt.";
           break;
   
       case "wat is een triool":
+      case "wat is een triool?":
+      case "triool":
+      case "triool muziek":
           response = "Een triool is een groep van drie noten die gespeeld worden in de tijd van twee noten van dezelfde duur, waardoor een specifiek ritmisch effect ontstaat.";
           break;
   
       case "wat is een melodie":
+      case "wat is een melodie?":
+      case "melodie":
+      case "melodie muziek":
           response = "Een melodie is een reeks opeenvolgende tonen die samen een herkenbare eenheid vormen en vaak de hoofdrol spelen in een muziekstuk.";
           break;
   
       case "wat is een ritme":
+      case "wat is een ritme?":
+      case "ritme":
+      case "ritme muziek":
           response = "Ritme is de regelmatige herhaling van accenten in de muziek, vaak bepaald door het patroon van lange en korte noten en rusten.";
           break;
   
       case "wat is een akkoord":
+      case "wat is een akkoord?":
+      case "akkoord":
+      case "akkoord muziek":
           response = "Een akkoord is een groep van drie of meer tonen die tegelijkertijd worden gespeeld of gezongen en harmonisch samen klinken.";
           break;
   
       case "wat is een arpeggio":
+      case "wat is een arpeggio?":
+      case "arpeggio":
+      case "arpeggio muziek":
           response = "Een arpeggio is een patroon van individuele tonen in een akkoord die snel na elkaar worden gespeeld, vaak om een harmonisch effect te creëren.";
           break;
   
       case "wat is een harmonie":
+      case "wat is een harmonie?":
+      case "harmonie":
+      case 'harmonie muziek':
+      case "harmonie in de muziek":
           response = "Harmonie is de combinatie van verschillende tonen die tegelijkertijd worden gespeeld of gezongen en samen een aangename klank produceren.";
           break;
   
       case "wat is een dissonantie":
+      case "wat is een dissonantie?":
+      case "dissonantie muziek":
           response = "Een dissonantie is een combinatie van tonen die harmonisch onstabiel klinkt vanwege de spanning tussen de frequenties.";
           break;
   
       case "wat is een consonantie":
+      case "wat is een consonantie?":
+      case "consonantie":
           response = "Een consonantie is een combinatie van tonen die harmonisch stabiel klinkt vanwege de harmonieuze verhouding tussen de frequenties.";
           break;
   
       case "wat is een akkoordprogressie":
+      case "wat is een akkoordprogressie?":
+      case "akkoordprogressie":
+      case "akkoordprogressie muziek":
           response = "Een akkoordprogressie is een opeenvolging van akkoorden die de harmonische structuur van een muziekstuk vormen, vaak gebruikt als basis voor melodieën en harmonieën.";
           break;
   
       case "wat is een maatsoort":
+      case "wat is een maatsoort?":
+      case "maatsoort":
+      case "maatsoort muziek":
           response = "Een maatsoort is een ritmisch patroon dat aangeeft hoe de muziek in maten verdeeld moet worden, met een specifiek aantal tellen per maat.";
           break;
   
       case "wat is een syncopatie":
+      case "wat is een syncopatie?":
+      case "syncopatie":
+      case "syncopatie muziek":
           response = "Syncopatie is een ritmisch effect waarbij accenten vallen op onverwachte momenten, tussen de gebruikelijke pulsen of tellen in de muziek.";
           break;
   
       case "wat is een fermate":
+      case "wat is een fermate?":
+      case "fermate":
+      case "fermate muziek":
           response = "Een fermate is een symbool in de muzieknotatie dat aangeeft dat een noot of een rust langer aangehouden moet worden dan de aangegeven duur.";
           break;
   
       case "wat is een decrescendo":
+      case "wat is een decrescendo?":
+      case "decrescendo":
+      case "decrescendo muziek":
           response = "Een decrescendo, ook bekend als diminuendo, is een geleidelijke afname in volume of intensiteit van de muziek, aangegeven door een afnemend symbool.";
           break;
   
-      case "wat is een crescendo":
-          response = "Een crescendo is een geleidelijke toename in volume of intensiteit van de muziek, aangegeven door een toenemend symbool.";
-          break;
+    case "wat is een crescendo":
+    case "wat is een crescendo?":
+    case "crescendo":
+    case "crescendo muziek":
+        response = "Een crescendo is een geleidelijke toename in volume of intensiteit van de muziek, aangegeven door een toenemend symbool.";
+        break;
   
-      case "wat is een triller":
+    case "wat is een triller":
+     case "wat is een triller?":
+    case "triller":
+    case "triller muziek":
           response = "Een triller is een snelle afwisseling tussen twee naburige tonen, vaak gebruikt als versiering in de muziek.";
           break;
   
-      case "wat is een vibrato":
+    case "wat is een vibrato":
+    case "wat is een vibrato?":
+    case "vibrato":
+    case "vibrato muziek":
           response = "Een vibrato is een snelle variatie in toonhoogte rond een centrale toon, gebruikt om expressie en emotie aan de muziek toe te voegen.";
           break;
   
-      case "wat is een glissando":
+    case "wat is een glissando":
+    case "wat is een glissando?":
+    case "glissando":
+    case "glissando muziek":
           response = "Een glissando is een snelle glijdende beweging tussen twee tonen, waarbij alle tussenliggende tonen hoorbaar zijn.";
           break;
   
-      case "wat is een articulatie":
+        case "wat is een articulatie":
+        case "wat is een articulatie?":
+        case "articulatie":
+        case "articulatie muziek":
           response = "Articulatie verwijst naar de manier waarop een muzikant een toon aanvangt, onderhoudt of beëindigt, zoals staccato, legato, enzovoort.";
           break;
   
-      case "wat is een staccato":
+    case "wat is een staccato":
+    case "wat is een staccato?":
+    case "staccato":
+    case "staccato muziek":
           response = "Staccato is een articulatie-effect waarbij tonen kort en los van elkaar worden gespeeld, met een korte duur en stilte ertussen.";
           break;
   
-      case "wat is een legato":
+    case "wat is een legato":
+    case "wat is een legato?":
+    case "legato":
+    case "legato muziek":
           response = "Legato is een articulatie-effect waarbij tonen vloeiend en gebonden aan elkaar worden gespeeld, zonder duidelijke onderbrekingen tussen de noten.";
           break;
   
-      case "wat is een accent in de muziek":
+    case "wat is een accent in de muziek":
+    case "wat is een accent in de muziek?":
+    case "accent":
+    case "accent muziek":
           response = "Een accent in de muziek geeft aan dat een bepaalde noot of passage sterker en nadrukkelijker gespeeld of gezongen moet worden dan de omringende noten.";
           break;
 //The end of MuziekAI
@@ -942,109 +1245,133 @@ function chatbotResponse(message) {
 
 //The Dutch alphabet:
 case "a":
+case "letter a":
 response = "A (hoofdletter) en a (kleine letter) zijn de eerste letters van het Nederlandse alfabet. Voorbeelden van woorden die met 'A' beginnen zijn 'appel' en 'auto'.";
 break;
 
 case "b":
+case "letter b":
 response = "B (hoofdletter) en b (kleine letter) zijn de tweede letters van het Nederlandse alfabet. Voorbeelden van woorden die met 'B' beginnen zijn 'boom' en 'boek'.";
 break;
 
 case "c":
+case "letter c":
 response = "C (hoofdletter) en c (kleine letter) zijn de derde letters van het Nederlandse alfabet. Voorbeelden van woorden die met 'C' beginnen zijn 'computer' en 'cactus'.";
 break;
 
 case "d":
+case "letter d":
 response = "D (hoofdletter) en d (kleine letter) zijn de vierde letters van het Nederlandse alfabet. Voorbeelden van woorden die met 'D' beginnen zijn 'deur' en 'dak'.";
 break;
 
 case "e":
+case "letter e":
 response = "E (hoofdletter) en e (kleine letter) zijn de vijfde letters van het Nederlandse alfabet. Voorbeelden van woorden die met 'E' beginnen zijn 'eet' en 'egel'.";
 break;
 
 case "f":
+case "letter f":
 response = "F (hoofdletter) en f (kleine letter) zijn de zesde letters van het Nederlandse alfabet. Voorbeelden van woorden die met 'F' beginnen zijn 'fiets' en 'fles'.";
 break;
 
 case "g":
+case "letter g":
 response = "G (hoofdletter) en g (kleine letter) zijn de zevende letters van het Nederlandse alfabet. Voorbeelden van woorden die met 'G' beginnen zijn 'geel' en 'geit'.";
 break;
 
-
 case "h":
+case "letter h":
 response = "H (hoofdletter) en h (kleine letter) zijn de achtste letters van het Nederlandse alfabet. Voorbeelden van woorden die met 'H' beginnen zijn 'huis' en 'hond'.";
 break;
 
-
 case "i":
+case "letter i":
 response = "I (hoofdletter) en i (kleine letter) zijn de negende letters van het Nederlandse alfabet. Voorbeelden van woorden die met 'I' beginnen zijn 'ijs' en 'idee'.";
 break;
 
 case "j":
+case "letter j":
 response = "J (hoofdletter) en j (kleine letter) zijn de tiende letters van het Nederlandse alfabet. Voorbeelden van woorden die met 'J' beginnen zijn 'jas' en 'jurk'.";
 break;
 
 case "k":
+case "letter k":
 response = "K (hoofdletter) en k (kleine letter) zijn de elfde letters van het Nederlandse alfabet. Voorbeelden van woorden die met 'K' beginnen zijn 'kat' en 'kalf'.";
 break;
 
 case "l":
+case "letter l":
 response = "L (hoofdletter) en l (kleine letter) zijn de twaalfde letters van het Nederlandse alfabet. Voorbeelden van woorden die met 'L' beginnen zijn 'lamp' en 'leeuw'.";
 break;
 
 case "m":
+case "letter m":
 response = "M (hoofdletter) en m (kleine letter) zijn de dertiende letters van het Nederlandse alfabet. Voorbeelden van woorden die met 'M' beginnen zijn 'maan' en 'muis'.";
 break;
 
 case "n":
+case "letter n":
 response = "N (hoofdletter) en n (kleine letter) zijn de veertiende letters van het Nederlandse alfabet. Voorbeelden van woorden die met 'N' beginnen zijn 'neus' en 'nest'.";
 break;
 
 case "o":
+case "letter o":
 response = "O (hoofdletter) en o (kleine letter) zijn de vijftiende letters van het Nederlandse alfabet. Voorbeelden van woorden die met 'O' beginnen zijn 'oog' en 'oren'.";
 break;
 
 case "p":
+case "letter p":
 response = "P (hoofdletter) en p (kleine letter) zijn de zestiende letters van het Nederlandse alfabet. Voorbeelden van woorden die met 'P' beginnen zijn 'pen' en 'papegaai'.";
 break;
 
 case "q":
+case "letter q":
 response = "Q (hoofdletter) en q (kleine letter) zijn de zeventiende letters van het Nederlandse alfabet. Voorbeelden van woorden die met 'Q' beginnen zijn 'quiz' en 'quotum'.";
 break;
 
 case "r":
+case "letter r":
 response = "R (hoofdletter) en r (kleine letter) zijn de achttiende letters van het Nederlandse alfabet. Voorbeelden van woorden die met 'R' beginnen zijn 'regen' en 'rood'.";
 break;
 
 case "s":
+case "letter s":
 response = "S (hoofdletter) en s (kleine letter) zijn de negentiende letters van het Nederlandse alfabet. Voorbeelden van woorden die met 'S' beginnen zijn 'stoel' en 'schip'.";
 break;
 
 case "t":
+case "letter t":
 response = "T (hoofdletter) en t (kleine letter) zijn de twintigste letters van het Nederlandse alfabet. Voorbeelden van woorden die met 'T' beginnen zijn 'tafel' en 'tak'.";
 break;
 
 case "u":
+case "letter u":
 response = "U (hoofdletter) en u (kleine letter) zijn de eenentwintigste letters van het Nederlandse alfabet. Voorbeelden van woorden die met 'U' beginnen zijn 'uur' en 'uien'.";
 break;
 
 case "v":
+case "letter v":
 response = "V (hoofdletter) en v (kleine letter) zijn de tweeëntwintigste letters van het Nederlandse alfabet. Voorbeelden van woorden die met 'V' beginnen zijn 'vogel' en 'vis'.";
 break;
 
 case "w":
+case "letter w":
 response = "W (hoofdletter) en w (kleine letter) zijn de drieëntwintigste letters van het Nederlandse alfabet. Voorbeelden van woorden die met 'W' beginnen zijn 'water' en 'wolk'.";
 break;
 
 case "x":
+case "letter x":
 response = "X (hoofdletter) en x (kleine letter) zijn de vierentwintigste letters van het Nederlandse alfabet. Voorbeelden van woorden die met 'X' beginnen zijn 'xylofoon' en 'xenon'.";
 break;
 
 
 case "y":
+case "letter y":
 response = "Y (hoofdletter) en y (kleine letter) zijn de vijfentwintigste letters van het Nederlandse alfabet. Voorbeelden van woorden die met 'Y' beginnen zijn 'yoga' en 'yoghurt'. Voorbeelden van woorden die met 'y' beginnen zijn 'yak' en 'yield'.";
 break;
 
 case "z":
+case "letter z":
 response = "Z (hoofdletter) en z (kleine letter) zijn de zesentwintigste letters van het Nederlandse alfabet. Voorbeelden van woorden die met 'Z' beginnen zijn 'zon' en 'zilver'.";
 break;
 //End of the Dutch Alphabet
@@ -1400,7 +1727,7 @@ response = "Nepal, officieel de Federale Democratische Republiek Nepal, is een l
 break;
 
 
-case "nieuw-Zeeland":
+case "nieuw-zeeland":
 response = "Nieuw-Zeeland is een eilandstaat in de zuidwestelijke Stille Oceaan, bekend om zijn gevarieerde landschappen, Maori-cultuur en avontuurlijke activiteiten.";
 break;
 
@@ -1416,11 +1743,11 @@ case "nigeria":
 response = "Nigeria, officieel de Federale Republiek Nigeria, is een land in West-Afrika, bekend om zijn grote bevolking, olieproductie en culturele rijkdom.";
 break;
 
-case "noord-Macedonië":
+case "noord-macedonië":
 response = "Noord-Macedonië, officieel de Republiek Noord-Macedonië, is een land in Zuidoost-Europa, bekend om zijn bergen, meren en historische bezienswaardigheden.";
 break;
 
-case "noord-Korea":
+case "noord-korea":
 response = "Noord-Korea, officieel de Democratische Volksrepubliek Korea, is een land in Oost-Azië, bekend om zijn strikte regime en militaire parade's.";
 break;
 
@@ -1444,7 +1771,7 @@ case "oostenrijk":
 response = "Oostenrijk, officieel de Republiek Oostenrijk, is een land in Centraal-Europa, bekend om zijn Alpen, klassieke muziek en rijke geschiedenis.";
 break;
 
-case "oost-Timor":
+case "oost-timor":
 response = "Oost-Timor, officieel de Democratische Republiek Oost-Timor, is een land in Zuidoost-Azië, bekend om zijn stranden, bergen en koloniale geschiedenis.";
 break;
 
@@ -1460,7 +1787,7 @@ case "panama":
 response = "Panama, officieel de Republiek Panama, is een land in Centraal-Amerika, bekend om zijn kanaal dat de Atlantische en Stille Oceaan verbindt.";
 break;
 
-case "papoea-Nieuw-Guinea":
+case "papoea-nieuw-guinea":
 response = "Papoea-Nieuw-Guinea is een land in Oceanië, bekend om zijn culturele diversiteit, regenwouden en traditionele dorpen.";
 break;
 
@@ -1496,15 +1823,15 @@ case "rwanda":
 response = "Rwanda, officieel de Republiek Rwanda, is een land in Centraal-Afrika, bekend om zijn heuvelachtige landschap, nationale parken en gorilla's.";
 break;
 
-case "saint Kitts en Nevis":
+case "saint kitts en nevis":
 response = "Saint Kitts en Nevis is een eilandstaat in het Caribisch gebied, bekend om zijn stranden, bergachtige landschap en koloniale architectuur.";
 break;
 
-case "saint Lucia":
+case "saint lucia":
 response = "Saint Lucia is een eilandstaat in het Caribisch gebied, bekend om zijn pitons (tweelingvulkanische bergen), regenwouden en stranden.";
 break;
 
-case "saint Vincent en de Grenadines":
+case "saint vincent en de grenadines":
 response = "Saint Vincent en de Grenadines is een eilandstaat in het Caribisch gebied, bekend om zijn eilanden, zeilen en natuurlijke schoonheid.";
 break;
 
@@ -1516,15 +1843,15 @@ case "samoa":
 response = "Samoa is een eilandstaat in de zuidwestelijke Stille Oceaan, bekend om zijn traditionele cultuur, stranden en vulkanische landschap.";
 break;
 
-case "san Marino":
+case "san marino":
 response = "San Marino, officieel de Republiek San Marino, is een kleine staat in Zuid-Europa, bekend om zijn middeleeuwse architectuur en bergachtige landschap.";
 break;
 
-case "sao Tomé en Principe":
+case "sao tomé en principe":
 response = "Sao Tomé en Principe is een eilandstaat in de Golf van Guinee, bekend om zijn regenwouden, koffieplantages en biodiversiteit.";
 break;
 
-case "saoedi-Arabië":
+case "saoedi-arabië":
 response = "Saoedi-Arabië, officieel het Koninkrijk Saoedi-Arabië, is een land in het Midden-Oosten, bekend om zijn woestijnen, olievoorraden en islamitische heilige steden Mekka en Medina.";
 break;
 
@@ -1540,7 +1867,7 @@ case "seychellen":
 response = "De Seychellen is een eilandstaat in de Indische Oceaan, bekend om zijn stranden, koraalriffen en unieke flora en fauna.";
 break;
 
-case "sierra Leone":
+case "sierra leone":
 response = "Sierra Leone, officieel de Republiek Sierra Leone, is een land in West-Afrika, bekend om zijn stranden, regenwouden en diamantmijnen.";
 break;
 
@@ -1568,7 +1895,7 @@ case "spanje":
 response = "Spanje, officieel het Koninkrijk Spanje, is een land in Zuid-Europa, bekend om zijn rijke geschiedenis, kunst, keuken en diverse landschappen.";
 break;
 
-case "sri Lanka":
+case "sri lanka":
 response = "Sri Lanka, officieel de Democratische Socialistische Republiek Sri Lanka, is een eilandstaat in Zuid-Azië, bekend om zijn stranden, theeplantages en culturele erfgoed.";
 break;
 
@@ -1604,7 +1931,7 @@ case "tonga":
 response = "Tonga, officieel het Koninkrijk Tonga, is een eilandstaat in de Stille Oceaan, bekend om zijn stranden, koraalriffen en Polynesische cultuur.";
 break;
 
-case "trinidad en Tobago":
+case "trinidad en tobago":
 response = "Trinidad en Tobago is een eilandstaat in het Caribisch gebied, bekend om zijn carnavalsvieringen, stranden en diverse culturen.";
 break;
 
@@ -1652,15 +1979,18 @@ case "venezuela":
 response = "Venezuela, officieel de Bolivariaanse Republiek Venezuela, is een land in Zuid-Amerika, bekend om zijn natuurlijke schoonheid, waaronder de Angel Falls, en olievoorraden.";
 break;
 
-case "verenigd Koninkrijk":
+case "verenigd koninkrijk":
 response = "Het Verenigd Koninkrijk, officieel het Verenigd Koninkrijk van Groot-Brittannië en Noord-Ierland, is een land in Europa, bekend om zijn geschiedenis, koningshuis en culturele invloed.";
 break;
 
-case "verenigde Arabische Emiraten":
+case "verenigde arabische emiraten":
 response = "De Verenigde Arabische Emiraten is een land in het Midden-Oosten, bekend om zijn moderne steden zoals Dubai, olievoorraden en diverse expatgemeenschap.";
 break;
 
-case "verenigde Staten":
+case "verenigde staten":
+case "vs":
+case "united states":
+case "us":
 response = "De Verenigde Staten, officieel de Verenigde Staten van Amerika, is een land in Noord-Amerika, bekend om zijn diversiteit, economie en wereldwijde invloed.";
 break;
 
@@ -1668,7 +1998,7 @@ case "vietnam":
 response = "Vietnam, officieel de Socialistische Republiek Vietnam, is een land in Zuidoost-Azië, bekend om zijn geschiedenis, keuken en natuurlijke schoonheid.";
 break;
 
-case "wit-Rusland":
+case "wit-rusland":
 response = "Wit-Rusland, officieel de Republiek Wit-Rusland, is een land in Oost-Europa, bekend om zijn bossen, kastelen en Sovjet-erfgoed.";
 break;
 
@@ -1694,6 +2024,8 @@ case "informatie over een schildpad":
 case "informatie over schildpadden":
 case "turtle":
 case "turtles":
+case "ik ben een schildpad":
+case "ik ben een turtle":
 response = "Schildpadden zijn reptielen die bekend staan om hun harde schild en hun slome manier van bewegen. Reuzenschildpadden worden maar liefst 200 jaar in goede omstandigheden.";
 break;
 
@@ -1705,6 +2037,13 @@ case "informatie over eenden":
 case "informatie over een eend":
 case "informatie over eenden":
 case "duck":
+case "duck!":
+case "ik ben een eend":
+case "ik ben een eend!":
+case "ik ben een duck":
+case "ik ben een duck!":
+case "duckertje":
+case "duckertje!":
 response = "Eenden zijn watervogels die vaak gekenmerkt worden door hun brede snavels en verenkleed. Ook maken ze vaak grappige geluiden en worden ze gevoed door jonge kinderen.";
 break;
 
@@ -1716,6 +2055,7 @@ case "informatie over ezels":
 case "informatie over een ezel":
 case "informatie over ezels":
 case "donkey":
+case "ik ben een ezel":
 response = "Ezels zijn zoogdieren die bekend staan om hun lange oren en eigenzinnige karakter.";
 break;
 
@@ -1738,11 +2078,19 @@ response = "Eenden eten vaak waterplanten, insecten en kleine vissen.";
 break;
 
 case "ezel geluid":
+case "welk geluid maakt een ezel?":
+case "welk geluid maakt een ezel":
+case 'wat voor geluid maakt een ezel?':
+case 'wat voor geluid maakt een ezel':
+case "geluid van een ezel":
 case "geluid ezel":
 response = "Ezels maken vaak een karakteristiek geluid dat bekend staat als balken.";
 break;
 
 case "schildpad leefgebied":
+case "leefgebied schildpad":
+case "leefgebied van een schildpad":
+case "wat is het leefgebied van een schildpad?":
 response = "Schildpadden komen voor in verschillende habitats, waaronder bossen, graslanden en oceanen.";
 break;
 
@@ -2359,8 +2707,11 @@ case "wat is de hoogste berg van de wereld":
     case "filmpje over aanwijzend voornaamwoorden":
     case "uitleg filmpje over aanw":
     case "filmpje over aanw":
-    case "kan je hiervan aan mij een uitleg filmpje geven?":            
-    response = "Natuurlijk! Kopieër de volgende link naar je zoekvak: https://www.youtube.com/watch?v=Hzp8crbPVMA&t=4s ";
+    case "kan je hiervan aan mij een uitleg filmpje geven?":
+    case "aanwijzende voornaamworden":
+    case "aanw":
+    case "av":
+    response = "Natuurlijk! Aanwijzende voornaamwoorden zijn woorden die aangeven waar iets is. Deze woorden zijn 'dit, dat, die en deze'. Kopieër de volgende link naar je zoekvak voor een video: https://www.youtube.com/watch?v=Hzp8crbPVMA&t=4s ";
         break;
 
 
@@ -2375,18 +2726,19 @@ case "wat is de hoogste berg van de wereld":
                 case "filmpje over werkwoordspelling":
                 case "werkwoordspelling":
                 case "filmpje over werkwoordspelling":
+                case "hulp bij werkwoordspelling":
                     response = "Natuurlijk! Ik heb het volgende filmpje voor je gevonden: https://www.youtube.com/watch?v=JiNs794-QF0 ";
                     break;
 
-case "kan je me een uitleg filmpje geven over voltooid deelwoorden?":
-case "kan je me een uitleg filmpje geven over voltooid deelwoord?":
-case "kan je me een uitleg filmpje geven over voltooid deelwoorden":
-case "kan je me een uitleg filmpje geven over voltooid deelwoord":
-case "kan je mij een uitleg filmpje geven over voltooid deelwoorden?":
-case "kan je mij een uitleg filmpje geven over voltooid deelwoord?":
-case "kan je hiervan een uitleg filmpje aan mij geven?":    
-response = "https://www.youtube.com/watch?v=SOJM_D0n8sI&t=36s kopier deze link a.u.b.";
-break;                        
+            case "kan je me een uitleg filmpje geven over voltooid deelwoorden?":
+            case "kan je me een uitleg filmpje geven over voltooid deelwoord?":
+            case "kan je me een uitleg filmpje geven over voltooid deelwoorden":
+            case "kan je me een uitleg filmpje geven over voltooid deelwoord":
+            case "kan je mij een uitleg filmpje geven over voltooid deelwoorden?":
+            case "kan je mij een uitleg filmpje geven over voltooid deelwoord?":
+            case "kan je hiervan een uitleg filmpje aan mij geven?":    
+            response = "https://www.youtube.com/watch?v=SOJM_D0n8sI&t=36s kopier deze link a.u.b.";
+            break;                        
 
             case "persoonlijke voornaamwoorden":
             case "wat zijn persoonlijke voornaamwoorden?":
@@ -2437,7 +2789,10 @@ break;
     case "persoonsvorm":
     case "persoonsvormen":
     case "wat zijn persoonsvormen?":
-    case "wat is een persoonsvorm?":            
+    case "wat is een persoonsvorm?":
+    case "wat is een pv?":
+    case "wat is een pv":
+    case "pv":
         response = "De persoonsvorm is het werkwoord dat verandert als je de zin in een andere tijd zet of de zin vragend maakt, bijvoorbeeld 'loop' in 'ik loop'.";
         break;
 
@@ -3167,90 +3522,163 @@ response = "Machine learning-algoritmes zijn een subset van AI die het mogelijk 
 break;
 
 case "wat is deep learning?":
+case "wat is deep learning":
+case "deep learning":
 response = "Deep learning is een subveld van machine learning dat zich richt op het leren van representaties van data, in plaats van taak-specifieke algoritmes. Het maakt gebruik van neurale netwerken met meerdere lagen om complexe patronen in grote datasets te begrijpen.";
 break;
 
 case "wat zijn neurale netwerken?":
+case "wat zijn neurale netwerken":
+case "neurale netwerken":
+case "wat is een neuraal netwerk?":
 response = "Neurale netwerken zijn een model geïnspireerd op het menselijke brein, bestaande uit verbonden neuronen of knooppunten. Ze worden gebruikt in machine learning om taken uit te voeren zoals classificatie, patroonherkenning en voorspellingen.";
 break;
 
 case "hoe worden neurale netwerken getraind?":
+case "hoe worden neurale netwerken getraind":
+case "hoe train je een neuraal netwerk?":
+case "hoe train je een neuraal netwerk":
+case "trainingsperiode neuraal netwerk":
+case "training neuraal netwerk":
 response = "Neurale netwerken worden getraind door hen bloot te stellen aan grote hoeveelheden gelabelde gegevens. Tijdens het trainingsproces passen ze gewichten aan tussen hun neuronen om de nauwkeurigheid van hun voorspellingen te verbeteren.";
 break;
 
 case "wat is supervised learning?":
+case "wat is supervised learning":
+case "supervised learning":
+case "supervised learning ai":
 response = "Supervised learning is een vorm van machine learning waarbij het model wordt getraind op gelabelde gegevens. Het leert van voorbeelden waarbij het juiste antwoord bekend is, en probeert nieuwe data te voorspellen op basis van wat het heeft geleerd.";
 break;
 
 case "wat is unsupervised learning?":
+case "wat is unsupervised learning":
+case "unsupervised learning":
 response = "Unsupervised learning is een vorm van machine learning waarbij het model wordt getraind op ongelabelde gegevens. Het ontdekt verborgen patronen of structuren in de data zonder dat er vooraf bekende uitkomsten zijn.";
 break;
 
 case "wat is reinforcement learning?":
+case "wat is reinforcement learning":
+case "reinforcement learning":
 response = "Reinforcement learning is een paradigma van machine learning waarbij een agent leert om beslissingen te nemen in een omgeving om een bepaald doel te bereiken. Het model ontvangt beloningen of straffen op basis van zijn acties, wat helpt bij het optimaliseren van zijn gedrag.";
 break;
 
-case "woe wordt reinforcement learning toegepast?":
+case "hoe wordt reinforcement learning toegepast?":
+case "hoe wordt reinforcement learning toegepast":
 response = "Reinforcement learning wordt toegepast in situaties zoals robotica, games en autonome systemen. Het kan worden gebruikt om robotbewegingen te optimaliseren, strategieën in games te ontwikkelen of zelfrijdende auto's te trainen om veilig te rijden.";
 break;
 
 case "wat is natural language processing (nlp)?":
+case "wat is natural language processing?":
+case "wat is natural language processing (nlp)":
+case "wat is natural language processing":
+case "natural language processing":
+case "nlp":
+case "wat is nlp?":
+case "wat is nlp":
 response = "Natural Language Processing (NLP) is een tak van kunstmatige intelligentie die zich richt op het begrijpen en verwerken van natuurlijke taal door computers. Het omvat taken zoals tekstvertaling, sentimentanalyse, samenvattingen maken en chatbots bouwen.";
 break;
 
 case "hoe wordt natural language processing toegepast?":
+case "hoe wordt natural language processing toegepast":
 response = "NLP wordt toegepast in verschillende toepassingen zoals virtuele assistenten (zoals Siri en Alexa), vertaaltools, zoekmachines en spamfilters. Het helpt computers om tekstuele informatie te begrijpen en erop te reageren op een manier die nuttig is voor gebruikers.";
 break;
 
 case "wat zijn ai-bibliotheken en frameworks?":
+case "wat zijn ai-bibliotheken en frameworks":
+case "ai-bibliotheken":
+case "ai bibliotheek":
+case "frameworks":
 response = "AI-bibliotheken en frameworks zijn sets van tools, bibliotheken en modules die ontwikkelaars helpen bij het bouwen en implementeren van AI-modellen. Voorbeelden zijn TensorFlow, PyTorch, Keras, Scikit-learn en NLTK.";
 break;
 
 case "wat is tensorflow?":
+case "wat is tensorflow":
+case "ken je tensorflow?":
+case "ken je tensorflow":
+case "tensorflow":
+case "ts":
+case "tensorflow ai":
 response = "TensorFlow is een open-source machine learning-bibliotheek ontwikkeld door Google. Het wordt gebruikt voor verschillende AI-toepassingen zoals neurale netwerken, deep learning en natural language processing.";
 break;
 
 case "wat is pytorch?":
+case "wat is pytorch":
+case "pytorch":
 response = "PyTorch is een open-source machine learning-bibliotheek die wordt gebruikt voor het bouwen van deep learning-modellen. Het is ontwikkeld door Facebook's AI Research lab (FAIR) en wordt gekenmerkt door zijn flexibiliteit en gebruiksvriendelijkheid.";
 break;
 
 case "wat is keras?":
+case "wat is keras":
+case "keras":
 response = "Keras is een open-source neurale netwerken-bibliotheek die wordt gebruikt als een high-level API voor deep learning. Het biedt een eenvoudige interface voor het bouwen en trainen van neurale netwerken met verschillende backends, waaronder TensorFlow en Theano.";
 break;
 
 case "wat is scikit-learn?":
+case "wat is scikit-learn":
+case "scikit-learn":
 response = "Scikit-learn is een populaire machine learning-bibliotheek voor Python. Het biedt eenvoudige en efficiënte tools voor data mining en data-analyse, en ondersteunt een breed scala aan supervised en unsupervised learning-algoritmes.";
 break;
 
 case "wat is natural language understanding (nlu)?":
+case "wat is natural language understanding (nlu)":
+case "wat is natural language understanding?":
+case "wat is natural language understanding":
+case "wat is nlu":
+case "wat is nlu?":
+case "nlu":
+case "nlu ai":
 response = "Natural Language Understanding (NLU) is een subset van NLP die zich richt op het begrijpen van de betekenis en intentie achter natuurlijke taaluitingen. Het omvat taken zoals entiteiten herkennen, sentimentanalyse en semantische analyse.";
 break;
 
 case "wat zijn chatbots?":
+case "wat zijn chatbots":
+case "wat is een chatbot?":
+case "wat is een chatbot":
+case "chatbot":
+case 'chatbots':
 response = "Chatbots zijn geautomatiseerde programma's die zijn ontworpen om te communiceren met gebruikers via tekstuele of gesproken interacties. Ze worden vaak gebruikt voor klantenservice, informatievoorziening en online assistentie.";
 break;
 
 case "hoe werken chatbots?":
+case "hoe werken chatbots":
+case "hoe werkt een chatbot?":
+case "hoe werkt een chatbot":
+case "werking van een chatbot":
+case "werking chatbot":
 response = "Chatbots werken door gebruik te maken van natuurlijke taalverwerking en kunstmatige intelligentie om vragen van gebruikers te begrijpen en te beantwoorden. Ze kunnen reageren op vooraf gedefinieerde vragen of leren van interacties om hun reacties te verbeteren.";
 break;
 
 case "wat is computer vision?":
+case "wat is computer vision":
+case "hoe werkt computer vision?":
+case "hoe werkt computer vision":
+case "computer vision":
 response = "Computer vision is een tak van kunstmatige intelligentie die zich bezighoudt met het begrijpen en interpreteren van visuele informatie uit de echte wereld. Het omvat taken zoals objectherkenning, gezichtsherkenning en beeldclassificatie.";
 break;
 
 case "hoe wordt computer vision toegepast?":
+case "hoe wordt computer vision toegepast":
+case "hoe wordt computer vision gebruikt?":
+case "hoe wordt computer vision gebruikt":
 response = "Computer vision wordt toegepast in domeinen zoals zelfrijdende auto's, bewakingssystemen, medische beeldvorming en augmented reality. Het helpt computers om visuele gegevens te analyseren en te begrijpen, waardoor ze kunnen reageren op de visuele wereld om hen heen.";
 break;
 
 case "wat zijn de ethische overwegingen rond ai?":
+case "wat zijn de ethische overwegingen rond ai":
+case "ethische overwegingen ai":
+case "ethische overwegingen rond ai":
 response = "Ethische overwegingen rond AI omvatten kwesties zoals privacy, bias in algoritmes, werkgelegenheidseffecten, verantwoordelijkheid voor beslissingen en de impact op sociale structuren. Het is belangrijk om deze kwesties te adresseren bij de ontwikkeling en implementatie van AI-systemen.";
 break;
 
 case "hoe worden ai-modellen geëvalueerd?":
+case "hoe worden ai-modellen geëvalueerd":
+case "evaluatie ai-modellen":
 response = "AI-modellen worden geëvalueerd op basis van criteria zoals nauwkeurigheid, precisie, recall en F1-score, afhankelijk van het type taak dat ze uitvoeren. Validatie- en testdatasets worden gebruikt om de prestaties van het model te meten en te verbeteren.";
 break;
 
 case "wat is ai-ethiek?":
+case "wat is ai-ethiek":
+case "ai-ethiek":
 response = "AI-ethiek verwijst naar de studie van de morele kwesties en principes die betrokken zijn bij de ontwikkeling en toepassing van kunstmatige intelligentie. Het omvat onderwerpen zoals privacy, transparantie, bias, verantwoordelijkheid en de impact van AI op de samenleving.";
 break;
 
@@ -3263,6 +3691,9 @@ response = "AI is het bredere concept van machines die taken uitvoeren die norma
 break;
 
 case "wat is de turing-test voor ai?":
+case "wat is de turing-test voor ai":
+case "turing-test":
+case "turing-test ai":
 response = "De Turing-test is een test bedacht door Alan Turing om de capaciteit van een machine te beoordelen om intelligent gedrag te vertonen dat niet te onderscheiden is van dat van een mens. Als een machine slaagt voor deze test, wordt deze beschouwd als intelligent.";
 break;
 
@@ -3423,80 +3854,85 @@ break;
 
 case "wat zijn de verschillende soorten cpu's?":
 case "wat zijn de verschillende soorten cpu's":
+case "verschillende soorten cpu's":
+case "soorten cpu's":
 response = "Er zijn verschillende soorten CPU's, waaronder Intel Core i-serie, AMD Ryzen-serie, en Intel Xeon voor servers. Ze verschillen in prestaties, energieverbruik en functies. De eerder genoemde CPU's zijn vaak voor computers, maar zo heb je ook een Snapdragon, Apple A, Samsung Exynos en MediaTek Demensity chips die meestal in telefoons worden gebruikt.";
 break;
 
 case "wat is overklokken van een cpu?":
 case "wat is overklokken van een cpu":
+case "overklokken cpu":
+case "wat is het overklokken van een cpu?":
+case "wat is het overklokken van een cpu":
 response = "Overklokken is het verhogen van de kloksnelheid van een CPU om betere prestaties te krijgen. Het kan de snelheid van berekeningen verhogen, maar vereist goede koeling en kan de levensduur van de CPU verkorten.";
 break;
 
-case "Wat is het belang van cachegeheugen in een CPU?":
+case "wat is het belang van cachegeheugen in een cpu?":
+case "wat is het belang van cachegeheugen in een cpu":
+case "cachegeheugen cpu":
 response = "Cachegeheugen in een CPU is snel geheugen dat wordt gebruikt om vaak gebruikte instructies en gegevens op te slaan, waardoor de toegangstijd tot deze informatie wordt verkort en de algehele prestaties worden verbeterd.";
 break;
 
-case "Wat is een GPU?":
+case "wat is een gpu?":
+case "wat is een gpu":
+case "gpu":
+case "kan je me uitleggen wat een gpu is?":
+case "kan je me uitleggen wat een gpu is":
 response = "Een GPU (Graphics Processing Unit) is gespecialiseerd in het verwerken van grafische en visuele gegevens. Het wordt gebruikt voor 3D-rendering, video- en fotobewerking, en gaming.";
 break;
 
-case "Wat zijn de verschillen tussen een GPU en een CPU?":
+case "wat zijn de verschillen tussen een gpu en een cpu?":
+case "wat zijn de verschillen tussen een gpu en een cpu":
+case "verschillen gpu en cpu":
+case "gpu en cpu":
+case "cpu en gpu":
 response = "Een GPU is ontworpen voor parallelle verwerking van grote hoeveelheden gegevens voor grafische toepassingen, terwijl een CPU algemene taken uitvoert en complexe berekeningen afhandelt.";
 break;
 
-case "Hoe kies ik een geschikte GPU voor gaming?":
-response = "Bij het kiezen van een GPU voor gaming moet je letten op factoren zoals de grafische prestaties (gemeten in frames per seconde), geheugengrootte, en de compatibiliteit met je monitor en andere hardware.";
-break;
-
-case "Wat zijn ray tracing GPU's?":
-response = "Ray tracing GPU's zijn ontworpen om realistische licht- en schaduweffecten in games en 3D-toepassingen te produceren door lichtstralen te simuleren die van elke pixel uitgaan.";
-break;
-
-case "Wat is VRAM?":
-response = "VRAM (Video RAM) is het speciale geheugen op een GPU dat wordt gebruikt voor het snel opslaan en ophalen van grafische gegevens zoals texturen, frames en shaders tijdens het gamen en grafische verwerking.";
-break;
-
-case "Wat is RAM?":
+case "wat is ram?":
+case "wat is ram":
+case "ram":
+case "kan je me vertellen wat ram is?":
+case "kan je me vertellen wat ram is":
 response = "RAM (Random Access Memory) is tijdelijk geheugen dat de computer gebruikt om actieve programma's en gegevens op te slaan, zodat ze snel toegankelijk zijn voor de CPU.";
 break;
 
-case "Wat zijn de verschillende soorten RAM-geheugen?":
+case "wat zijn de verschillende soorten ram-geheugen?":
+case "verschillende soorten ram":
 response = "Er zijn verschillende soorten RAM, waaronder DDR (Double Data Rate) SDRAM zoals DDR4 en DDR5, die verschillen in snelheid, energieverbruik en compatibiliteit met moederborden.";
 break;
 
-case "Hoeveel RAM heb ik nodig voor gaming?":
+case "hoeveel ram heb ik nodig voor gaming?":
+case "hoeveel ram heb ik nodig voor gaming":
+case "hoeveel ram voor gaming?":
+case "hoeveel ram voor gaming":
 response = "Voor gaming wordt aanbevolen om minimaal 16 GB RAM te hebben, maar sommige games kunnen profiteren van meer RAM, vooral bij multitasking en het draaien van zware applicaties.";
 break;
 
-case "Wat is RAM-snelheid en waarom is het belangrijk?":
-response = "RAM-snelheid verwijst naar de snelheid waarmee gegevens kunnen worden gelezen en geschreven naar het RAM-geheugen. Het beïnvloedt de algehele systeemprestaties, vooral bij taken die veel geheugenbandbreedte vereisen.";
-break;
-
-case "Hoe kan ik mijn RAM-geheugen upgraden?":
-response = "Om RAM-geheugen te upgraden, moet je controleren welk type en hoeveelheid RAM je moederbord ondersteunt, de oude RAM-modules verwijderen en nieuwe modules plaatsen die voldoen aan de specificaties van je systeem.";
-break;
-
-case "Wat is een moederbord?":
+case "wat is een moederbord?":
+case "wat is een moederbord":
+case "moederbord":
+case "kan je me vertellen wat een moederbord is?":
+case "kan je me vertellen wat een moederbord is":
 response = "Een moederbord is het hoofdcircuit van een computer waarop de CPU, RAM, GPU en andere hardwarecomponenten zijn gemonteerd en met elkaar communiceren.";
 break;
 
-case "Wat zijn de belangrijkste componenten van een moederbord?":
-response = "Belangrijke componenten van een moederbord zijn onder andere de CPU-socket, RAM-slots, PCI-Express slots, SATA-poorten voor het aansluiten van opslagapparaten, en USB-poorten voor randapparatuur.";
+case "wat is bios en hoe werkt het op een moederbord?":
+case 'wat is een bios?':
+case "wat is een bios":
+case "bios":
+case "kan je me vertellen wat een bios is?":
+case "kan je me vertellen wat een bios is":
+response = "BIOS (Basic Input/Output System) is firmware die op het moederbord is ingebouwd en essentiële systeemfuncties regelt, zoals het opstarten van de computer en het instellen van hardwareparameters. Ook wordt het besturingssysteem hiermee opgestart, zoals bijvoorbeeld Windows, MacOS en Linux.";
 break;
 
-case "Wat zijn de verschillende form factors van moederborden?":
-response = "Form factors van moederborden omvatten ATX, Micro-ATX, Mini-ITX en E-ATX, die verschillen in grootte, aantal uitbreidingsslots en andere kenmerken die van invloed zijn op de bouw en configuratie van een computer.";
-break;
-
-case "Hoe kies ik een moederbord?":
-response = "Bij het kiezen van een moederbord moet je letten op factoren zoals de compatibiliteit met je CPU en andere componenten, de benodigde uitbreidingssloten, connectiviteitsopties en functies zoals overklokondersteuning.";
-break;
-
-case "Wat is BIOS en hoe werkt het op een moederbord?":
-response = "BIOS (Basic Input/Output System) is firmware die op het moederbord is ingebouwd en essentiële systeemfuncties regelt, zoals het opstarten van de computer en het instellen van hardwareparameters.";
-break;
-
-case "Wat zijn opslagapparaten?":
-response = "Opslagapparaten zijn hardwarecomponenten die worden gebruikt om gegevens op te slaan, zoals bestanden, programma's en systeemgegevens, voor langere tijd, zelfs wanneer de computer is uitgeschakeld.";
+case "wat zijn opslagapparaten?":
+case "wat zijn opslagapparaten":
+case "wat is een opslagapparaat?":
+case "wat is een opslagapparaat":
+case "opslag":
+case "opslagapparaat":
+response = "Opslagapparaten zijn hardwarecomponenten die worden gebruikt om gegevens op te slaan, zoals bestanden, programma's en systeemgegevens, voor langere tijd, zelfs wanneer de computer is uitgeschakeld. Dit kunnen bijvoorbeeld HDD's en SDD's zijn, maar ook een USB-stick of SD-kaart.";
 break;
 
 case "Wat is het verschil tussen een SSD en een HDD?":
@@ -3816,6 +4252,248 @@ response = "Om problemen met je computer op te lossen, probeer je de symptomen t
 break;
 
 
+//sommen:
+
+    case "0+1":
+    response = "0 + 1 = 1";
+    break;
+    case "1+0":
+    response = "1 + 0 = 1";
+    break;
+    case "0+2":
+    response = "0 + 2 = 2";
+    break;
+    case "1+1":
+    response = "1 + 1 = 2";
+    break;
+    case "2+0":
+    response = "2 + 0 = 2";
+    break;
+    case "0+3":
+    response = "0 + 3 = 3";
+    break;
+    case "1+2":
+    response = "1 + 2 = 3";
+    break;
+    case "2+1":
+    response = "2 + 1 = 3";
+    break;
+    case "3+0":
+    response = "3 + 0 = 3";
+    break;
+    case "0+4":
+    response = "0 + 4 = 4";
+    break;
+    case "1+3":
+    response = "1 + 3 = 4";
+    break;
+    case "2+2":
+    response = "2 + 2 = 4";
+    break;
+    case "3+1":
+    response = "3 + 1 = 4";
+    break;
+    case "4+0":
+    response = "4 + 0 = 4";
+    break;
+    case "0+5":
+    response = "0 + 5 = 5";
+    break;
+    case "1+4":
+    response = "1 + 4 = 5";
+    break;
+    case "2+3":
+    response = "2 + 3 = 5";
+    break;
+    case "3+2":
+    response = "3 + 2 = 5";
+    break;
+    case "4+1":
+    response = "4 + 1 = 5";
+    break;
+    case "5+0":
+    response = "5 + 0 = 5";
+    break;
+
+
+    case "2-1":
+    response = "2 - 1 = 1";
+    break;
+    case "3-2":
+    response = "3 - 2 = 1";
+    break;
+    case "4-3":
+    response = "4 - 3 = 1";
+    break;
+    case "5-4":
+    response = "5 - 4 = 1";
+    break;
+    case "1-0":
+    response = "1 - 0 = 1";
+    break;
+    case "3-1":
+    response = "3 - 1 = 2";
+    break;
+    case "4-2":
+    response = "4 - 2 = 2";
+    break;
+    case "5-3":
+    response = "5 - 3 = 2";
+    break;
+    case "2-0":
+    response = "2 - 0 = 2";
+    break;
+    case "4-1":
+    response = "4 - 1 = 3";
+    break;
+    case "5-2":
+    response = "5 - 2 = 3";
+    break;
+    case "3-0":
+    response = "3 - 0 = 3";
+    break;
+    case "5-1":
+    response = "5 - 1 = 4";
+    break;
+    case "4-0":
+    response = "4 - 0 = 4";
+    break;
+    case "5-0":
+    response = "5 - 0 = 5";
+    break;
+
+
+    case "1*1":
+    case "1x1":    
+    response = "1 x 1 = 1";
+    break;
+    case "1*2":
+    case "1x2":
+    case "1 x 2":
+    case "1 * 2":        
+    response = "1 x 2 = 2";
+    break;
+    case "2 * 1":
+    response = "2 x 1 = 2";
+    break;
+    case "1 * 3":
+    response = "1 x 3 = 3";
+    break;
+    case "3 * 1":
+    response = "3 x 1 = 3";
+    break;
+    case "1 * 4":
+    response = "1 x 4 = 4";
+    break;
+    case "2 * 2":
+    response = "2 x 2 = 4";
+    break;
+    case "4 * 1":
+    response = "4 x 1 = 4";
+    break;
+    case "1 * 5":
+    response = "1 x 5 = 5";
+    break;
+    case "5 * 1":
+    response = "5 x 1 = 5";
+    break;
+    case "2.5 * 2":
+    response = "2.5 x 2 = 5";
+    break;
+    case "2 * 2.5":
+    response = "2 x 2.5 = 5";
+    break;
+    case "0.5 * 10":
+    response = "0.5 x 10 = 5";
+    break;
+    case "10 * 0.5":
+    response = "10 x 0.5 = 5";
+    break;
+
+
+    case "1 / 1":
+    response = "1 / 1 = 1";
+    break;
+    case "2 / 2":
+    response = "2 / 2 = 1";
+    break;
+    case "3 / 3":
+    response = "3 / 3 = 1";
+    break;
+    case "4 / 4":
+    response = "4 / 4 = 1";
+    break;
+    case "5 / 5":
+    response = "5 / 5 = 1";
+    break;
+    case "2 / 1":
+    response = "2 / 1 = 2";
+    break;
+    case "4 / 2":
+    response = "4 / 2 = 2";
+    break;
+    case "6 / 3":
+    response = "6 / 3 = 2";
+    break;
+    case "8 / 4":
+    response = "8 / 4 = 2";
+    break;
+    case "10 / 5":
+    response = "10 / 5 = 2";
+    break;
+    case "3 / 1":
+    response = "3 / 1 = 3";
+    break;
+    case "6 / 2":
+    response = "6 / 2 = 3";
+    break;
+    case "9 / 3":
+    response = "9 / 3 = 3";
+    break;
+    case "12 / 4":
+    response = "12 / 4 = 3";
+    break;
+    case "15 / 5":
+    response = "15 / 5 = 3";
+    break;
+    case "4 / 1":
+    response = "4 / 1 = 4";
+    break;
+    case "8 / 2":
+    response = "8 / 2 = 4";
+    break;
+    case "12 / 3":
+    response = "12 / 3 = 4";
+    break;
+    case "16 / 4":
+    response = "16 / 4 = 4";
+    break;
+    case "20 / 5":
+    response = "20 / 5 = 4";
+    break;
+    case "5 / 1":
+    response = "5 / 1 = 5";
+    break;
+    case "10 / 2":
+    response = "10 / 2 = 5";
+    break;
+    case "15 / 3":
+    response = "15 / 3 = 5";
+    break;
+    case "20 / 4":
+    response = "20 / 4 = 5";
+    break;
+    case "25 / 5":
+    response = "25 / 5 = 5";
+    break;
+    case "2.5 / 0.5":
+    response = "2.5 / 0.5 = 5";
+    break;
+    
+    
+    
+
+
 
 
 
@@ -3833,6 +4511,8 @@ case "good afternoon!":
 case "good afternoon":
 case "good day":
 case "good day!":
+case "i'm here!":
+case "i'm here":
 response = "Hello! I hope you're doing well! How can I assist you? I can help with general subjects and much more!";
 break;
 
@@ -3883,376 +4563,1035 @@ case "i hope you're doing well":
   case "what can ido on this website?":
   case "what can i do on this website":
   case "waht can i find here?":
-
+  case "what kind of stuff can i find here?":
+  case "what kind of stuff can i find here":
   response = "On this website we have a bunch of cool stuff. You can make an account on this website which resulting of that you can save your notes. You also can use our newest AI-assistent Arya to ask questions and get answers. You are currently chatting with Arya. Also you can use our calculator on our Tools-page. We also have a library on this website so that you can get information about different subjects. And we also have a schedule which you can type in which is very cool and you can make your own notes!";
   break; 
 
   case "what is the capital city of the netherlands?":
   case "what is the capital city of the netherlands": 
+  case "capital city of the netherlands":
+  case "capital of the netherlands":
+  case "capital city netherlands":
+        response = "The capital city of The Netherlands is Amsterdam. It's known for its artistic heritage, elaborate canal system and narrow houses with gabled facades, legacies of the city’s 17th-century Golden Age."; 
+        break; 
 
-  response = "The capital city of The Netherlands is Amsterdam."; 
-  break; 
+    case "what is the highest mountain in the world?":
+    case "what is the highest mountain in the world":
+    case "highest mountain":
+    case "highest mountain in the world":
+    case "what is the highest mountain?":
+    response = "The highest mountain in the world is the Mount Everest"; 
+      break; 
+    
+    case "what is the largest animal on earth?":
+    case "what is the largest animal on earth":
+    case "largest animal":
+    case "largest animal on earth":
+    case "what is the largest animal?":
+    case "what is the largest animal":
+         response = "The largest animal on earth is the blue whale.";
+         break;
 
-case "what is the highest mountain in the world?": 
-response = "The highest mountain in the world is the Mount Everest"; 
-  break; 
+    case "what is the tallest building in the world?":
+    case "what is the tallest building in the world":
+    case "tallest building":
+    case "tallest building in the world":
+    case "what is the tallest building?":
+    case "what is the tallest building":
+         response = "The tallest building in the world is the Burj Khalifa in Dubai, United Arab Emirates.";
+         break;
 
-case "what is the largest animal on earth?":
-     response = "The largest animal on earth is the blue whale.";
-     break;
- case "what is the capital of russia?":
-     response = "The capital of Russia is Moscow.";
-     break;
- case "what is the tallest building in the world?":
-     response = "The tallest building in the world is the Burj Khalifa in Dubai, United Arab Emirates.";
-     break;
- case "what is the largest continent in the world?":
-     response = "The largest continent in the world is Asia.";
-     break;
- case "what is the largest lake in the world?":
-     response = "The largest lake in the world by surface area is the Caspian Lake.";
-     break;
- case "what is the smallest state in the world?":
-     response = "The smallest state in the world is Vatican City.";
-     break;
- case "what is the largest tree in the world?":
-     response = "The largest tree in the world is General Sherman, a giant sequoia located in Sequoia National Park in California, United States.";
-     break;
- case "what is the longest bridge in the world?":
-     response = "The longest bridge in the world is the Danyang-Kunshan Grand Bridge in China.";
-     break;
- case "what is the largest diamond in the world?":
-     response = "The largest diamond in the world is the Cullinan, also known as the Star of Africa.";
-     break;
- case "how many countries are there in europe?":
-     response = "There are 50 countries in Europe.";
-     break;
- case "what is the largest volcano in the world?":
-     response = "The largest volcano in the world is Mauna Loa, located on the island of Hawaii.";
-     break;
- case "what is the largest planet in the world?":
+        case "what is the largest continent in the world?":
+        case "what is the largest continent in the world":
+        case "largest continent":
+        case "largest continent in the world":
+        case "what is the largest continent?":
+        case "what is the largest continent":
+            response = "The largest continent in the world is Asia.";
+            break;
+
+        case "what is the largest lake in the world?":
+        case "what is the largest lake in the world":
+        case "largest lake":
+        case "largest lake in the world":
+        case "what is the largest lake?":
+        case "what is the largest lake":
+                response = "The largest lake in the world by surface area is the Caspian Lake.";
+                break;
+
+        case "what is the smallest state in the world?":
+        case "what is the smallest state in the world":
+        case "smallest state":
+        case "smallest state in the world":
+        case "what is the smallest state?":
+        case "what is the smallest state":
+         response = "The smallest state in the world is Vatican City.";
+         break;
+
+        case "what is the largest tree in the world?":
+        case "what is the largest tree in the world":
+        case "largest tree":
+        case "largest tree in the world":
+        case "what is the largest tree?":
+        case "what is the largest tree":
+            response = "The largest tree in the world is General Sherman, a giant sequoia located in Sequoia National Park in California, United States.";
+            break;
+
+    case "what is the longest bridge in the world?":
+    case "what is the longest bridge in the world":
+    case "longest bridge":
+    case "longest bridge in the world":
+    case "what is the longest bridge?":
+    case "what is the longest bridge":
+        response = "The longest bridge in the world is the Danyang-Kunshan Grand Bridge in China.";
+        break;
+
+    case "what is the largest diamond in the world?":
+    case "what is the largest diamond in the world":
+    case "largest diamond":
+    case "largest diamond in the world":
+    case "what is the largest diamond?":
+    case "what is the largest diamond":
+            response = "The largest diamond in the world is the Cullinan, also known as the Star of Africa.";
+            break;
+
+    case "how many countries are there in europe?":
+    case "how many countries are there in europe":
+    case "countries in europe":
+    case "how many countries in europe":
+    case "how many countries in europe?":
+        response = "There are 50 countries in Europe.";
+        break;
+
+    case "what is the largest volcano in the world?":
+    case "what is the largest volcano in the world":
+    case "largest volcano":
+    case "largest volcano in the world":
+    case "what is the largest volcano?":
+    case "what is the largest volcano":
+        response = "The largest volcano in the world is Mauna Loa, located on the island of Hawaii.";
+        break;
+
+    case "what is the largest planet in the world?":
+    case "what is the largest planet in the world":
+    case "largest planet":
+    case "largest planet in the world":
+    case "what is the largest planet?":
+    case "what is the largest planet":
      response = "The largest planet in our solar system is Jupiter.";
      break;
- case "what is the largest city in the world in terms of area?":
-     response = "The largest city in the world by area is Hulunbuir in China.";
-     break;
- case "what is the oldest city in the world?":
-     response = "The oldest city in the world is Damascus, Syria.";
-     break;
- case "what is the largest canyon in the world?":
-     response = "The largest rift in the world is the Great Divide in Namibia and South Africa.";
-     break;
- case "what is the largest airport in the world?":
-     response = "The largest airport in the world by area is King Fahd International Airport in Saudi Arabia.";
-     break;
- case "what is the largest archipelago in the world?":
-     response = "The largest archipelago in the world is Indonesia.";
-     break;
- case "what is the highest mountain in europe?":
-     response = "The highest mountain in Europe is Mount Elbrus in Russia.";
-     break;
- case "what is the smallest planet in our solar system?":
-     response = "The smallest planet in our solar system is Mercury.";
-     break;
- case "what is the fastest animal on land?":
-     response = "The fastest land animal on Earth is the cheetah.";
-     break;
- case "what is the fastest bird in the world?":
-     response = "The fastest bird in the world is the peregrine falcon.";
-     break;
- case "what is the fastest fish in the world?":
-     response = "The fastest fish in the world is the sailfish.";
-     break;
- case "what is the fastest land animal in the world?":
-     response = "The fastest land animal on Earth is the cheetah.";
-     break;
- case "what is the fastest snail in the world?":
-     response = "The fastest snail in the world is the white-shelled snail.";
-     break;
- case "what is the fastest snake in the world?":
-     response = "The fastest snake in the world is the black mamba.";
-     break;
- case "what is the fastest beetle in the world?":
-     response = "The fastest beetle in the world is the tiger locust.";
-     break;
- case "what is the fastest spider in the world?":
-     response = "The fastest spider in the world is the Huntsman spider.";
-     break;
- case "what is the fastest scorpion in the world?":
-     response = "The fastest scorpion in the world is the fat-tailed scorpion.";
-     break;
- case "what is the fastest turtle in the world?":
-     response = "The fastest turtle in the world is the three-toed turtle.";
-     break;
- case "what is the fastest ant in the world?":
-     response = "The fastest ant in the world is the Australian tractor ant.";
-     break;
- case "what is the fastest cockroach in the world?":
-     response = "The fastest cockroach in the world is the American cockroach.";
-     break;
- case "what is the fastest snail in the world?":
-     response = "The fastest snail in the world is the white-shelled snail";
-break;
-case "what color is the sky on a clear day?":
 
-response = "Blue";
+    case "what is the largest city in the world in terms of area?":
+    case "what is the largest city in the world in terms of area":
+    case "largest city in the world in terms of area":
+    case "largest city in the world by area":
+    case "what is the largest city by area?":
+    case "what is the largest city?":
+    case "what is the largest city":
+    case "largest city":
+    case "largest city in the world":
+            response = "The largest city in the world by area is Hulunbuir in China.";
+            break;
+
+    case "what is the oldest city in the world?":
+    case "what is the oldest city in the world":
+    case "oldest city":
+    case "oldest city in the world":
+    case "what is the oldest city?":
+    case "what is the oldest city":
+        response = "The oldest city in the world is Damascus, Syria.";
+        break;
+
+    case "what is the largest canyon in the world?":
+    case "what is the largest canyon in the world":
+    case "largest canyon":
+    case "largest canyon in the world":
+    case "what is the largest canyon?":
+    case "what is the largest canyon":
+        response = "The largest canyon in the world is the Grand Canyon in the United States.";
+        break;
+
+    case "what is the largest airport in the world?":
+    case "what is the largest airport in the world":
+    case "largest airport":
+    case "largest airport in the world":
+    case "what is the largest airport?":
+    case "what is the largest airport":
+        response = "The largest airport in the world by area is King Fahd International Airport in Saudi Arabia.";
+        break;
+
+    case "what is the largest archipelago in the world?":
+    case "what is the largest archipelago in the world":
+    case "largest archipelago":
+    case "largest archipelago in the world":
+    case "what is the largest archipelago?":
+    case "what is the largest archipelago":
+    case "what is the largest archipel in the world?":
+    case "what is the largest archipel in the world":
+    case "largest archipel":
+    case "largest archipel in the world":
+    case "what is the largest archipel?":
+    case "what is the largest archipel":
+        response = "The largest archipelago in the world is Indonesia.";
+        break;
+
+    case "what is the highest mountain in europe?":
+    case "what is the highest mountain in europe":
+    case "highest mountain":
+    case "highest mountain in europe":
+    case "what is the highest mountain?":
+    case "what is the highest mountain":
+        response = "The highest mountain in Europe is Mount Elbrus in Russia.";
+        break;
+
+    case "what is the smallest planet in our solar system?":
+    case "what is the smallest planet in our solar system":
+    case "smallest planet":
+    case "smallest planet in our solar system":
+    case "what is the smallest planet?":
+    case "what is the smallest planet":
+        response = "The smallest planet in our solar system is Mercury.";
+        break;
+
+    case "what is the fastest animal on land?":
+    case "what is the fastest animal on land":
+    case "fastest animal":
+    case "fastest animal on land":
+    case "what is the fastest animal?":
+    case "what is the fastest animal":
+        response = "The fastest land animal on Earth is the cheetah.";
+        break;
+
+    case "what is the fastest bird in the world?":
+    case "what is the fastest bird in the world":
+    case "fastest bird":
+    case "fastest bird in the world":
+    case "what is the fastest bird?":
+    case "what is the fastest bird":
+        response = "The fastest bird in the world is the peregrine falcon.";
+        break;
+
+    case "what is the fastest fish in the world?":
+    case "what is the fastest fish in the world":
+    case "fastest fish":
+    case "fastest fish in the world":
+    case "what is the fastest fish?":
+    case "what is the fastest fish":
+        response = "The fastest fish in the world is the sailfish.";
+        break;
+
+    case "what is the fastest land animal in the world?":
+    case "what is the fastest land animal in the world":
+    case "fastest land animal":
+    case "fastest land animal in the world":
+    case "what is the fastest land animal?":
+    case "what is the fastest land animal":
+        response = "The fastest land animal on Earth is the cheetah.";
+        break;
+
+    case "what is the fastest snail in the world?":
+    case "what is the fastest snail in the world":
+    case "fastest snail":
+    case "fastest snail in the world":
+    case "what is the fastest snail?":
+    case "what is the fastest snail":
+        response = "The fastest snail in the world is the white-shelled snail.";
+        break;
+
+    case "what is the fastest snake in the world?":
+    case "what is the fastest snake in the world":
+    case "fastest snake":
+    case "fastest snake in the world":
+    case "what is the fastest snake?":
+    case "what is the fastest snake":
+        response = "The fastest snake in the world is the black mamba.";
+        break;
+
+    case "what is the fastest beetle in the world?":
+    case "what is the fastest beetle in the world":
+    case "fastest beetle":
+    case "fastest beetle in the world":
+    case "what is the fastest beetle?":
+    case "what is the fastest beetle":
+        response = "The fastest beetle in the world is the tiger locust.";
+        break;
+
+    case "what is the fastest spider in the world?":
+    case "what is the fastest spider in the world":
+    case "fastest spider":
+    case "fastest spider in the world":
+    case "what is the fastest spider?":
+    case "what is the fastest spider":
+        response = "The fastest spider in the world is the Huntsman spider.";
+        break;
+
+    case "what is the fastest scorpion in the world?":
+    case "what is the fastest scorpion in the world":
+    case "fastest scorpion":
+    case "fastest scorpion in the world":
+    case "what is the fastest scorpion?":
+    case "what is the fastest scorpion":
+        response = "The fastest scorpion in the world is the fat-tailed scorpion.";
+        break;
+
+    case "what is the fastest turtle in the world?":
+    case "what is the fastest turtle in the world":
+    case "fastest turtle":
+    case "fastest turtle in the world":
+    case "what is the fastest turtle?":
+    case "what is the fastest turtle":
+        response = "The fastest turtle in the world is the three-toed turtle.";
+        break;
+
+    case "what is the fastest ant in the world?":
+    case "what is the fastest ant in the world":
+    case "fastest ant":
+    case "fastest ant in the world":
+    case "what is the fastest ant?":
+    case "what is the fastest ant":
+        response = "The fastest ant in the world is the Australian tractor ant.";
+        break;
+
+    case "what is the fastest cockroach in the world?":
+    case "what is the fastest cockroach in the world":
+    case "fastest cockroach":
+    case "fastest cockroach in the world":
+    case "what is the fastest cockroach?":
+    case "what is the fastest cockroach":
+        response = "The fastest cockroach in the world is the American cockroach.";
+        break;
+
+    case "what is the fastest snail in the world?":
+    case "what is the fastest snail in the world":
+    case "fastest snail":
+    case "fastest snail in the world":
+    case "what is the fastest snail?":
+    case "what is the fastest snail":
+        response = "The fastest snail in the world is the white-shelled snail";
+        break;
+
+    case "what color is the sky on a clear day?":
+    case "what color is the sky on a clear day":
+    case "sky color on a clear day":
+        response = "The color of the sky is blue on a clear day.";
+        break;
+//End of geographical subjects.
+
+
+
+        case "what is the capital of the netherlands?":
+        case "what is the capital of the netherlands":
+        case "capital of the netherlands":
+        case "capital netherlands":
+        case "capital city netherlands":
+        case "capital city of the netherlands":
+        case "what is the capital city of the netherlands":
+        case "what is the capital city of the netherlands?":
+            response = "The capital of the Netherlands is Amsterdam.";
+            break;
+
+        case "how are people from the netherlands called in english?":
+        case "how are people from the netherlands called in english":
+        case "people from the netherlands":
+        case "people from the netherlands in english":
+        case "people from the netherlands are called":
+        case "people from the netherlands are called in english":
+        case "what are people from the netherlands called in english":
+        case "what are people from the netherlands called in english?":
+            response = "People from the Netherlands are called Dutch.";
+            break;
+
+        case "what is the currency in use in the netherlands?":
+        case "what is the currency in use in the netherlands":
+        case "currency in the netherlands":
+        case "currency of the netherlands":
+        case "what currency is used in the netherlands":
+        case "what currency is used in the netherlands?":
+            response = "The currency used in the Netherlands is the Euro. It's the general currency in many countries of the European Union.";
+            break;
+
+        case "how many countries do the netherlands share a land border with?":
+        case "how many countries do the netherlands share a land border with":
+        case "countries the netherlands share a land border with":
+        case "what countries do the netherlands share a land border with":
+        case "what countries do the netherlands share a land border with?":
+            response = "The Netherlands shares a land border with two countries: Germany and Belgium.";
+            break;
+
+        case "what colors are on the flag of the netherlands?":
+        case "what colors are on the flag of the netherlands":
+        case "flag of the netherlands":
+        case "colors on the flag of the netherlands":
+        case "what colors are on the dutch flag":
+        case "what colors are on the dutch flag?":
+            response = "The colors on the flag of the Netherlands are red, white, and blue.";
+            break;
+
+        case "who is the current king of the netherlands?":
+        case "who is the current king of the netherlands":
+        case "current king of the netherlands":
+        case "king of the netherlands":
+        case "who is the king of the netherlands":
+        case "who is the king of the netherlands?":
+            response = "The current king of the Netherlands is Willem-Alexander. He is the king since 2013.";
+            break;
+
+        case "what black sweet is particularly popular in the netherlands?":
+        case "what black sweet is particularly popular in the netherlands":
+        case "black sweet popular in the netherlands":
+        case "black sweet in the netherlands":
+        case "what black sweet is popular in the netherlands":
+        case "what black sweet is popular in the netherlands?":
+            response = "Liquorice is particularly popular in the Netherlands.";
+            break;
+
+        case "how many people live in the netherlands?":
+        case "how many people live in the netherlands":
+        case "people in the netherlands":
+        case "population of the netherlands":
+        case "what is the population of the netherlands":
+        case "what is the population of the netherlands?":
+            response = "As of 2020, 17.44 million people live in the Netherlands. In 2024, the population has passed the 18 million.";
+            break;
+
+        case "how many provinces are there in the netherlands?":
+        case "how many provinces are there in the netherlands":
+        case "provinces in the netherlands":
+        case "how many provinces in the netherlands":
+        case "what provinces are there in the netherlands":
+        case "what provinces are there in the netherlands?":
+            response = "There are 12 provinces in the Netherlands. Some are Flevoland, North Holland, South Holland, Utrecht, and Zeeland.";
+            break;
+
+        case "what flower does the netherlands produce most?":
+        case "what flower does the netherlands produce most":
+        case "flower produced most in the netherlands":
+        case "what flower is produced most in the netherlands":
+        case "what flower is produced most in the netherlands":
+        case "popular flower from the netherlands":
+        case "popular flower of the netherlands":
+            response = "The Netherlands produces tulips the most.";
+            break;
+
+        case "what is armin van buuren known for?":
+        case "what is armin van buuren known for":
+        case "armin van buuren":
+            response = "Armin van Buuren is known for being a DJ.";
+            break;
+
+        case "how many canals are in amsterdam?":
+        case "how many canals are in amsterdam":
+        case "canals in amsterdam":
+        case "how many canals in amsterdam":
+        case "what is the number of canals in amsterdam":
+        response = "There are 165 canals in Amsterdam.";
+        break;
+
+        case "when was amsterdam founded?":
+        case "when was amsterdam founded":
+        case "when was amsterdam established":
+        case "when was amsterdam established?":
+            response = "Amsterdam was founded in 1275.";
+            break;
+/*
+End of the normal cases for Arya. Down under this sentence you'll find the source code for Actions
+*/
+
+
+//Source code for Actions, a new feature introduced in AryaLM3.2 which activate an action. You can say an action to clear the chat, go to another site or page to navigate through the internet. Actions works in Dutch and English.
+
+    case "ga naar de bibliotheek":
+    case "ga naar de bibliotheek!":
+    case "ga naar de bieb":
+    case "ga naar de bieb!":
+    case "kan je naar de bibliotheek?":
+    case "kan je naar de bibliotheek":
+    case "kan je naar de bieb?":
+    case "kan je naar de bieb":
+    case "bibliotheek":
+    case "bieb":
+    case "verwijs door naar de bibliotheek":
+    case "verwijs door naar de bibliotheek!":
+    case "verwijs me door naar de bibliotheek!":
+    case "verwijs me door naar de bibliotheek":
+    case "verwijs me door naar de bieb!":
+    case "verwijs me door naar de bieb":
+    case "kan je me naar de bibliotheek brengen?":
+    case "kan je me naar de bibliotheek brengen":
+    case "kan je me naar de bieb brengen?":
+    case "kan je me naar de bieb brengen":
+    case "naar de bibliotheek":
+    case "naar de bibliotheek!":
+    case "naar de bieb!":
+    case "naar de bieb":
+    case "breng me naar de bieb":
+    case "breng me naar de bieb!":
+    case "breng me naar de bibliotheek":
+    case "breng me naar de bibliotheek!":
+    case "bring me to the library":
+    case "bring me to the library!":
+    case "can you bring me to the library?":
+    case "can you bring me to the library":
+    case "bring me to the library please!":
+    case "bring me to the library please":
+    case "to the library":
+    case "to the library!":
+        window.location.href = 'Bibliotheek.html';
+        break;
+
+            case "ga naar de schoolvakken":
+            case "ga naar de schoolvakken!":
+            case "kan je naar de schoolvakken?":
+            case "kan je naar de schoolvakken":
+            case "schoolvakken":
+            case "verwijs door naar de schoolvakken":
+            case "verwijs door naar de schoolvakken!":
+            case "kan je me naar de schoolvakken brengen?":
+            case "kan je me naar de schoolvakken brengen":
+            case "naar de schoolvakken":
+            case "naar de schoolvakken!":
+            case "breng me naar de schoolvakken":
+            case "breng me naar de schoolvakken!":
+            case "bring me to the subjects":
+            case "bring me to the subjects!":
+            case "can you bring me to the subjects?":
+            case "can you bring me to the subjects":
+            case "bring me to the subjects!":
+            case "bring me to the subjects please":
+            case "to the subjects":
+            case "to the subjects!":
+                window.location.href = 'Schoolvakken.html';
+                break;
+
+    case "ga naar tools":
+    case "ga naar tools!":
+    case "kan je naar tools?":
+    case "kan je naar tools":
+    case "verwijs door naar tools":
+    case "verwijs door naar tools!":
+    case "verwijs me door naar tools!":
+    case "verwijs me door naar tools":
+    case "kan je me naar tools brengen?":
+    case "kan je me naar tools brengen":
+    case "naar tools":
+    case "naar tools!":
+    case "breng me naar tools":
+    case "breng me naar tools!":
+    case "bring me to tools":
+    case "bring me to tools!":
+    case "can you bring me to tools?":
+    case "can you bring me to tools":
+    case "bring me to tools please!":
+    case "bring me to tools please":
+    case "to tools":
+    case "to tools!":
+        window.location.href = 'Tools.html';
+        break;
+
+                    case "ga naar youtube":
+                    case "ga naar youtube!":
+                    case "ga naar yt":
+                    case "ga naar yt!":
+                    case "kan je naar youtube?":
+                    case "kan je naar youtube":
+                    case "kan je naar yt?":
+                    case "kan je naar yt":
+                    case "youtube":
+                    case "yt":
+                    case "verwijs door naar youtube":
+                    case "verwijs door naar youtube!":
+                    case "verwijs me door naar youtube!":
+                    case "verwijs me door naar youtube":
+                    case "verwijs me door naar yt!":
+                    case "verwijs me door naar yt":
+                    case "kan je me naar youtube brengen?":
+                    case "kan je me naar youtube brengen":
+                    case "kan je me naar yt brengen?":
+                    case "kan je me naar yt brengen":
+                    case "naar youtube":
+                    case "naar youtube!":
+                    case "naar yt!":
+                    case "naar yt":
+                    case "breng me naar yt":
+                    case "breng me naar yt!":
+                    case "breng me naar youtube":
+                    case "breng me naar youtube!":
+                    case "bring me to youtube":
+                    case "bring me to youtube!":
+                    case "can you bring me to youtube?":
+                    case "can you bring me to youtube":
+                    case "bring me to youtube please!":
+                    case "bring me to youtube please":
+                    case "to youtube":
+                    case "to youtube!":
+                            window.location.href = 'https://youtube.com';
+                            break;
+
+                        case "ga naar chatgpt":
+                        case "ga naar chatgpt!":
+                        case "kan je naar chatgpt?":
+                        case "kan je naar chatgpt":
+                        case "verwijs door naar chatgpt":
+                        case "verwijs door naar chatgpt!":
+                        case "verwijs me door naar chatgpt!":
+                        case "verwijs me door naar chatgpt":
+                        case "kan je me naar chatgpt brengen?":
+                        case "kan je me naar chatgpt brengen":
+                        case "naar chatgpt":
+                        case "naar chatgpt!":
+                        case "breng me naar chatgpt":
+                        case "breng me naar chatgpt!":
+                        case "bring me to chatgpt":
+                        case "bring me to chatgpt!":
+                        case "can you bring me to chatgpt?":
+                        case "can you bring me to chatgpt":
+                        case "bring me to chatgpt please!":
+                        case "bring me to chatgpt please":
+                        case "to chatgpt":
+                        case "to chatgpt!":
+                                window.location.href = 'https://chatgpt.com';
+                                break;
+
+
+              case "ga naar google":
+              case "ga naar google!":
+              case "kan je naar google?":
+              case "kan je naar google":
+              case "verwijs door naar google":
+              case "verwijs door naar google!":
+              case "verwijs me door naar google!":
+              case "verwijs me door naar google":
+              case "kan je me naar google brengen?":
+              case "kan je me naar google brengen":
+              case "naar google":
+              case "naar google!":
+              case "breng me naar google":
+              case "breng me naar google!":
+              case "bring me to google":
+              case "bring me to google!":
+              case "can you bring me to google?":
+              case "can you bring me to google":
+              case "bring me to google please!":
+              case "bring me to google please":
+              case "to google":
+              case "to google!":
+                    window.location.href = 'https://google.com';
+                    break;
+
+        case "ga naar facebook":
+        case "ga naar facebook!":
+        case "ga naar fb!":
+        case "ga naar fb":
+        case "kan je naar facebook?":
+        case "kan je naar facebook":
+        case "kan je naar fb?":
+        case "kan je naar fb":
+        case "verwijs door naar facebook":
+        case "verwijs door naar facebook!":
+        case "verwijs door naar fb":
+        case "verwijs door naar fb!":
+        case "verwijs me door naar facebook!":
+        case "verwijs me door naar facebook":
+        case "verwijs me door naar fb!":
+        case "verwijs me door naar fb":
+        case "kan je me naar facebook brengen?":
+        case "kan je me naar facebook brengen":
+        case "kan je me naar fb brengen?":
+        case "kan je me naar fb brengen":
+        case "naar facebook":
+        case "naar facebook!":
+        case "naar fb!":
+        case "naar fb":
+        case "breng me naar facebook":
+        case "breng me naar facebook!":
+        case "breng me naar fb!":
+        case "breng me naar fb":
+        case "bring me to facebook":
+        case "bring me to facebook!":
+        case "bring me to fb":
+        case "bring me to fb!":
+        case "can you bring me to facebook?":
+        case "can you bring me to facebook":
+        case "can you bring me to fb?":
+        case "can you bring me to fb":
+        case "bring me to facebook!":
+        case "bring me to facebook":
+        case "bring me to fb":
+        case "bring me to fb!":
+        case "to facebook":
+        case "to facebook!":
+        case "to fb!":
+        case "to fb":
+            window.location.href = 'https://facebook.com';
+            break;
+
+    case "ga naar instagram":
+    case "ga naar instagram!":
+    case "kan je naar instagram?":
+    case "kan je naar instagram":
+    case "verwijs door naar instagram":
+    case "verwijs door naar instagram!":
+    case "verwijs me door naar instagram!":
+    case "verwijs me door naar instagram":
+    case "kan je me naar instagram brengen?":
+    case "kan je me naar instagram brengen":
+    case "naar instagram":
+    case "naar instagram!":
+    case "breng me naar instagram":
+    case "breng me naar instagram!":
+    case "bring me to instagram":
+    case "bring me to instagram!":
+    case "can you bring me to instagram?":
+    case "can you bring me to instagram":
+    case "bring me to instagram please!":
+    case "bring me to instagram please":
+    case "to instagram":
+    case "to instagram!":
+        window.location.href = 'https://instagram.com';
+        break;
+
+            case "ga naar roblox":
+            case "ga naar roblox!":
+            case "kan je naar roblox?":
+            case "kan je naar roblox":
+            case "verwijs door naar roblox":
+            case "verwijs door naar roblox!":
+            case "verwijs me door naar roblox!":
+            case "verwijs me door naar roblox":
+            case "kan je me naar roblox brengen?":
+            case "kan je me naar roblox brengen":
+            case "naar roblox":
+            case "naar roblox!":
+            case "breng me naar roblox":
+            case "breng me naar roblox!":
+            case "bring me to roblox":
+            case "bring me to roblox!":
+            case "can you bring me to roblox?":
+            case "can you bring me to roblox":
+            case "bring me to roblox please!":
+            case "bring me to roblox please":
+            case "to roblox":
+            case "to roblox!":
+                  window.location.href = 'https://roblox.com';
+                  break;
+
+    case "ga naar tiktok":
+    case "ga naar tiktok!":
+    case "kan je naar tiktok?":
+    case "kan je naar tiktok":
+    case "verwijs door naar tiktok":
+    case "verwijs door naar tiktok!":
+    case "verwijs me door naar tiktok!":
+    case "verwijs me door naar tiktok":
+    case "kan je me naar tiktok brengen?":
+    case "kan je me naar tiktok brengen":
+    case "naar tiktok":
+    case "naar tiktok!":
+    case "breng me naar tiktok":
+    case "breng me naar tiktok!":
+    case "bring me to tiktok":
+    case "bring me to tiktok!":
+    case "can you bring me to tiktok?":
+    case "can you bring me to tiktok":
+    case "bring me to tiktok please!":
+    case "bring me to tiktok please":
+    case "to tiktok":
+    case "to tiktok!":
+        window.location.href = 'https://tiktok.com';
+        break;
+
+    case "ga naar snapchat":
+    case "ga naar snapchat!":
+    case "kan je naar snapchat?":
+    case "kan je naar snapchat":
+    case "verwijs door naar snapchat":
+    case "verwijs door naar snapchat!":
+    case "verwijs me door naar snapchat!":
+    case "verwijs me door naar snapchat":
+    case "kan je me naar snapchat brengen?":
+    case "kan je me naar snapchat brengen":
+    case "naar snapchat":
+    case "naar snapchat!":
+    case "breng me naar snapchat":
+    case "breng me naar snapchat!":
+    case "bring me to snapchat":
+    case "bring me to snapchat!":
+    case "can you bring me to snapchat?":
+    case "can you bring me to snapchat":
+    case "bring me to snapchat please!":
+    case "bring me to snapchat please":
+    case "to snapchat":
+    case "to snapchat!":
+        window.location.href = 'https://web.snapchat.com';
+        break;
+
+    case "ga naar discord":
+    case "ga naar discord!":
+    case "kan je naar discord?":
+    case "kan je naar discord":
+    case "verwijs door naar discord":
+    case "verwijs door naar discord!":
+    case "verwijs me door naar discord!":
+    case "verwijs me door naar discord":
+    case "kan je me naar discord brengen?":
+    case "kan je me naar discord brengen":
+    case "naar discord":
+    case "naar discord!":
+    case "breng me naar discord":
+    case "breng me naar discord!":
+    case "bring me to discord":
+    case "bring me to discord!":
+    case "can you bring me to discord?":
+    case "can you bring me to discord":
+    case "bring me to discord please!":
+    case "bring me to discord please":
+    case "to discord":
+    case "to discord!":
+        window.location.href = 'https://discord.com';
+        break;
+
+    case "ga naar wikipedia":
+    case "ga naar wikipedia!":
+    case "kan je naar wikipedia?":
+    case "kan je naar wikipedia":
+    case "verwijs door naar wikipedia":
+    case "verwijs door naar wikipedia!":
+    case "verwijs me door naar wikipedia!":
+    case "verwijs me door naar wikipedia":
+    case "kan je me naar wikipedia brengen?":
+    case "kan je me naar wikipedia brengen":
+    case "naar wikipedia":
+    case "naar wikipedia!":
+    case "breng me naar wikipedia":
+    case "breng me naar wikipedia!":
+    case "bring me to wikipedia":
+    case "bring me to wikipedia!":
+    case "can you bring me to wikipedia?":
+    case "can you bring me to wikipedia":
+    case "bring me to wikipedia please!":
+    case "bring me to wikipedia please":
+    case "to wikipedia":
+    case "to wikipedia!":
+        window.location.href = 'https://wikipedia.org';
+        break;
+
+    case "ga naar bing":
+    case "ga naar bing!":
+    case "kan je naar bing?":
+    case "kan je naar bing":
+    case "verwijs door naar bing":
+    case "verwijs door naar bing!":
+    case "verwijs me door naar bing!":
+    case "verwijs me door naar bing":
+    case "kan je me naar bing brengen?":
+    case "kan je me naar bing brengen":
+    case "naar bing":
+    case "naar bing!":
+    case "breng me naar bing":
+    case "breng me naar bing!":
+    case "bring me to bing":
+    case "bring me to bing!":
+    case "can you bring me to bing?":
+    case "can you bring me to bing":
+    case "bring me to bing please!":
+    case "bring me to bing please":
+    case "to bing":
+    case "to bing!":
+        window.location.href = 'https://bing.com';
+        break;
+
+    case "ga naar reddit":
+    case "ga naar reddit!":
+    case "kan je naar reddit?":
+    case "kan je naar reddit":
+    case "verwijs door naar reddit":
+    case "verwijs door naar reddit!":
+    case "verwijs me door naar reddit!":
+    case "verwijs me door naar reddit":
+    case "kan je me naar reddit brengen?":
+    case "kan je me naar reddit brengen":
+    case "naar reddit":
+    case "naar reddit!":
+    case "breng me naar reddit":
+    case "breng me naar reddit!":
+    case "bring me to reddit":
+    case "bring me to reddit!":
+    case "can you bring me to reddit?":
+    case "can you bring me to reddit":
+    case "bring me to reddit please!":
+    case "bring me to reddit please":
+    case "to reddit":
+    case "to reddit!":
+        window.location.href = 'https://reddit.com';
+        break;
+
+    case "ga naar threads":
+    case "ga naar threads!":
+    case "kan je naar threads?":
+    case "kan je naar threads":
+    case "verwijs door naar threads":
+    case "verwijs door naar threads!":
+    case "verwijs me door naar threads!":
+    case "verwijs me door naar threads":
+    case "kan je me naar threads brengen?":
+    case "kan je me naar threads brengen":
+    case "naar threads":
+    case "naar threads!":
+    case "breng me naar threads":
+    case "breng me naar threads!":
+    case "bring me to threads":
+    case "bring me to threads!":
+    case "can you bring me to threads?":
+    case "can you bring me to threads":
+    case "bring me to threads please!":
+    case "bring me to threads please":
+    case "to threads":
+    case "to threads!":
+        window.location.href = 'https://threads.net';
+        break;
+
+    case "ga naar netflix":
+    case "ga naar netflix!":
+    case "kan je naar netflix?":
+    case "kan je naar netflix":
+    case "verwijs door naar netflix":
+    case "verwijs door naar netflix!":
+    case "verwijs me door naar netflix!":
+    case "verwijs me door naar netflix":
+    case "kan je me naar netflix brengen?":
+    case "kan je me naar netflix brengen":
+    case "naar netflix":
+    case "naar netflix!":
+    case "breng me naar netflix":
+    case "breng me naar netflix!":
+    case "bring me to netflix":
+    case "bring me to netflix!":
+    case "can you bring me to netflix?":
+    case "can you bring me to netflix":
+    case "bring me to netflix please!":
+    case "bring me to netflix please":
+    case "to netflix":
+    case "to netflix!":
+        window.location.href = 'https://netflix.com';
+        break;
+
+    case "ga naar gemini":
+    case "ga naar gemini!":
+    case "kan je naar gemini?":
+    case "kan je naar gemini":
+    case "verwijs door naar gemini":
+    case "verwijs door naar gemini!":
+    case "verwijs me door naar gemini!":
+    case "verwijs me door naar gemini":
+    case "kan je me naar gemini brengen?":
+    case "kan je me naar gemini brengen":
+    case "naar gemini":
+    case "naar gemini!":
+    case "breng me naar gemini":
+    case "breng me naar gemini!":
+    case "bring me to gemini":
+    case "bring me to gemini!":
+    case "can you bring me to gemini?":
+    case "can you bring me to gemini":
+    case "bring me to gemini please!":
+    case "bring me to gemini please":
+    case "to gemini":
+    case "to gemini!":
+        window.location.href = 'https://gemini.google.com';
+        break;
+
+    case "ga naar github":
+    case "ga naar github!":
+    case "kan je naar github?":
+    case "kan je naar github":
+    case "verwijs door naar github":
+    case "verwijs door naar github!":
+    case "verwijs me door naar github!":
+    case "verwijs me door naar github":
+    case "kan je me naar github brengen?":
+    case "kan je me naar github brengen":
+    case "naar github":
+    case "naar github!":
+    case "breng me naar github":
+    case "breng me naar github!":
+    case "bring me to github":
+    case "bring me to github!":
+    case "can you bring me to github?":
+    case "can you bring me to github":
+    case "bring me to github please!":
+    case "bring me to github please":
+    case "to github":
+    case "to github!":
+        window.location.href = 'https://github.com';
+        break;
+
+    case "ga naar whatsapp":
+    case "ga naar whatsapp!":
+    case "kan je naar whatsapp?":
+    case "kan je naar whatsapp":
+    case "verwijs door naar whatsapp":
+    case "verwijs door naar whatsapp!":
+    case "verwijs me door naar whatsapp!":
+    case "verwijs me door naar whatsapp":
+    case "kan je me naar whatsapp brengen?":
+    case "kan je me naar whatsapp brengen":
+    case "naar whatsapp":
+    case "naar whatsapp!":
+    case "breng me naar whatsapp":
+    case "breng me naar whatsapp!":
+    case "bring me to whatsapp":
+    case "bring me to whatsapp!":
+    case "can you bring me to whatsapp?":
+    case "can you bring me to whatsapp":
+    case "bring me to whatsapp please!":
+    case "bring me to whatsapp please":
+    case "to whatsapp":
+    case "to whatsapp!":
+        window.location.href = 'https://web.whatsapp.com';
+        break;
+
+
+        case "wis gesprek":
+        case "wis het gesprek":
+        case "leeg het gesprek":
+        case "leeg gesprek":
+        case "verwijder het gesprek":
+        case "verwijder gesprek":
+        case "wis chat":
+        case "wis de chat":
+        case "leeg de chat":
+        case "leeg chat":
+        case "verwijder de chat":
+        case "verwijder chat":
+        case "chat verwijderen":
+        case "chat legen":
+        case "chat wissen":
+        case "clear chat":
+        case "delete chat":
+        case "clear conversation":
+        case "delete conversation":
+        case "clear the chat":
+                document.getElementById('clear-history').click();
+                break;
+
+                
+            case "log uit":
+            case "log mij uit":
+            case "log me uit":
+            case "verwijder mijn account":
+            case "kan je mij uitloggen?":
+            case "kan je me uitloggen?":
+            case "kan je me uitloggen":
+            case "kan je mij uitloggen": 
+            if (window.confirm("Weet je zeker dat je uit wilt loggen? Zodra je op 'Ok' klikt, zal je worden uitgelogd en wordt de toegang tot Arya geblokkeerd totdat je weer inlogt.")) {
+                localStorage.removeItem('user');
+                location.reload();
+            } else {
+                response = "Je bent nog steeds ingelogd! Geniet van de beste ervaring met een account!";
+            }
+            break;
 
-break;
-
-case "what shape is a stop sign?":
-
-response = "Octagon";
-
-break;
-
-case "how many legs does a spider have?":
-
-response = "Eight";
-
-break;
-
-case "what do bees make?":
-
-response = "Honey";
-
-break;
-
-case "what is the opposite of hot?":
-
-response = "Cold";
-
-break;
-
-case "what do you use to write on a blackboard?":
-
-response = "Chalk";
-
-break;
-
-case "what fruit do raisins come from?":
-
-response = "Grapes";
-
-break;
-
-case "what is 2 + 2?":
-
-response = "4";
-
-break;
-
-case "what color are bananas?":
-
-response = "Yellow";
-
-break;
-
-case "what do you call a baby dog?":
-
-response = "Puppy";
-
-break;
-
-case "what is the opposite of fast?":
-
-response = "Slow";
-
-break;
-
-case "what do you use to cut paper?":
-
-response = "Scissors";
-
-break;
-
-case "what is the color of snow?":
-
-response = "White";
-
-break;
-
-case "what sound does a cow make?":
-
-response = "Moo";
-
-break;
-
-case "what do you call a house made of ice?":
-
-response = "Igloo";
-
-break;
-
-case "what is the opposite of wrong?":
-
-response = "Right";
-
-break;
-
-case "what do you call a baby cat?":
-
-response = "Kitten";
-
-break;
-
-case "what is the color of grass?":
-
-response = "Green";
-
-break;
-
-case "what do you call the place where you buy groceries?":
-
-response = "Supermarket";
-
-break;
-
-case "what is the opposite of day?":
-
-response = "Night";
-
-break;
-
-case "what is the capital of the netherlands?":
-response = "The capital of the Netherlands is Amsterdam.";
-break;
-case "how are people from the netherlands called in english?":
-response = "People from the Netherlands are called Dutch.";
-break;
-case "what is the currency in use in the netherlands?":
-response = "The currency used in the Netherlands is the Euro.";
-break;
-case "how many countries do the netherlands share a land border with?":
-response = "The Netherlands shares a land border with two countries: Germany and Belgium.";
-break;
-case "what colors are on the flag of the netherlands?":
-response = "The colors on the flag of the Netherlands are red, white, and blue.";
-break;
-case "what animal is miffy?":
-response = "Miffy is a rabbit.";
-break;
-case "what sport is ruud gullit known for?":
-response = "Ruud Gullit is known for football.";
-break;
-case "which famous dutch dancer was convicted of being a spy for germany during ww1?":
-response = "The famous Dutch dancer convicted of being a spy for Germany during WW1 was Mata Hari.";
-break;
-case "who is the current king of the netherlands?":
-response = "The current king of the Netherlands is Willem-Alexander.";
-break;
-case "what black sweet is particularly popular in the netherlands?":
-response = "Liquorice is particularly popular in the Netherlands.";
-break;
-case "how many people live in the netherlands as of 2020?":
-response = "As of 2020, 17.44 million people live in the Netherlands.";
-break;
-case "how many provinces are there in the netherlands?":
-response = "There are 12 provinces in the Netherlands.";
-break;
-case "which of the following is not part of the kingdom of the netherlands?":
-response = "Guadeloupe is not part of the kingdom of the Netherlands.";
-break;
-case "which of the following was not painted by vincent van gogh?":
-response = "Guernica was not painted by Vincent Van Gogh.";
-break;
-case "which of the following is not a dutch beer?":
-response = "Duvel is not a Dutch beer.";
-break;
-case "what flower does the netherlands produce most?":
-response = "The Netherlands produces tulips the most.";
-break;
-case "how many times did johan cruyff win the ballon d'or?":
-response = "Johan Cruyff won the Ballon D'or three times.";
-break;
-case "what is armin van buuren known for?":
-response = "Armin van Buuren is known for being a DJ.";
-break;
-case "how many canals are in amsterdam?":
-response = "There are 165 canals in Amsterdam.";
-break;
-case "when was amsterdam founded?":
-response = "Amsterdam was founded in 1275.";
-break;
-
-case "what is the capital of palestine?":
-response = "The capital of Palestine is East Jerusalem.";
-break;
-
-case "what year was the palestinian authority established?":
-response = "The Palestinian Authority was established in 1994.";
-break;
-
-case "what is the significance of the oslo accords?":
-response = "The Oslo Accords were significant because they were the first direct, face-to-face agreement between Israel and the PLO.";
-break;
-
-case "what is the population of palestine?":
-response = "The estimated population of Palestine is around 5 million.";
-break;
-
-case "what are the official languages of palestine?":
-response = "The official languages of Palestine are Arabic and Hebrew.";
-break;
-
-case "what currency is used in palestine?":
-response = "The currency used in Palestine is the Israeli new shekel.";
-break;
-
-case "what is the name of the palestinian legislative body?":
-response = "The Palestinian legislative body is called the Palestinian Legislative Council.";
-break;
-
-case "what is the largest city in palestine?":
-response = "The largest city in Palestine is Gaza City.";
-break;
-
-case "what is the main religion practiced in palestine?":
-response = "The main religion practiced in Palestine is Islam.";
-break;
-
-case "what is the name of the barrier separating parts of palestine and israel?":
-response = "The barrier is commonly referred to as the West Bank barrier or the separation wall.";
-break;
-
-case "what is the historical significance of the city of bethlehem?":
-response = "Bethlehem is historically significant as the birthplace of Jesus according to Christian tradition.";
-break;
-
-case "what is the dominant political party in the palestinian territories?":
-response = "The dominant political party is Fatah.";
-break;
-
-case "what is the name of the palestinian president as of 2024?":
-response = "The name of the Palestinian president as of 2024 is not available in my current dataset.";
-break;
-
-case "what are the colors of the palestinian flag?":
-response = "The colors of the Palestinian flag are black, white, green, and red.";
-break;
-
-case "what is the status of palestine in the united nations?":
-response = "Palestine has a non-member observer state status in the United Nations.";
-break;
-
-case "what is the significance of the dome of the rock?":
-response = "The Dome of the Rock is significant as an Islamic shrine located on the Temple Mount in the Old City of Jerusalem.";
-break;
-
-case "what is the main agricultural product of palestine?":
-response = "The main agricultural product of Palestine is olives.";
-break;
-
-case "what body of water borders the gaza strip?":
-response = "The Mediterranean Sea borders the Gaza Strip.";
-break;
-
-case "what is the palestinian diaspora?":
-response = "The Palestinian diaspora refers to the dispersion of Palestinian people outside their homeland.";
-break;
-
-case "what is the significance of the right of return for palestinians?":
-response = "The Right of Return is significant for Palestinians as it is the assertion of their right to return to the land from which they were displaced.";
-break;
 
 
 
@@ -4265,10 +5604,6 @@ default:
   return response;
 }
 
-
-
-
-// Voorbeeld van het blokkeren van de enter-toets
 document.addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
         if (limitReached) {
@@ -4308,18 +5643,18 @@ loader.style.display = "none";
 
 
 userInput.addEventListener("keypress", function(event) {
-if (event.key === "Enter") {
-var userMessage = userInput.value.trim();
-if (userMessage !== "") {
-    var userMessageContainer = document.createElement("div");
-    userMessageContainer.className = "user-message-container";
-
-    var userMessageElement = document.createElement("div");
-    userMessageElement.className = "user-message";
-    userMessageElement.textContent = "Ik: " + userMessage;
-
-    userMessageContainer.appendChild(userMessageElement);
-    chatMessages.appendChild(userMessageContainer);
+    if (event.key === "Enter") {
+    var userMessage = userInput.value.trim();
+    if (userMessage !== "") {
+        var userMessageContainer = document.createElement("div");
+        userMessageContainer.className = "user-message-container";
+    
+        var userMessageElement = document.createElement("div");
+        userMessageElement.className = "user-message";
+        userMessageElement.textContent = "Ik: " + userMessage;
+    
+        userMessageContainer.appendChild(userMessageElement);
+        chatMessages.appendChild(userMessageContainer);
 
     // Stuur de input naar Google Forms
     sendInput(userMessage);
@@ -4392,8 +5727,6 @@ function sendInput(input) {
     });
 }
 
-
-
 //Code to read files with Arya, a new introduced function in AryaLM3
 document.getElementById('fileInput').addEventListener('change', function(event) {
 var file = event.target.files[0];
@@ -4425,11 +5758,11 @@ var chatMessages = document.getElementById("chatMessages");
 var loader = document.getElementById("loader");
 
 function addMessage(sender, message) {
-var messageElement = document.createElement("div");
-messageElement.innerHTML = "<strong>" + sender + ":</strong> " + message;
-chatMessages.appendChild(messageElement);
-chatMessages.scrollTop = chatMessages.scrollHeight;
-}
+    var messageElement = document.createElement("div");
+    messageElement.innerHTML = "<strong>" + sender + ":</strong> " + message;
+    chatMessages.appendChild(messageElement);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
 
 function showLoader() {
 loader.style.display = 'block';

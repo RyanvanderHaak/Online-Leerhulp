@@ -34,7 +34,7 @@ document.addEventListener('keydown', function(event) {
   if (event.lKey && event.key === 'Enter') {
     document.getElementById('userInput').focus();
   }
-  if (event.altKey && event.key === 'c') {
+  if (event.ctrlKey && event.key === 'i') {
     document.getElementById('clear-history').click();
   }
 });

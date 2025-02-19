@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[DEV] Converteer Actions voor Arya</title>
+    <link rel="icon" type="image/png" href="LogoOnlineLeerhulp.png">
+    <style>
+        body { font-family: Arial, sans-serif; background-color: lightblue; margin: 20px; }
+        textarea {font-family: Arial, Helvetica, sans-serif; width: 60%; height: 100px; border-radius: 5px; margin-bottom: 10px; }
+        input {border-radius: 5px; border-style: solid; margin: 5px 0; padding: 10px; }
+        button {
+          background-color: rgb(29, 155, 240);
+          color: white;
+          height: 50px;
+          width: 100px;
+          border-color: orange;
+          border-radius: 50px;
+          border-style: solid;
+          cursor: pointer;
+          border-width: 1.50px;
+          margin-left: 2px;
+          font-weight: bold;
+          font-size: 14.5px;
+          padding-top: 5px;
+          padding-bottom: 5px;
+          padding-left: 5px;
+          padding-right: 5px;
+          vertical-align: top;
+        }
+        button:hover {
+            background-color: rgb(3, 84, 138);
+            border-color: rgb(182, 120, 4);
+            transition: 0.2s;
+          }
+        #output { margin-top: 10px; font-weight: bold; white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+    <button onclick="window.location.href = 'Home.html';">Terug naar Home</button>
+    <textarea id="inputText" placeholder="Plak hier de tekst waar je iets uit moet vervangen voor een ander woord..."></textarea>
+    <br>
+    <input type="text" id="zoekWoord" placeholder="Woord om te vervangen">
+    <input type="text" id="nieuwWoord" placeholder="Nieuw woord">
+    <button onclick="vervangWoord()">Vervang</button>
+    <h3>Resultaat:</h3>
+    <div id="output"></div>
+
+    <script>
+        function vervangWoord() {
+            let tekst = document.getElementById("inputText").value;
+            let zoekWoord = document.getElementById("zoekWoord").value;
+            let nieuwWoord = document.getElementById("nieuwWoord").value;
+            
+            if (zoekWoord.trim() === "") {
+                alert("Vul een woord in om te vervangen.");
+                return;
+            }
+            let regex = new RegExp(zoekWoord, "gi");
+            let nieuweTekst = tekst.replace(regex, nieuwWoord);
+            document.getElementById("output").innerText = nieuweTekst;
+        }
+    </script>
+</body>
+</html>
